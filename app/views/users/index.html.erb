@@ -1,0 +1,16 @@
+<h1>顧客情報一覧</h1>
+<% @users.each do |user|%>
+	<table class="table table-stripe">
+  <tr>
+    <th class="info"><%= user.try(:name) %></th>
+    <td><%= user.try(:address) %></td>
+    <td><%= user.try(:email) %></td>
+    <td><%= user.try(:phone) %></td>
+    <td><%= user.try(:gender) %></td>
+ </tr>
+</table>
+
+<% end %>
+
+
+
