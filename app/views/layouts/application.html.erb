@@ -17,8 +17,13 @@
               <h2 class="fas fa-headphones">Music</h2>
         </nav>
         <ul class="nav navbar-nav navbar-right">
-            <li class="login">
-              <%= link_to "ログイン" %>
+          <% if user_signed_in? %>
+          <li class="login">
+              <%= link_to "ログイン", new_user_session_path %>
+            </li>
+          <% else %>
+            <li class="glyphicon">
+              <%= link_to "sign up", new_user_registration_path %>
             </li>
         </ul>
     </div>
