@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'items/index'
-  get 'items/show'
+	
   root 'home#index'
 
 	devise_for :admins, controllers: {
@@ -17,7 +15,7 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :orders do
-		resources :order_it
+		resources :order_items
 	end
 
 	get '/complete' => 'carts#complete', as: 'complete'
