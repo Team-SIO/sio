@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_035726) do
+ActiveRecord::Schema.define(version: 2018_10_20_060142) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -61,10 +61,11 @@ ActiveRecord::Schema.define(version: 2018_10_20_035726) do
   end
 
   create_table "favs", force: :cascade do |t|
-    t.integer "fav_count"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
+    t.index ["item_id"], name: "index_favs_on_item_id"
     t.index ["user_id"], name: "index_favs_on_user_id"
   end
 
@@ -82,6 +83,9 @@ ActiveRecord::Schema.define(version: 2018_10_20_035726) do
     t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_id"
+    t.integer "fav_count"
+    t.index ["admin_id"], name: "index_items_on_admin_id"
     t.index ["artist_id"], name: "index_items_on_artist_id"
   end
 
@@ -122,7 +126,7 @@ ActiveRecord::Schema.define(version: 2018_10_20_035726) do
     t.string "name", default: "", null: false
     t.string "address", default: "", null: false
     t.integer "gender", null: false
-    t.integer "birthday", null: false
+    t.datetime "birthday", null: false
     t.string "phone", default: "", null: false
     t.string "zip", default: "", null: false
     t.string "reset_password_token"
