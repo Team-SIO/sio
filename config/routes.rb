@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	
+
   root 'home#index'
 
 	devise_for :admins, controllers: {
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-
 	resources :users
 	resources :orders do
 		resources :order_items
