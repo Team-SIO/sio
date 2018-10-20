@@ -4,12 +4,26 @@
     <title>Sio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+   <body>
+    <header class="navbar navbar-fixed-top backg">
+    <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+              <h2 class="fas fa-headphones">Music</h2>
+        </nav>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="login">
+              <%= link_to "ログイン" %>
+            </li>
+        </ul>
+    </div>
+    </header>
+
     <%= yield %>
   </body>
 </html>

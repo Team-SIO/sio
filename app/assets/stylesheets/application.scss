@@ -1,5 +1,24 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "home"
+@import "home";
 
+
+.backg{
+	color: white;
+	height: 120px;
+	background: linear-gradient(25deg, #ff32a1, #ffce3f);
+}
+
+h2 i{
+	font-size: 50px;
+}
+
+.login{
+	font-size: 30px;
+	color:red;
+}
+
+nav{
+	margin-top: 5px;
+}
