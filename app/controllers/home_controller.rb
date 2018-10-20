@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  def index
-  	@sio = "塩です"
+	layout "admin"
+	before_action :authenticate_admin!
+  def admin
+
   end
 end

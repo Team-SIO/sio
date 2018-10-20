@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+    <div class="col-sm-2">
+  		<%= current_admin.try(:email) %>
+      <%= current_admin.try(:name)%>
+    </div>
+    <div class="col-sm-8"></div>
+    <div class="col-sm-2">
+      <% if admin_signed_in?%>
+       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+       <% else %>
+           <%= link_to "新規登録", new_admin_registration_path %>
+
+      <% end %>
+    </div>
+	</div>
+</div>

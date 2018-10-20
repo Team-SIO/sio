@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'items#index'
 
 	devise_for :admins, controllers: {
 	  sessions:      'admins/sessions',
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
 	    resources :orders, only: [:new, :create, :show]
 	 end
+
+	 get '/admintop' => 'home#admin', as: 'admintop'
 
 	 resources :items do
     collection do
