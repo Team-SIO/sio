@@ -1,0 +1,25 @@
+<header link="#ffffff" class="navbar backg">
+      <div class="navitem-l">
+        <nav class="nav navbar-nav navbar-left">
+            <h2 class="fas fa-headphones">Music</h2>
+        </nav>
+        <%= render 'items/list' %>
+      </div>
+
+      <div class="navitem-r">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="nav-r">
+              <%= link_to "logout", destroy_user_session_path, method: :delete, :style=>"color:white;" %>
+            </li>
+          <% else %>
+            <li class="nav-r">
+              <%= link_to "ログイン", new_user_session_path, :style=>"color:white;" %>
+            </li>
+            <li class="nav-r">
+              <%= link_to "sign up", new_user_registration_path, :style=>"color:white;" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>

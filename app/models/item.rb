@@ -23,3 +23,6 @@ class Item < ApplicationRecord
   # has_one :image
 
 end
+scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
+                                   "%#{sanitize_sql_like(word)}%",
+                                   "%#{sanitize_sql_like(word)}%") })

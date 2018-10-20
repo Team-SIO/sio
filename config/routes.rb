@@ -30,4 +30,10 @@ Rails.application.routes.draw do
 	    resources :orders, only: [:new, :create, :show]
 	 end
 
+	 resources :items do
+    collection do
+      get 'search' => 'items#search'
+    end
+  end
+
 end

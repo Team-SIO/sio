@@ -11,29 +11,7 @@
   </head>
 
    <body>
-    <header class="navbar navbar-fixed-top backg">
-    <div class="container">
-        <nav class="nav navbar-nav navbar-left">
-              <h2 class="fas fa-headphones">Music</h2>
-        </nav>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-          <li class="glyphicon">
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
-            </li>
-          
-          <% else %>
-          <li class="login">
-              <%= link_to "ログイン", new_user_session_path %>
-            </li>
-            <li class="glyphicon">
-              <%= link_to "sign up", new_user_registration_path %>
-            </li>
-            <% end %>
-        </ul>
-    </div>
-    </header>
-
+    <%= render 'partial/header' %>
     <%= yield %>
   </body>
 </html>
