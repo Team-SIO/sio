@@ -33,6 +33,8 @@ GEM
       activemodel (= 5.2.1)
       activesupport (= 5.2.1)
       arel (>= 9.0)
+    activerecord-import (0.27.0)
+      activerecord (>= 3.2)
     activestorage (5.2.1)
       actionpack (= 5.2.1)
       activerecord (= 5.2.1)
@@ -78,11 +80,17 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    enumerize (2.2.2)
+      activesupport (>= 3.2)
     erubi (1.7.1)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.25)
     formatador (0.2.5)
+    gimei (0.3.0)
+      romaji
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     guard (2.14.2)
@@ -195,6 +203,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     ruby-graphviz (1.2.3)
     ruby_dep (1.5.0)
     sass (3.6.0)
@@ -208,6 +218,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     shellany (0.0.1)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -246,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   annotate
   awesome_print
   bootsnap (>= 1.1.0)
@@ -253,6 +267,9 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  enumerize
+  faker
+  gimei
   guard (~> 2.14, >= 2.14.2)
   guard-livereload (~> 2.5, >= 2.5.2)
   hirb
@@ -268,6 +285,7 @@ DEPENDENCIES
   rails-erd
   rails-i18n
   sass-rails (~> 5.0)
+  seed-fu (~> 2.3)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
