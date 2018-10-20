@@ -1,4 +1,5 @@
-<h1>顧客情報一覧</h1>
+<h1 class="mt-5">顧客情報一覧</h1>
+<div class="mt-2">
 <% @users.each do |user|%>
 	<table class="table table-stripe">
   <tr>
@@ -11,6 +12,8 @@
 </table>
 
 <% end %>
-
-
+</div>
+<div class="text-right">
+	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
 
