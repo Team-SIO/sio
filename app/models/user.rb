@@ -26,13 +26,8 @@ class User < ApplicationRecord
   has_many :favs
   has_many :orders
   enum gender: [:男性, :女性]
-  validates :name, length: { maximum: 15 }
-  validates :phone_number, format: { with: /\A\d+-\d+-\d+\z/ }
-  # 正規表現ー＞https://qiita.com/jnchito/items/ea7832df6f64a9034872
+  validates :name, length: { maximum: 30 }
   validates :zip, length: { maximum: 8 }
-
-
-
 
 
   def create_cart
