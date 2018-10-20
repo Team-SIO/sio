@@ -5,12 +5,12 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  name                   :string           default(""), not null
-#  address                :string           default(""), not null
-#  gender                 :integer          not null
-#  birthday               :datetime         not null
-#  phone                  :string           default(""), not null
-#  zip                    :string           default(""), not null
+#  name                   :string
+#  address                :string
+#  gender                 :integer
+#  birthday               :datetime
+#  phone                  :string
+#  zip                    :string
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime

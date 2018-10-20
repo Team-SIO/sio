@@ -1,0 +1,10 @@
+<div class="mt-5">
+	<%= form_for @disc, url: item_discs_path do |f| %>
+
+		<div class="form-group">
+			<%=f.label :ディスク番号 %>
+			<%= f.text_field :disc_list ,class: "form-control"%>
+		</div>
+	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
+  <% end %>
+</div>

@@ -11,6 +11,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  admin_id   :integer
+#  fav_count  :integer
 #
 
 class Item < ApplicationRecord
@@ -21,8 +22,8 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :favs
   # has_one :image
-
-end
-scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
+  scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
                                    "%#{sanitize_sql_like(word)}%",
                                    "%#{sanitize_sql_like(word)}%") })
+
+end

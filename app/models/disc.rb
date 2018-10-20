@@ -6,6 +6,7 @@
 #  item_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  disc_list  :integer
 #
 
 class Disc < ApplicationRecord

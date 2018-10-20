@@ -11,14 +11,15 @@
     height: 150px;
     padding: 60px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .item{
 	background: #6586b9;
-/*    width: 200px;
-*/    height: 150px;
+    height: 150px;
     padding: 60px;
     cursor: pointer;
+    font-size: 18px;
 }
 .flex{
 	display: flex;
@@ -30,6 +31,13 @@
 .mt-5{
 	margin-top: 50px;
 }
+.mb-2{
+	margin-bottom: 20px;
+}
+
 a{
 	color: white;
+}
+.ml-2{
+	margin-left: 20px;
 }
