@@ -60,5 +60,48 @@ end
      	 artist_id: Faker::Number.between(1, 30),
      	 stock: Faker::Number.between(10, 100),
      	 admin_id: Faker::Number.between(1, 10)
+     	 fav_count: Faker::Number.between(1, 10)
+      )
+end
+
+50.times do
+     Order.create!(
+     	 user_id: Faker::Number.between(1, 50)
+      )
+end
+
+
+60.times do
+     Disc.create!(
+     	 item_id: Faker::Number.between(1, 50)
+      )
+end
+
+200.times do
+     Song.create!(
+     	 disc_id: Faker::Number.between(1, 60)
+      )
+end
+
+50.times do
+     OrderItem.create!(
+     	 order_id: Faker::Number.between(1, 50),
+     	 item_id: Faker::Number.between(1, 50)
+      )
+end
+
+
+50.times do
+     Fav.create!(
+     	 user_id: Faker::Number.between(1, 50),
+     	 item_id: Faker::Number.between(1, 50)
+      )
+end
+
+
+50.times do
+     CartItem.create!(
+     	 cart_id: Faker::Number.between(1, 50),
+     	 item_id: Faker::Number.between(1, 50)
       )
 end

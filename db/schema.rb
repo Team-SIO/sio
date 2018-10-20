@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_060142) do
+ActiveRecord::Schema.define(version: 2018_10_20_095512) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2018_10_20_060142) do
     t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "disc_list"
+    t.index ["disc_list"], name: "index_discs_on_disc_list"
     t.index ["item_id"], name: "index_discs_on_item_id"
   end
 
@@ -117,7 +119,9 @@ ActiveRecord::Schema.define(version: 2018_10_20_060142) do
     t.integer "disc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "song_list"
     t.index ["disc_id"], name: "index_songs_on_disc_id"
+    t.index ["song_list"], name: "index_songs_on_song_list"
   end
 
   create_table "users", force: :cascade do |t|

@@ -28,7 +28,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'seed-fu', '~> 2.3'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'guard', '~> 2.14', '>= 2.14.2'
