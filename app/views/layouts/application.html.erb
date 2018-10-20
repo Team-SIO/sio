@@ -18,10 +18,14 @@
         </nav>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
+          <li class="glyphicon">
+              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </li>
+          
+          <% else %>
           <li class="login">
               <%= link_to "ログイン", new_user_session_path %>
             </li>
-          <% else %>
             <li class="glyphicon">
               <%= link_to "sign up", new_user_registration_path %>
             </li>
