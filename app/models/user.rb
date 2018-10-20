@@ -8,7 +8,7 @@
 #  name                   :string           default(""), not null
 #  address                :string           default(""), not null
 #  gender                 :integer          not null
-#  birthday               :integer          not null
+#  birthday               :datetime         not null
 #  phone                  :string           default(""), not null
 #  zip                    :string           default(""), not null
 #  reset_password_token   :string
@@ -19,8 +19,18 @@
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+ after_create :create_cart
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :cart
+  has_many :favs
+  has_many :orders
+
+  enum gender: [:男性, :女性]
+
+
+  def create_cart
+  	Cart.create(user_id: self.id)
+  end
+
 end
