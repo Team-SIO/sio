@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-	 layout "admin", :only => [:new, :edit]
+	 layout "admin", :only => [:new, :edit, :adminitems]
   def index
+  end
+  def adminitems
+    @items = Item.order(created_at: :desc)
   end
   def new
   	@item = current_admin.items.build

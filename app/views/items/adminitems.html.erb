@@ -1,0 +1,30 @@
+<h1 class="mt-5">商品情報一覧</h1>
+<div class="mt-2">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col">情報</th>
+      <th scope="col">価格</th>
+      <th scope="col">アーティストID</th>
+      <th scope="col">在庫数</th>
+    </tr>
+  </thead>
+   <% @items.each do |item|%>
+  <tbody>
+    <tr>
+      <th scope="row" class="info"> <%= item.try(:item_title) %></th>
+      <td><%= item.try(:item_info) %></td>
+      <td><%= item.try(:price)%>円</td>
+      <td><%= item.try(:artist_id) %></td>
+      <td><%= item.try(:stock) %></td>
+    </tr>
+
+  </tbody>
+  <% end %>
+</table>
+<div class="text-right">
+	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
+</div>
+

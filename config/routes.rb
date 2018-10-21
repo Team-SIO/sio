@@ -116,12 +116,15 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
+	get 'admins/items' => 'items#adminitems'
 	resources :users
+	resources :admins
 	resources :orders do
 		resources :order_items
 	end
 
 	get '/complete' => 'carts#complete', as: 'complete'
+	
 
 	resources :items do
 		resource :favs, only: %i(create,destroy)

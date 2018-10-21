@@ -1,19 +1,32 @@
+
+
 <h1 class="mt-5">顧客情報一覧</h1>
 <div class="mt-2">
-<% @users.each do |user|%>
-	<table class="table table-stripe">
-  <tr>
-    <th class="info"><%= user.try(:name) %></th>
-    <td><%= user.try(:address) %></td>
-    <td><%= user.try(:email) %></td>
-    <td><%= user.try(:phone) %></td>
-    <td><%= user.try(:gender) %></td>
- </tr>
-</table>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">名前</th>
+      <th scope="col">性別</th>
+      <th scope="col">メールアドレス</th>
+      <th scope="col">住所</th>
+      <th scope="col">電話番号</th>
+    </tr>
+  </thead>
+   <% @users.each do |user|%>
+  <tbody>
+    <tr>
+      <th scope="row" class="info"> <%= user.try(:name) %></th>
+      <td><%= user.try(:gender) %></td>
+      <td><%= user.try(:email)%>円</td>
+      <td><%= user.try(:address) %></td>
+      <td><%= user.try(:phone) %></td>
+    </tr>
 
-<% end %>
-</div>
+  </tbody>
+  <% end %>
+</table>
 <div class="text-right">
 	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
 </div>
 

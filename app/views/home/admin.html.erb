@@ -2,18 +2,22 @@
    <h3 class="text-center">ようこそ管理者様！</h3>
 	<div class="row mt-5">
 		<%=link_to new_item_path do %>
-			<div class="col-sm-5 item">
-				 アイテム追加
+			<div class="col-sm-4 item">
+				商品登録
 			</div>
 		<% end %>
-		<div class="col-sm-2"></div>
+		<div class="col-sm-4"></div>
 		<%=link_to users_path do %>
-			<div class="col-sm-5 kokyaku">
+			<div class="col-sm-4 kokyaku">
 				顧客情報
 			</div>
 		<% end %>
 	</div>
 </div>
-
+<%=link_to admins_items_path do %>
+	<div class="col-sm-4 col-sm-offset-4 ichiran text-center mt-5">
+		商品一覧
+	</div>
+<% end %>
 
 
