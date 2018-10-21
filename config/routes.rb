@@ -125,7 +125,7 @@ Rails.application.routes.draw do
 
 	resources :items do
 		resource :favs, only: %i(create,destroy)
-    	resource :discs, only: [:new, :create, :edit, :update, :destroy] do
+    	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
       		resource :songs, only: [:new, :create, :edit, :update, :destroy]
     	end
   	end

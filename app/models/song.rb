@@ -12,5 +12,5 @@
 #
 
 class Song < ApplicationRecord
-  belongs_to :disc, dependent: :destroy
+  belongs_to :disc, inverse_of: :songs
 end

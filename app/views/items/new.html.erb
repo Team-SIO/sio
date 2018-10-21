@@ -1,22 +1,22 @@
 <div class="mt-5">
 	<%= form_for @item do |f| %>
-		<div class="forn-group">
+		<div class="form-group">
 			<%=f.label :タイトル %>
 			<%= f.text_field :item_title ,class: "form-control"%>
 		</div>
-		<div class="forn-group">
+		<div class="form-group">
 			<%=f.label :情報 %>
 			<%= f.text_field :item_info ,class: "form-control"%>
 		</div>
-		<div class="forn-group">
+		<div class="form-group">
 			<%=f.label :価格 %>
 			<%= f.text_field :price ,class: "form-control"%>
 		</div>
-		<div class="forn-group">
+		<div class="form-group">
 			<%=f.label :アーティストID %>
 			<%= f.text_field :artist_id,class: "form-control" %>
 		</div>
-		<div class="forn-group">
+		<div class="form-group">
 			<%=f.label :在庫数 %>
 			<%= f.text_field :stock ,class: "form-control"%>
 		</div>
