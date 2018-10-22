@@ -8,6 +8,7 @@
       <th scope="col">価格</th>
       <th scope="col">アーティストID</th>
       <th scope="col">在庫数</th>
+      <th scope="col">編集</th>
     </tr>
   </thead>
    <% @items.each do |item|%>
@@ -18,6 +19,7 @@
       <td><%= item.try(:price)%>円</td>
       <td><%= item.try(:artist_id) %></td>
       <td><%= item.try(:stock) %></td>
+      <td><%=link_to "編集", edit_item_path(item) ,style: "color: #000"%></td>
     </tr>
 
   </tbody>

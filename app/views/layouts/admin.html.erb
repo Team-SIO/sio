@@ -11,6 +11,16 @@
   </head>
 
    <body>
+     <% if notice %>
+    <div id="notice_wrapper">
+      <p class="notice"><%= notice %></p>
+    </div>
+    <% elsif alert %>
+     <div id="notice-wrapper">
+    <p class="alert"><%= alert %></p>
+  </div>
+    <% end %>
+
      <div class="admin_header">
         <%= render "partial/adheader" %>
       </div>

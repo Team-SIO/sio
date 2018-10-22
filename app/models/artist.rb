@@ -14,4 +14,5 @@
 class Artist < ApplicationRecord
   belongs_to :genre
   belongs_to :label
+  has_many :items
 end

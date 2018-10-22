@@ -15,8 +15,9 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :admin
-  belongs_to :artist
+  belongs_to :admin, optional: true
+  belongs_to :artist,optional: true
+  accepts_nested_attributes_for :artist
   has_many :cart_items
   has_many :order_items
   has_many :discs
