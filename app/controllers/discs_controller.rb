@@ -24,7 +24,7 @@ class DiscsController < ApplicationController
   end
   def update
     if @disc.update(disc_params)
-      redirect_to adimntop_path
+      redirect_to admintop_path
     else
       render :edit
     end

@@ -7,14 +7,14 @@ class ItemsController < ApplicationController
   end
   def new
     @artist = Artist.new
-    @item  = @artist.items.build
+    @artist.items.build
     # @artist = @item.artist.build
   end
   def create
-    @artist = Artist.find_or_create_by(artist_params)
-    @item  = @artist.items.build(item_params)
-  	if @item.save
-  		redirect_to new_item_discs_path(@item)
+    @artist = Artist.new(artist_params)
+    @children = @artist.items.build
+  	if @artist.save
+  		redirect_to new_item_disc_path(@chirdren)
   	else
   		render "new"
   	end
@@ -32,17 +32,16 @@ class ItemsController < ApplicationController
         render "edit"
       end
   end
-
   def search
     @items = Item.search(params[:qkeyword])
   end
   private
    def artist_params
-    params.require(:artist).permit(:artist_name,:artist_info)
+    params.require(:artist).permit(:artist_name,:artist_info, items_attributes: [:id, :item_title,:item_info,:price,:stock])
   end
-  def item_params
-  	params.require(:item).permit(:item_title,:item_info,:price,:stock)
-  end
+  # def item_params
+  # 	params.require(:item).permit(:item_title,:item_info,:price,:stock)
+  # end
  
 end
 
