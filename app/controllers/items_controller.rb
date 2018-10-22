@@ -23,10 +23,13 @@ class ItemsController < ApplicationController
   end
   def edit
     @item = Item.find(params[:id])
+    @artist = @item.artist
   end
   def update
       @item = Item.find(params[:id])
-      if @item.update(item_params)
+      @artist = @item.artist
+      @item.update(update_params)
+      if @artist.update(artist_params)
         redirect_to admintop_path
       else
         render "edit"
@@ -38,6 +41,9 @@ class ItemsController < ApplicationController
   private
    def artist_params
     params.require(:artist).permit(:artist_name,:artist_info, items_attributes: [:id, :item_title,:item_info,:price,:stock])
+  end
+   def update_params
+    params.require(:item).permit(:item_title,:item_info,:price,:stock,:artist_id)
   end
   # def item_params
   # 	params.require(:item).permit(:item_title,:item_info,:price,:stock)

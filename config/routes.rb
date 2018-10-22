@@ -125,7 +125,9 @@ Rails.application.routes.draw do
 
 	get '/complete' => 'carts#complete', as: 'complete'
 	
-
+	resources :genres do
+		resources :artists
+	end
 	resources :items do
 		resource :favs, only: %i(create,destroy)
     	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do

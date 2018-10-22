@@ -10,4 +10,5 @@
 
 class Genre < ApplicationRecord
 	has_many :artists
+	enum status: [:ポップ, :ロック]
 end

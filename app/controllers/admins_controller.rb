@@ -5,4 +5,7 @@ class AdminsController < ApplicationController
 	end
 	def show
 	end
+	def genre
+	end
+	def label
 end

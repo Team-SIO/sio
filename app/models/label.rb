@@ -10,4 +10,5 @@
 
 class Label < ApplicationRecord
 	has_many :artists
+	enum status: [:avex, :sonymusic]
 end
