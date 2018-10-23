@@ -3,9 +3,8 @@
     <div class="col-sm-2">
       <%=link_to "TOP", admintop_path ,class: "mr-2"%>
       <% if admin_signed_in? %>
-        <%=link_to admin_path(current_admin) do%>
           <%= current_admin.try(:admin_name)%>
-        <% end %>
+
       <% end %>
     </div>
     <div class="col-sm-8"></div>

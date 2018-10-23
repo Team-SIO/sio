@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-	before_action :authenticate_admin!, only: [:index]
-	layout "admin"
-	def index
-		@users = User.order(created_at: :desc)
+	def show
+	end
+	def edit
+	end
+	def update
 	end
 end
