@@ -1,6 +1,6 @@
 <div class="mt-5">
   <div class="col-md-8">
-	<%= form_for @artist do |f| %>
+	<%= form_for @artist ,url: admins_artist_path,method: :patch do |f| %>
 
 		<div class="form-group">
 			<%= f.label :アーティスト名 %>
