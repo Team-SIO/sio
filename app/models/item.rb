@@ -21,6 +21,7 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :discs
   has_many :favs
+  acts_as_paranoid
   # has_one :image
   scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
                                    "%#{sanitize_sql_like(word)}%",

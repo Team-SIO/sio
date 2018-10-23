@@ -11,4 +11,5 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
+  acts_as_paranoid
 end
