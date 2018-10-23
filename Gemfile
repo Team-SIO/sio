@@ -14,6 +14,7 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'rails-erd', group: :development
 gem 'annotate'
+gem "cocoon"
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -28,6 +29,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'guard', '~> 2.14', '>= 2.14.2'

@@ -8,8 +8,9 @@
 #  disc_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  song_list  :integer
 #
 
 class Song < ApplicationRecord
-  belongs_to :disc, dependent: :destroy
+  belongs_to :disc, inverse_of: :songs
 end

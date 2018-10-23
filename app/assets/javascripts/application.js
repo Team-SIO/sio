@@ -13,3 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+//= require jquery 
+//= require jquery_ujs 
+//= require cocoon
+
+$(document).ready(function(){
+	setTimeout(function(){
+		$("#notice_wrapper").fadeOut("slow", function(){
+			$(this).remove();
+		});
+	},1000);
+});
