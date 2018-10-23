@@ -104,6 +104,9 @@
 
 Rails.application.routes.draw do
 
+  get 'artists/new'
+  get 'artists/index'
+  get 'artists/show'
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -125,9 +128,9 @@ Rails.application.routes.draw do
 
 	get '/complete' => 'carts#complete', as: 'complete'
 	
-	resources :genres do
-		resources :artists
-	end
+
+	resources :artists
+	
 	resources :items do
 		resource :favs, only: %i(create,destroy)
     	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do

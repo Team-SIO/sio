@@ -8,4 +8,5 @@ class AdminsController < ApplicationController
 	def genre
 	end
 	def label
+	end
 end
