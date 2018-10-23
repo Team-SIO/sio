@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
@@ -93,7 +92,6 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
   end
 
   create_table "labels", force: :cascade do |t|
-    t.string "label_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
