@@ -1,13 +1,10 @@
 <div class="mt-5">
 	
-	<%= form_for @artist, url: admins_items_path do |f| %>
-	<div class="form-group">
-		<%= f.label :アーティスト %>
-		<%= f.text_field :artist_name ,class: "form-control"%>
-		<%= f.label :アーティスト情報 %>
-		<%= f.text_field :artist_info ,class: "form-control"%>
-	</div>
-	<%= f.fields_for :items do |a| %>
+	<%= form_for @item, url: admins_items_path do |a| %>
+		<div class="form-group">
+			<%= a.label :アーティスト名 %>
+			<%= a.collection_select :artist_id, Artist.all, :id, :artist_name , :prompt => "選択してください",class: "form-control" %>
+		</div>
 		<div class="form-group">
 			<%= a.label :タイトル %>
 			<%= a.text_field :item_title ,class: "form-control"%>
@@ -24,8 +21,7 @@
 			<%= a.label :在庫数 %>
 			<%= a.text_field :stock ,class: "form-control"%>
 		</div>
-		<% end %>
-	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
+	<%= a.submit "作成する", class: "btn btn-info mt-5" %>
   <% end %>
 
 </div>

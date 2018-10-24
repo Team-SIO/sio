@@ -15,14 +15,16 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :admin, optional: true
-  belongs_to :artist,optional: true
+  belongs_to :artist, optional: true
+  delegate :artist_name, to: :artist, allow_nil: true
   has_many :cart_items
   has_many :order_items
   has_many :discs
   has_many :favs
   acts_as_paranoid
   # has_one :image
+
+  validates :artist_id, presence: true
   scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
                                    "%#{sanitize_sql_like(word)}%",
                                    "%#{sanitize_sql_like(word)}%") })

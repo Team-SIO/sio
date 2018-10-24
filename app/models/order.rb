@@ -11,5 +11,6 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
+  delegate :name, to: :user, allow_nil: true
   acts_as_paranoid
 end

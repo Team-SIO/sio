@@ -12,17 +12,23 @@
     </tr>
   </thead>
    <% @items.each do |item|%>
-  <tbody>
-    <tr>
-      <th scope="row" class="info"> <%= item.try(:item_title) %></th>
-      <td><%= item.try(:item_info) %></td>
-      <td><%= item.try(:price)%>円</td>
-      <td><%= item.artist.try(:artist_name) %></td>
-      <td><%= item.try(:stock) %></td>
-      <td><%=link_to "編集", edit_admins_item_path(item) ,style: "color: #000"%></td>
-    </tr>
-
-  </tbody>
+  
+    <tbody>
+      <tr>
+        <th scope="row" class="info"> 
+           <%=link_to admins_item_path(item) do %>
+          <%= item.try(:item_title) %></th>
+            <% end %>
+        <td><%= item.try(:item_info) %></td>
+        <td><%= item.try(:price)%>円</td>
+        <td><%= link_to admins_artist_path(item.artist) do %>
+          <%= item.try(:artist_name) %>
+            <% end %>
+          </td>
+        <td><%= item.try(:stock) %></td>
+        <td><%=link_to "編集", edit_admins_item_path(item) ,style: "color: #000"%></td>
+      </tr>
+    </tbody>
   <% end %>
 </table>
 <div class="text-right">
