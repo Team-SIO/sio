@@ -14,7 +14,7 @@ class Admins::ItemsController < ApplicationController
     @artist = @admin.artists.build(artist_params)
      item = @artist.items.take
     if @artist.save
-      redirect_to new_item_disc_path(item_id: item.id)
+      redirect_to new_admins_item_disc_path(item_id: item.id)
     else
       render "new"
     end
