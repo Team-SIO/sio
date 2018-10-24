@@ -15,6 +15,7 @@ gem 'rails-i18n'
 gem 'rails-erd', group: :development
 gem 'annotate'
 gem "cocoon"
+gem "paranoia"
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

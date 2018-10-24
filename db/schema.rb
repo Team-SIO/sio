@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_102927) do
+ActiveRecord::Schema.define(version: 2018_10_23_093552) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
     t.text "artist_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_id"
     t.index ["genre_id"], name: "index_artists_on_genre_id"
     t.index ["label_id"], name: "index_artists_on_label_id"
   end
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
@@ -88,12 +88,13 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
     t.datetime "updated_at", null: false
     t.integer "admin_id"
     t.integer "fav_count"
+    t.datetime "deleted_at"
     t.index ["admin_id"], name: "index_items_on_admin_id"
     t.index ["artist_id"], name: "index_items_on_artist_id"
+    t.index ["deleted_at"], name: "index_items_on_deleted_at"
   end
 
   create_table "labels", force: :cascade do |t|
-    t.string "label_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
@@ -112,6 +113,8 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -140,6 +143,8 @@ ActiveRecord::Schema.define(version: 2018_10_22_102927) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

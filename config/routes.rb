@@ -116,24 +116,47 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-	get 'admins/items' => 'items#adminitems'
-	resources :users
-	resources :admins
-	resources :orders do
-		resources :order_items
-	end
-
-	get '/complete' => 'carts#complete', as: 'complete'
 	
-	resources :genres do
-		resources :artists
-	end
+
 	resources :items do
 		resource :favs, only: %i(create,destroy)
     	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
       		resource :songs, only: [:new, :create, :edit, :update, :destroy]
     	end
   	end
+
+	namespace :admins do
+		resources :users
+		resources :artists
+	 	 resources :items do
+    		resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
+      			resource :songs, only: [:new, :create, :edit, :update, :destroy]
+    		end
+  		 end
+	end
+	resources :users
+	
+	# namespace :users do
+	# 	resources :artists
+	#  	 resources :items do
+	# 		resource :favs, only: %i(create,destroy)
+ #    		resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
+ #      			resource :songs, only: [:new, :create, :edit, :update, :destroy]
+ #    		end
+ #  		 end
+	# end
+ 
+	# scope module: :public do
+	#   resources :items # => /items
+	# end
+
+	
+
+	get '/complete' => 'carts#complete', as: 'complete'
+	
+
+	resources :artists
+	
 	 resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
 	    resources :orders, only: [:new, :create, :show]

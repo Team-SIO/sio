@@ -6,7 +6,7 @@
       <th scope="col">タイトル</th>
       <th scope="col">情報</th>
       <th scope="col">価格</th>
-      <th scope="col">アーティストID</th>
+      <th scope="col">アーティスト名</th>
       <th scope="col">在庫数</th>
       <th scope="col">編集</th>
     </tr>
@@ -17,7 +17,7 @@
       <th scope="row" class="info"> <%= item.try(:item_title) %></th>
       <td><%= item.try(:item_info) %></td>
       <td><%= item.try(:price)%>円</td>
-      <td><%= item.try(:artist_id) %></td>
+      <td><%= item.artist.try(:artist_name) %></td>
       <td><%= item.try(:stock) %></td>
       <td><%=link_to "編集", edit_item_path(item) ,style: "color: #000"%></td>
     </tr>
