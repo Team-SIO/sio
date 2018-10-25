@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   has_many :cart_items
   has_many :order_items
   has_many :discs
+  has_many :songs, through: :discs
   has_many :favs
   acts_as_paranoid
   # has_one :image
