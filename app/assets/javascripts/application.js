@@ -16,6 +16,8 @@
 //= require jquery 
 //= require jquery_ujs 
 //= require cocoon
+// = require data-confirm-modal
+
 
 $(document).ready(function(){
 	setTimeout(function(){

@@ -31,6 +31,14 @@ class Admins::ItemsController < ApplicationController
         render "edit"
       end
   end
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+        redirect_to admins_items_path
+    else
+        render "edit"
+    end
+  end
   private
   #  def item_params
   #   params.require(:artist).permit(:artist_name,:artist_info, items_attributes: [:id, :item_title,:item_info,:price,:stock,:artist_id])
@@ -39,7 +47,7 @@ class Admins::ItemsController < ApplicationController
   #   params.require(:item).permit(:item_title,:item_info,:price,:stock,:artist_id)
   
    def item_params
-    params.require(:item).permit(:item_title,:item_info,:price,:stock, :artist_id)
+    params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id)
    end
  
 end

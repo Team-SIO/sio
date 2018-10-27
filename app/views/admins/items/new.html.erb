@@ -1,13 +1,13 @@
 <div class="mt-5">
 	
-	<%= form_for @item, url: admins_items_path do |a| %>
+	<%= form_for @item, url: admins_items_path, method: :post do |a| %>
 		<div class="form-group">
 			<%= a.label :アーティスト名 %>
 			<%= a.collection_select :artist_id, Artist.all, :id, :artist_name , :prompt => "選択してください",class: "form-control" %>
 		</div>
 		<div class="form-group">
 			<%= a.label :タイトル %>
-			<%= a.text_field :item_title ,class: "form-control"%>
+			<%= a.text_field :item_name ,class: "form-control"%>
 		</div>
 		<div class="form-group">
 			<%= a.label :情報 %>

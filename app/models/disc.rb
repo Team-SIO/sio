@@ -11,7 +11,7 @@
 
 class Disc < ApplicationRecord
   belongs_to :item, dependent: :destroy
-  delegate :item_title, to: :item, allow_nil: true
+  delegate :item_name, to: :item, allow_nil: true
   has_many :songs, inverse_of: :disc
   accepts_nested_attributes_for :songs, allow_destroy: true
 end

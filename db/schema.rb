@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_195746) do
+ActiveRecord::Schema.define(version: 2018_10_27_035618) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "ship"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2018_10_24_195746) do
     t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "disc_list"
-    t.index ["disc_list"], name: "index_discs_on_disc_list"
+    t.integer "disc_order"
+    t.index ["disc_order"], name: "index_discs_on_disc_order"
     t.index ["item_id"], name: "index_discs_on_item_id"
   end
 
@@ -85,12 +85,11 @@ ActiveRecord::Schema.define(version: 2018_10_24_195746) do
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
     t.string "genre_name"
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "item_title"
+    t.string "item_name"
     t.text "item_info"
     t.integer "price"
     t.integer "artist_id"
@@ -105,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_10_24_195746) do
   create_table "labels", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
     t.string "label_name"
   end
 
@@ -126,19 +124,20 @@ ActiveRecord::Schema.define(version: 2018_10_24_195746) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.integer "status"
+    t.text "ship"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "song_title"
+    t.string "song_name"
     t.string "time"
     t.integer "disc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "song_list"
+    t.integer "song_order"
     t.index ["disc_id"], name: "index_songs_on_disc_id"
-    t.index ["song_list"], name: "index_songs_on_song_list"
+    t.index ["song_order"], name: "index_songs_on_song_order"
   end
 
   create_table "users", force: :cascade do |t|

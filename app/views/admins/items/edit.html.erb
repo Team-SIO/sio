@@ -7,7 +7,7 @@
 		</div>
 		<div class="form-group">
 			<%= a.label :タイトル %>
-			<%= a.text_field :item_title ,class: "form-control"%>
+			<%= a.text_field :item_name ,class: "form-control"%>
 		</div>
 		<div class="form-group">
 			<%= a.label :情報 %>
@@ -27,4 +27,6 @@
 </div>
 <div class="text-right">
 	<%=link_to "戻る", admintop_path ,class: "back"%>
+	<%= link_to admins_item_path(@item), method: :delete, data: {confirm: "イベントを削除してよろしいですか？",title: "イベント削除", cancel: "やめる",commit: "削除する"} do %>削除
+<% end %>
 </div>

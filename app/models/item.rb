@@ -15,7 +15,7 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :artist, optional: true
+  belongs_to :artist
   delegate :artist_name, to: :artist, allow_nil: true
   has_many :cart_items
   has_many :order_items

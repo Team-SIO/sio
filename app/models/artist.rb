@@ -17,6 +17,4 @@ class Artist < ApplicationRecord
   delegate :genre_name, to: :genre, allow_nil: true
   delegate :label_name, to: :label, allow_nil: true
   has_many :items
-
-  accepts_nested_attributes_for :items, allow_destroy: true
 end

@@ -5,7 +5,7 @@
 		アーティスト名:<%= @item.artist_name %>
 	</div>
 	<div class="panel-body">
-		アルバム名:<%= @item.item_title %>
+		アルバム名:<%= @item.item_name %>
 	</div>
 	<div class="panel-body">
 		情報:<%= @item.item_info %>
@@ -31,8 +31,8 @@
   	<% unless song.nil? %>
   <tbody>
     <tr>
-      <td><%= song.song_list %></td>
-      <td><%= song.song_title  %></td>
+      <td><%= song.song_order %></td>
+      <td><%= song.song_name  %></td>
       <td><%= song.time  %></td>
       <td><%=link_to "編集", edit_admins_item_disc_path(@disc) ,style: "color: #000"%></td>
     </tr>

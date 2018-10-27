@@ -12,5 +12,5 @@ class Genre < ApplicationRecord
 	has_many :artists
 	enum status: [:ポップ, :ロック]
 
-	validates :genre_name,  uniqueness: { case_sensitive: false }
+    validates :genre_name, uniqueness: true	
 end

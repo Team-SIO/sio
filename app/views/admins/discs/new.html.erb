@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="form-group col-sm-4">
 			<%=f.label :ディスク番号 %>
-			<%= f.text_field :disc_list ,class: "form-control"%>
+			<%= f.text_field :disc_order ,class: "form-control"%>
 		</div>
 	</div>
 	<hr/>
@@ -12,11 +12,11 @@
 				<div class="form-group">
 					<div class="col-sm-4 mt-2">
 			      <%=s.label :曲順 %>
-				   <%= s.text_field :song_list ,class: "form-control" %>
+				   <%= s.text_field :song_order ,class: "form-control" %>
 				   </div>
 				   <div class="col-sm-4 mt-2">
 				  <%=s.label :曲名 %>
-			   	  <%= s.text_field :song_title ,class: "form-control" %>
+			   	  <%= s.text_field :song_name ,class: "form-control" %>
 			   	  </div>
 				   <div class="col-sm-4 mt-2">
 			   	  <%=s.label :タイム %>
