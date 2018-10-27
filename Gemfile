@@ -33,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'seed-fu', '~> 2.3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'

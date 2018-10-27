@@ -6,6 +6,9 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :datetime
+#  status     :integer
+#  ship       :text
 #
 
 class Order < ApplicationRecord

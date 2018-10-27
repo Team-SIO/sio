@@ -3,15 +3,14 @@
 # Table name: items
 #
 #  id         :integer          not null, primary key
-#  item_title :string
+#  item_name  :string
 #  item_info  :text
 #  price      :integer
 #  artist_id  :integer
 #  stock      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  admin_id   :integer
-#  fav_count  :integer
+#  deleted_at :datetime
 #
 
 class Item < ApplicationRecord
