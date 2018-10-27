@@ -31,6 +31,10 @@ class User < ApplicationRecord
   enum gender: [:男性, :女性]
   validates :name, length: { maximum: 30 }
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+
+
 
   def create_cart
   	Cart.create(user_id: self.id)

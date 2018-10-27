@@ -3,7 +3,7 @@ class Address < ApplicationRecord
 
   validates :ship, length: { maximum: 50 }
   validates :zip, length: { is: 7 }     
-  validates :phone, length: { maximum: 11 }
+  validates :phone, length: { is: 11 }
 
 
 end
