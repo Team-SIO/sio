@@ -1,0 +1,49 @@
+.login{
+	width: 100%;
+	height: 500px;
+	background: url(james-stamler-153487-unsplash.jpg);
+	background-size: cover;
+	padding-top: 50px;
+}
+
+h2{
+	color: white;
+}
+
+.login2{
+	margin: 0 auto;
+	width: 18%;
+	height: auto;
+	padding: 20px;
+	text-align: center;
+	border-radius: 35px;
+	background-color: #29cfff;
+}
+
+.box{
+	background-color: white;
+	border: none;
+	color: gray;
+  	border-radius:10px;
+  	box-shadow: none;
+  	padding: 2px 8px;
+}
+
+.box:focus {
+  	outline: none;
+}
+
+#botan{
+	color: gray;
+  	border-radius:10px;
+  	box-shadow: none;
+  	padding: 2px 8px;
+}
+
+.moji{
+	color: white;
+}
+
+.actions{
+	color: black;
+}
