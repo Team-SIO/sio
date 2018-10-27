@@ -21,6 +21,7 @@ class Admins::DiscsController < ApplicationController
   def show
   end
   def edit
+    @item = Item.find(params[:id])
   end
   def update
     if @disc.update(disc_params)
@@ -31,7 +32,7 @@ class Admins::DiscsController < ApplicationController
   end
   private
   def disc_params
-    params.require(:disc).permit(:disc_list, songs_attributes: [:id, :song_title,:time, :song_list])
+    params.require(:disc).permit(:disc_order, songs_attributes: [:id, :song_name,:time, :song_order])
   end
   def set_disc
     @disc = Disc.find_by(item_id: params[:item_id])

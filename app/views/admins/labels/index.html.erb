@@ -1,0 +1,24 @@
+<h1 class="mt-5">レーベル一覧</h1>
+<div class="mt-2">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">レーベル名</th>
+      <th scope="col">編集</th>
+    </tr>
+  </thead>
+   <% @labels.each do |label|%>
+  <tbody>
+    <tr>
+      <td><%= label.try(:label_name) %></td>
+      <td><%=link_to "編集", edit_admins_label_path(label) ,style: "color: #000"%></td>
+    </tr>
+
+  </tbody>
+  <% end %>
+</table>
+<div class="text-right">
+	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
+</div>
+

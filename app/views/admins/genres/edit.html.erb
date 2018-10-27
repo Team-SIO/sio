@@ -1,2 +1,19 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<div class="mt-5">
+	<%= form_for @genre, url: admins_genre_path, method: :patch do |f| %>
+
+		<div class="form-group">
+			<%=f.label :ジャンル名 %>
+			<%= f.text_field :genre_name %>
+		</div>
+	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
+  <% end %>
+     </div> 	
+</div>
+<div class="text-right">
+	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
+
+<% @genre.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+

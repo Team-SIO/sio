@@ -1,0 +1,17 @@
+<div class="mt-5">
+	<%= form_for @label, url: admins_label_path, method: :patch do |f| %>
+
+		<div class="form-group">
+			<%= f.label :レーベル名 %>
+			<%= f.text_field :label_name %>
+		</div>
+	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
+  <% end %>
+     </div> 	
+</div>
+<div class="text-right">
+	<%=link_to "戻る", admintop_path ,class: "back"%>
+</div>
+
+
+

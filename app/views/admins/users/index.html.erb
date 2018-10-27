@@ -10,6 +10,7 @@
       <th scope="col">メールアドレス</th>
       <th scope="col">住所</th>
       <th scope="col">電話番号</th>
+      <th scope="col">郵便番号</th>
     </tr>
   </thead>
    <% @users.each do |user|%>
@@ -18,8 +19,9 @@
       <th scope="row" class="info"> <%= user.try(:name) %></th>
       <td><%= user.try(:gender) %></td>
       <td><%= user.try(:email)%></td>
-      <td><%= user.try(:address) %></td>
-      <td><%= user.try(:phone) %></td>
+      <td><%= user.addresses.take.try(:ship) %></td>
+      <td><%= user.addresses.take.try(:phone) %></td>
+      <td><%= user.addresses.take.try(:zip) %></td>
     </tr>
 
   </tbody>

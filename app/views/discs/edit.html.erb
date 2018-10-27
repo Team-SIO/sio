@@ -3,16 +3,16 @@
 
 		<div class="form-group">
 			<%=f.label :ディスク番号 %>
-			<%= f.text_field :disc_list %>
+			<%= f.text_field :disc_order %>
 		</div>
 		<hr/>
 		<div class="col-sm-8">
 		<%= f.fields_for :songs do |s| %>
 				<div class="form-group">
 			      <%=s.label :曲順 %>
-				   <%= s.text_field :song_list %>
+				   <%= s.text_field :song_order %>
 				  <%=s.label :曲名 %>
-			   	  <%= s.text_field :song_title %>
+			   	  <%= s.text_field :song_name %>
 			   	  <%=s.label :タイム %>
 			   	 <%= s.text_field :time %>
 		   	   </div>

@@ -19,7 +19,7 @@
       <td><%= item.try(:price)%>円</td>
       <td><%= item.artist.try(:artist_name) %></td>
       <td><%= item.try(:stock) %></td>
-      <td><%=link_to "編集", edit_item_path(item) ,style: "color: #000"%></td>
+      <td><%= link_to "編集", edit_item_path(item) ,style: "color: #000"%></td>
     </tr>
 
   </tbody>

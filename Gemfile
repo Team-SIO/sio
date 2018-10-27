@@ -16,6 +16,9 @@ gem 'rails-erd', group: :development
 gem 'annotate'
 gem "cocoon"
 gem "paranoia"
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'data-confirm-modal', '~> 1.1', '>= 1.1.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -30,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'seed-fu', '~> 2.3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'
@@ -41,5 +45,3 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap-sass'
-gem 'jquery-rails'

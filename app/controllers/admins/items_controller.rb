@@ -1,53 +1,54 @@
 class Admins::ItemsController < ApplicationController
-   layout "admin", :only => [:new, :edit, :adminitems,:index]
+   layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
   def index
      @items = Item.order(created_at: :desc)
   end
   def new
-    @admin =  current_admin
-    @artist = @admin.artists.build
-    @artist.items.build
+     @item = Item.new
     # @artist = @item.artist.build
   end
   def create
-    @admin =  current_admin
-    @artist = @admin.artists.build(artist_params)
-     item = @artist.items.take
-    if @artist.save
-      redirect_to new_item_disc_path(item_id: item.id)
+     item = Item.new(item_params)
+    if item.save
+      redirect_to new_admins_item_disc_path(item_id: item.id)
     else
       render "new"
     end
   end
   def show
+    @item = Item.find(params[:id])
+    @disc = @item.discs.take
   end
   def edit
     @item = Item.find(params[:id])
     @artist = @item.artist
   end
   def update
-      @item = Item.find(params[:id])
-      @artist = @item.artist
-      @item.update(update_params)
-      if @artist.update(artist_params)
-        redirect_to admintop_path
+      item = Item.find(params[:id])
+      if item.update(item_params)
+        redirect_to admins_items_path
       else
         render "edit"
       end
   end
-  def search
-    @items = Item.search(params[:qkeyword])
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+        redirect_to admins_items_path
+    else
+        render "edit"
+    end
   end
   private
-   def artist_params
-    params.require(:artist).permit(:artist_name,:artist_info, items_attributes: [:id, :item_title,:item_info,:price,:stock])
-  end
-   def update_params
-    params.require(:item).permit(:item_title,:item_info,:price,:stock,:artist_id)
-  end
-  # def item_params
-  #   params.require(:item).permit(:item_title,:item_info,:price,:stock)
+  #  def item_params
+  #   params.require(:artist).permit(:artist_name,:artist_info, items_attributes: [:id, :item_title,:item_info,:price,:stock,:artist_id])
   # end
+  #  def update_params
+  #   params.require(:item).permit(:item_title,:item_info,:price,:stock,:artist_id)
+  
+   def item_params
+    params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id)
+   end
  
 end
 
