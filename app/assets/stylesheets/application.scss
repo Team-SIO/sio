@@ -3,31 +3,10 @@
 @import "home";
 @import "admin";
 @import "item";
+@import "sessions";
+@import "partial";
+@import "registrations";
 
-.backg{
-	color: white;
-	height: 120px;
-	background: linear-gradient(25deg, #ff32a1, #ffce3f);
-	padding-right: 70px;
-	padding-left: 70px;
-}
 
-.navitem-l{
-	margin-top: 5px;
-}
 
-.navitem-r{
-	margin-top: 35px;
-}
 
-h2{
-	font-size: 60px;
-}
-
-.nav-r{
-	font-size: 30px;
-	color:red;
-}
-
-.form{
-}
