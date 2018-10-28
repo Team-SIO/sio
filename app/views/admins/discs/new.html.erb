@@ -7,23 +7,13 @@
 		</div>
 	</div>
 	<hr/>
-		<div class="row">
-		<%= f.fields_for :songs do |s| %>
-				<div class="form-group">
-					<div class="col-sm-4 mt-2">
-			      <%=s.label :曲順 %>
-				   <%= s.text_field :song_order ,class: "form-control" %>
-				   </div>
-				   <div class="col-sm-4 mt-2">
-				  <%=s.label :曲名 %>
-			   	  <%= s.text_field :song_name ,class: "form-control" %>
-			   	  </div>
-				   <div class="col-sm-4 mt-2">
-			   	  <%=s.label :タイム %>
-			   	 <%= s.text_field :time ,class: "form-control" %>
-			   	</div>
-		   	   </div>
+		<div class="row">	
+		<%= f.fields_for :songs do |task| %>
+		  <%= render 'song_fields', f: task %>
 	  	<% end %>
+	  	<div class="links">
+          <%= link_to_add_association "追加", f, :songs, partial: 'song_fields' %>
+        </div>
 	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
   <% end %>	
 </div>

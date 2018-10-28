@@ -1,20 +1,20 @@
 <div class="container">
-	<div class="row">
+  <div class="row">
     <div class="col-sm-2">
       <%=link_to "TOP", admintop_path ,class: "mr-2"%>
       <% if admin_signed_in? %>
-          <%= current_admin.try(:admin_name)%>
-
+        <%= current_admin.try(:admin_name)%>
       <% end %>
     </div>
     <div class="col-sm-8"></div>
     <div class="col-sm-2">
       <% if admin_signed_in?%>
-       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-       <% else %>
-           <%= link_to "新規登録", new_admin_registration_path %>
-           <%= link_to "ログイン", new_admin_session_path,class: "ml-2"%>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "新規登録", new_admin_registration_path %>
+        <%= link_to "ログイン", new_admin_session_path,class: "ml-2"%>
       <% end %>
+      <%=link_to "戻る",root_path,class: "btn btn-primary" %>
     </div>
 	</div>
 </div>

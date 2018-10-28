@@ -12,6 +12,6 @@
 #
 
 class Song < ApplicationRecord
-  belongs_to :disc, inverse_of: :songs
+  belongs_to :disc
   delegate :item, to: :disc
 end
