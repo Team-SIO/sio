@@ -32,7 +32,9 @@
   <% end %>
 </table>
 <div class="text-right">
-	<%=link_to "戻る", admintop_path ,class: "back"%>
+	<%= link_to "戻る", admintop_path ,class: "back"%>
 </div>
 </div>
+
+<%= paginate @items %>
 

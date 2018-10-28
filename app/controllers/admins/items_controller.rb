@@ -1,7 +1,9 @@
 class Admins::ItemsController < ApplicationController
-   layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
+  PER = 8
+  layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
+
   def index
-     @items = Item.order(created_at: :desc)
+     @items = Item.page(params[:page]).per(PER)
   end
   def new
      @item = Item.new

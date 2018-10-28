@@ -6,22 +6,21 @@
 	color: white;
 }
 .kokyaku{
-    background: #65b99e;
-  /*  width: 200px;*/
-    height: 150px;
-    padding: 60px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 3%;
+  background: #65b99e;
+  height: 150px;
+  padding: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 3%;
 }
 
 .item{
 	background: #6586b9;
-    height: 150px;
-    padding: 60px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 3%;
+  height: 150px;
+  padding: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 3%;
 }
 .flex{
 	display: flex;
@@ -69,10 +68,20 @@
 #notice_wrapper{
   position: absolute;
   top: 0;
+  /*height: ;*/
   width: 100%;
   z-index: 999;
   background: rgba(135, 216, 211, 0.85);
-  .alert,.notice{
+  .notice{
+    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .alert{
     padding: 2.5rem 0;
     text-align: center;
     margin: 0;
@@ -82,6 +91,7 @@
     font-weight: 700;
   }
 } 
+
 .links{
   color: #000;
 }

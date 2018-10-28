@@ -1,6 +1,7 @@
 class Admins::DiscsController < ApplicationController
   before_action :set_disc, only: [:show,:edit,:update]
-	 layout "admin", :only => [:new, :edit]
+	layout "admin", :only => [:new, :edit]
+
   def index
   end
   def new

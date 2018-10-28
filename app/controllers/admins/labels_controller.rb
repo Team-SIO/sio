@@ -1,8 +1,9 @@
 class Admins::LabelsController < ApplicationController
 	layout "admin"
+  PER = 8
 
   def index
-    @labels = Label.all
+    @labels = Label.page(params[:page]).per(PER)
   end
 
   def show
