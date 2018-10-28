@@ -1,13 +1,14 @@
-<header link="#ffffff" class="navbar backg">
-      <div class="navitem-l">
-        <nav class="nav navbar-nav navbar-left">
-            <h2 class="fas fa-headphones">Music</h2>
-        </nav>
-        <%= render 'items/list' %>
-      </div>
+<header link="#ffffff" class="backg">
+  <div class="large">
+        <div class="navitem-l">
+            <h2 class="fas fa-headphones music">Music</h2>
+            <div class="f-box">
+              <%= render 'items/list' %>
+            </div>
+        </div>
 
       <div class="navitem-r">
-        <ul class="nav navbar-nav navbar-right">
+        <ul>
           <% if user_signed_in? %>
             <li class="nav-r">
               <%= link_to "logout", destroy_user_session_path, method: :delete, :style=>"color:white;" %>
@@ -22,4 +23,5 @@
           <% end %>
         </ul>
       </div>
+    </div>
     </header>
