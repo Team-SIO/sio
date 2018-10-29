@@ -61,7 +61,63 @@ end
 
 Order.seed do |s|
 	s.id = 8
-	s.user_id = 3
+	s.user_id = 2
 	s.status = 0
 	s.ship = "送り先8"
+end
+
+Order.seed do |s|
+	s.id = 9
+	s.user_id = 3
+	s.status = 1
+	s.ship = "送り先9"
+end
+
+Order.seed do |s|
+	s.id = 10
+	s.user_id = 1
+	s.status = 0
+	s.ship = "送り先10"
+end
+
+Order.seed do |s|
+	s.id = 11
+	s.user_id = 1
+	s.status = 1
+	s.ship = "送り先11"
+end
+
+Order.seed do |s|
+	s.id = 12
+	s.user_id = 2
+	s.status = 1
+	s.ship = "送り先12"
+end
+
+Order.seed do |s|
+	s.id = 13
+	s.user_id = 3
+	s.status = 1
+	s.ship = "送り先13"
+end
+
+Order.seed do |s|
+	s.id = 14
+	s.user_id = 3
+	s.status = 0
+	s.ship = "送り先14"
+end
+
+Order.seed do |s|
+	s.id = 15
+	s.user_id = 1
+	s.status = 1
+	s.ship = "送り先15"
+end
+
+Order.seed do |s|
+	s.id = 16
+	s.user_id = 2
+	s.status = 1
+	s.ship = "送り先16"
 end

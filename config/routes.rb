@@ -63,7 +63,9 @@ Rails.application.routes.draw do
 	get '/complete' => 'carts#complete', as: 'complete'
 	
 
-	resources :artists
+	resources :genres
+	resources :labels
+
 	
 	 resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]

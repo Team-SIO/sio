@@ -20,6 +20,7 @@ class Admins::ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @items = @artist.items
   end
   def edit
     @artist = Artist.find(params[:id])
