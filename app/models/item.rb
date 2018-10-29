@@ -21,12 +21,11 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :songs, through: :discs
   has_many :favs
+  # mount_uploader :image, ImageUploader
   acts_as_paranoid
-  # has_one :image
 
   validates :artist_id, presence: true
   scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
                                    "%#{sanitize_sql_like(word)}%",
                                    "%#{sanitize_sql_like(word)}%") })
-
 end

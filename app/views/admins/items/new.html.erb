@@ -1,28 +1,32 @@
 <div class="mt-5">
 	
 	<%= form_for @item, url: admins_items_path, method: :post do |a| %>
-		<div class="form-group">
-			<%= a.label :アーティスト名 %>
-			<%= a.collection_select :artist_id, Artist.all, :id, :artist_name , :prompt => "選択してください",class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<%= a.label :タイトル %>
-			<%= a.text_field :item_name ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :情報 %>
-			<%= a.text_field :item_info ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :価格 %>
-			<%= a.text_field :price ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :在庫数 %>
-			<%= a.text_field :stock ,class: "form-control"%>
-		</div>
+	<div class="form-group">
+		<%= a.label :アーティスト名 %>
+		<%= a.collection_select :artist_id, Artist.all, :id, :artist_name , :prompt => "選択してください",class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= a.label :タイトル %>
+		<%= a.text_field :item_name ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :情報 %>
+		<%= a.text_field :item_info ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :価格 %>
+		<%= a.text_field :price ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :在庫数 %>
+		<%= a.text_field :stock ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :image %>
+		<%= a.file_field :image %>
+	</div>
 	<%= a.submit "作成する", class: "btn btn-info mt-5" %>
-  <% end %>
+	<% end %>
 
 </div>
 <div class="text-right">

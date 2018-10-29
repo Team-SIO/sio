@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>管理者ページ</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+<head>
+  <title>管理者ページ</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-   <body>
-    <div id="notice_wrapper">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% elsif alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-    </div>
+<body>
+  <div id="notice_wrapper">
+    <% if notice %>
+    <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
 
-     <div class="admin_header">
-        <%= render "partial/adheader" %>
-      </div>
-      <div class="container">
-        <%= yield %>
-     </div>
-      <div class="admin_footer">
-       <%= render "partial/adfooter" %>
-      </div>
-  </body>
+  <div class="admin_header">
+    <%= render "partial/adheader" %>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <div class="admin_footer">
+   <%= render "partial/adfooter" %>
+ </div>
+</body>
 </html>

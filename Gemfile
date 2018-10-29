@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'data-confirm-modal', '~> 1.1', '>= 1.1.1'
+gem 'carrierwave'
+gem 'rmagick'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
