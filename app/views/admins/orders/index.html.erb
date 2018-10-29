@@ -1,4 +1,4 @@
-  <h1 class="mt-5">注文一覧</h1>
+  <h2 class="mt-5">注文一覧</h1>
   <div class="mt-2">
     <table class="table table-hover">
      <thead>
@@ -7,6 +7,9 @@
         <th scope="col">送り先</th>
         <th scope="col">状態</th>
         <th scope="col">注文時間</th>
+        <th scope="col">詳細</th>
+        <th scope="col">編集</th>
+        <th scope="col">削除</th>
       </tr>
     </thead>
 
@@ -20,6 +23,12 @@
           <td><%= order.status %></td>
           <td><%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
           <td><%= link_to '詳細', admins_order_path(order) %></td>
+          <td>
+          <%=link_to "編集", edit_admins_order_path(order) ,class: "back"%>
+          <td>
+              <%=link_to "削除", admins_order_path(order),method: :delete%>
+            </td>
+        </td>
         </tr>
       </tbody>
       <% end %>
