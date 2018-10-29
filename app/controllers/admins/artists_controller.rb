@@ -6,7 +6,7 @@ class Admins::ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.page(parmas[:page]).per(PER)
+    @artists = Artist.page(params[:page]).per(PER)
   end
 
   def create

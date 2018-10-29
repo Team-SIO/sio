@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :admins do
+    get 'orders/index'
+  end
+  namespace :admins do
     get 'labels/new'
   end
   root 'items#index'
@@ -25,6 +28,10 @@ Rails.application.routes.draw do
   	end
 
 	namespace :admins do
+		resources :orders do 
+			get "undispatched", on: :collection
+			get "dispatched", on: :collection
+		end
 		resources :users
 		resources :labels
 		resources :genres

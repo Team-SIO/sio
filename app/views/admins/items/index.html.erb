@@ -8,16 +8,18 @@
         <th scope="col">価格</th>
         <th scope="col">アーティスト名</th>
         <th scope="col">在庫数</th>
+        <th scope="col">画像</th>
         <th scope="col">編集</th>
       </tr>
     </thead>
     <% @items.each do |item|%>
     <tbody>
       <tr>
-        <th scope="row" class="info"> 
-          <%=link_to admins_item_path(item) do %>
-          <%= item.try(:item_name) %></th>
-          <% end %>
+         <td class="info"> 
+            <%=link_to admins_item_path(item) do %>
+              <%= item.try(:item_name) %>
+            <% end %>
+          </td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td>
@@ -26,6 +28,12 @@
             <% end %>
           </td>
           <td><%= item.try(:stock) %></td>
+          <% if item.image.present? %>
+            <td> <%= image_tag item.image.thumb.url,size: "50x50" ,class: "img-thumbnail"%></td>
+          <% else %>
+            <td> <%= image_tag "no-image.png",size: "50x50",class: "img-thumbnail"%></td>
+
+          <% end %>
           <td><%=link_to "編集", edit_admins_item_path(item) ,style: "color: #000"%></td>
         </tr>
       </tbody>

@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :songs, through: :discs
   has_many :favs
-  # mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
   acts_as_paranoid
 
   validates :artist_id, presence: true
