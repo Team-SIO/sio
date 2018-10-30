@@ -1,7 +1,9 @@
 <header link="#ffffff" class="backg">
   <div class="large">
         <div class="navitem-l">
+          <%= link_to root_path do %>
             <h2 class="fas fa-headphones music">Music</h2>
+            <% end %>
             <div class="f-box">
               <%= render 'items/list' %>
             </div>
