@@ -1,7 +1,9 @@
 class Admins::ItemsController < ApplicationController
-   layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
+  PER = 8
+  layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
+
   def index
-     @items = Item.order(created_at: :desc)
+     @items = Item.page(params[:page]).per(PER)
   end
   def new
      @item = Item.new
@@ -17,6 +19,7 @@ class Admins::ItemsController < ApplicationController
   end
   def show
     @item = Item.find(params[:id])
+
     @disc = @item.discs.take
   end
   def edit
@@ -47,7 +50,7 @@ class Admins::ItemsController < ApplicationController
   #   params.require(:item).permit(:item_title,:item_info,:price,:stock,:artist_id)
   
    def item_params
-    params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id)
+    params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id, :image)
    end
  
 end

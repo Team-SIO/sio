@@ -1,13 +1,13 @@
 class Admins::DiscsController < ApplicationController
   before_action :set_disc, only: [:show,:edit,:update]
-	 layout "admin", :only => [:new, :edit]
+	layout "admin", :only => [:new, :edit]
+
   def index
   end
   def new
   	@item = Item.find(params[:item_id])
   	@disc = @item.discs.build
-    
-    15.times { @disc.songs.build }
+    @disc.songs.build 
   end
   def create
   	@item = Item.find(params[:item_id])
@@ -32,7 +32,7 @@ class Admins::DiscsController < ApplicationController
   end
   private
   def disc_params
-    params.require(:disc).permit(:disc_order, songs_attributes: [:id, :song_name,:time, :song_order])
+    params.require(:disc).permit(:disc_order, songs_attributes: [:id, :song_name,:time, :song_order, :_destroy])
   end
   def set_disc
     @disc = Disc.find_by(item_id: params[:item_id])

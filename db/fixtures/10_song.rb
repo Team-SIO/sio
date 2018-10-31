@@ -3,6 +3,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲1"
   s.song_order = 1
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -10,6 +11,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲2"
   s.song_order = 2
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -17,6 +19,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲3"
   s.song_order = 3
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -24,6 +27,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲4"
   s.song_order = 4
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -31,6 +35,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲5"
   s.song_order = 5
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -38,6 +43,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲6"
   s.song_order = 6
+  s.time = "4:30"
 end
 
 
@@ -46,6 +52,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲7"
   s.song_order = 7
+  s.time = "4:30"
 end
 
 
@@ -54,6 +61,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲8"
   s.song_order = 8
+  s.time = "4:30"
 end
 
 
@@ -62,6 +70,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲9"
   s.song_order = 9
+  s.time = "4:30"
 end
 
 
@@ -70,6 +79,7 @@ Song.seed do |s|
   s.disc_id = 1
   s.song_name = "曲10"
   s.song_order = 10
+  s.time = "4:30"
 end
 
 
@@ -84,6 +94,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲1"
   s.song_order = 1
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -91,6 +102,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲2"
   s.song_order = 2
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -98,6 +110,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲3"
   s.song_order = 3
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -105,6 +118,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲4"
   s.song_order = 4
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -112,6 +126,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲5"
   s.song_order = 5
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -119,6 +134,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲6"
   s.song_order = 6
+  s.time = "4:30"
 end
 
 
@@ -127,6 +143,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲7"
   s.song_order = 7
+  s.time = "4:30"
 end
 
 
@@ -135,6 +152,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲8"
   s.song_order = 8
+  s.time = "4:30"
 end
 
 
@@ -143,6 +161,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲9"
   s.song_order = 9
+  s.time = "4:30"
 end
 
 
@@ -151,6 +170,7 @@ Song.seed do |s|
   s.disc_id = 2
   s.song_name = "曲10"
   s.song_order = 10
+  s.time = "4:30"
 end
 
 
@@ -164,6 +184,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲1"
   s.song_order = 1
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -171,6 +192,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲2"
   s.song_order = 2
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -178,6 +200,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲3"
   s.song_order = 3
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -185,6 +208,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲4"
   s.song_order = 4
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -192,6 +216,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲5"
   s.song_order = 5
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -199,6 +224,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲6"
   s.song_order = 6
+  s.time = "4:30"
 end
 
 
@@ -207,6 +233,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲7"
   s.song_order = 7
+  s.time = "4:30"
 end
 
 
@@ -215,6 +242,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲8"
   s.song_order = 8
+  s.time = "4:30"
 end
 
 
@@ -223,6 +251,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲9"
   s.song_order = 9
+  s.time = "4:30"
 end
 
 
@@ -231,6 +260,7 @@ Song.seed do |s|
   s.disc_id = 3
   s.song_name = "曲10"
   s.song_order = 10
+  s.time = "4:30"
 end
 
 
@@ -243,6 +273,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲1"
   s.song_order = 1
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -250,6 +281,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲2"
   s.song_order = 2
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -257,6 +289,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲3"
   s.song_order = 3
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -264,6 +297,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲4"
   s.song_order = 4
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -271,6 +305,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲5"
   s.song_order = 5
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -278,6 +313,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲6"
   s.song_order = 6
+  s.time = "4:30"
 end
 
 
@@ -286,6 +322,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲7"
   s.song_order = 7
+  s.time = "4:30"
 end
 
 
@@ -294,6 +331,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲8"
   s.song_order = 8
+  s.time = "4:30"
 end
 
 
@@ -302,6 +340,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲9"
   s.song_order = 9
+  s.time = "4:30"
 end
 
 
@@ -310,6 +349,7 @@ Song.seed do |s|
   s.disc_id = 4
   s.song_name = "曲10"
   s.song_order = 10
+  s.time = "4:30"
 end
 
 
@@ -325,6 +365,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲1"
   s.song_order = 1
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -332,6 +373,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲2"
   s.song_order = 2
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -339,6 +381,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲3"
   s.song_order = 3
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -346,6 +389,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲4"
   s.song_order = 4
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -353,6 +397,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲5"
   s.song_order = 5
+  s.time = "4:30"
 end
 
 Song.seed do |s|
@@ -360,6 +405,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲6"
   s.song_order = 6
+  s.time = "4:30"
 end
 
 
@@ -368,6 +414,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲7"
   s.song_order = 7
+  s.time = "4:30"
 end
 
 
@@ -376,6 +423,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲8"
   s.song_order = 8
+  s.time = "4:30"
 end
 
 
@@ -384,6 +432,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲9"
   s.song_order = 9
+  s.time = "4:30"
 end
 
 
@@ -392,6 +441,7 @@ Song.seed do |s|
   s.disc_id = 5
   s.song_name = "曲10"
   s.song_order = 10
+  s.time = "4:30"
 end
 
 

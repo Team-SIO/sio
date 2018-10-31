@@ -21,12 +21,20 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :songs, through: :discs
   has_many :favs
+  mount_uploader :image, ImageUploader
   acts_as_paranoid
-  # has_one :image
 
   validates :artist_id, presence: true
-  scope :search, (->(word) { where('title LIKE ? OR content LIKE ?',
-                                   "%#{sanitize_sql_like(word)}%",
-                                   "%#{sanitize_sql_like(word)}%") })
 
+  def self.search(search) #self.でクラスメソッドとしている
+    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+      Item.where('item_name LIKE ?', "%#{search}%")
+      Item.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
+      # Artist.joins(:items).where(['artist_name LIKE ?', "%#{search}%"])
+    else
+      Item.all #全て表示。
+    end
+  end
 end
+
+

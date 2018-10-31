@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :admins do
+    get 'orders/index'
+  end
+  namespace :admins do
     get 'labels/new'
   end
   root 'items#index'
@@ -18,6 +21,9 @@ Rails.application.routes.draw do
 	
 
 	resources :items do
+		collection do
+          get 'search' => 'items#search'
+        end
 		resource :favs, only: %i(create,destroy)
     	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
       		resource :songs, only: [:new, :create, :edit, :update, :destroy]
@@ -25,6 +31,10 @@ Rails.application.routes.draw do
   	end
 
 	namespace :admins do
+		resources :orders do 
+			get "undispatched", on: :collection
+			get "dispatched", on: :collection
+		end
 		resources :users
 		resources :labels
 		resources :genres
@@ -56,7 +66,9 @@ Rails.application.routes.draw do
 	get '/complete' => 'carts#complete', as: 'complete'
 	
 
-	resources :artists
+	resources :genres
+	resources :labels
+
 	
 	 resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
@@ -65,10 +77,6 @@ Rails.application.routes.draw do
 
 	 get '/admintop' => 'home#admin', as: 'admintop'
 
-	 resources :items do
-       collection do
-        get 'search' => 'items#search'
-    end
-  end
+
 
 end

@@ -1,5 +1,6 @@
 class Admins::GenresController < ApplicationController
 	layout "admin"
+  
   def index
   	@genres = Genre.all
   end
@@ -31,6 +32,12 @@ class Admins::GenresController < ApplicationController
   end
 
   def destroy
+    genre = Genre.find(params[:id])
+    if genre.destroy
+      redirect_to admins_genres_path
+    else
+      render "edit"
+    end
   end
   private
   def genre_params

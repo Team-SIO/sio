@@ -27,7 +27,9 @@ class User < ApplicationRecord
   acts_as_paranoid
   
   enum gender: [:男性, :女性]
-  validates :name, length: { maximum: 30 }
+  # validates :name, length: { maximum: 30 }
+  validates :first_name, presence: true, length: { maximum: 15 }
+  validates :last_name, presence: true, length: { maximum: 15 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
@@ -37,5 +39,11 @@ class User < ApplicationRecord
   def create_cart
   	Cart.create(user_id: self.id)
   end
+
+  def name
+   [first_name, last_name].join(' ')
+  end
+
+
 
 end

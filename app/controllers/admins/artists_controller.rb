@@ -1,11 +1,12 @@
 class Admins::ArtistsController < ApplicationController
 	layout "admin"
+  PER = 8
   def new
     @artist = Artist.new
   end
 
   def index
-  	@artists = Artist.all
+    @artists = Artist.page(params[:page]).per(PER)
   end
 
   def create
@@ -19,6 +20,7 @@ class Admins::ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @items = @artist.items
   end
   def edit
     @artist = Artist.find(params[:id])

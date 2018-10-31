@@ -16,9 +16,12 @@ gem 'rails-erd', group: :development
 gem 'annotate'
 gem "cocoon"
 gem "paranoia"
-gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'data-confirm-modal', '~> 1.1', '>= 1.1.1'
+gem 'carrierwave'
+gem 'rmagick'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -30,10 +33,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'awesome_print'
   gem 'faker'
+  gem 'rspec-rails', '~> 3.6.0'
 end
 
 group :development do
   gem 'seed-fu', '~> 2.3'
+  gem 'spring-commands-rspec'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'

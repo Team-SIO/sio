@@ -1,6 +1,7 @@
 User.seed do |s|
   s.id = 1
-  s.name = "Mondo"
+  s.first_name = "Mondo"
+  s.last_name = "Iwagoshi"
   s.birthday = "1995/1/1"
   s.gender = 1
   s.email = "mondo@gmail.com"
@@ -9,7 +10,8 @@ end
 
 User.seed do |s|
   s.id = 2
-  s.name = "Shingai"
+  s.first_name = "Akira"
+  s.last_name = "Shingai"
   s.birthday = "1995/2/2"
   s.gender = 0
   s.email = "shingai@gmail.com"
@@ -18,7 +20,8 @@ end
 
 User.seed do |s|
   s.id = 3
-  s.name = "Ono"
+  s.first_name = "Satoshi"
+  s.last_name = "Ono"
   s.birthday = "1995/3/3"
   s.gender = 0
   s.email = "ono@gmail.com"

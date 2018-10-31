@@ -1,13 +1,13 @@
-<div class="container">
+	<div class="sidebar">
 	<ul>
 		<li><%= link_to "アーティスト一覧", admins_artists_path%></li>
 		<li><%= link_to "ジャンル一覧", admins_genres_path %></li>
 		<li><%= link_to "レーベル一覧",  admins_labels_path %></li>
-		<li><%= link_to "全注文一覧", "#" %></li>
-		<li><%= link_to "発送済みオーダー",  "#"%></li>
-		<li><%= link_to "未発送オーダー",  "#"%></li>
+		<li><%= link_to "全注文一覧", admins_orders_path %></li>
+		<li><%= link_to "発送済みオーダー",  dispatched_admins_orders_path %></li>
+		<li><%= link_to "未発送オーダー",  undispatched_admins_orders_path %></li>
 		<li><%= link_to "レーベル追加",  new_admins_label_path%></li>
 		<li><%= link_to "ジャンル追加",  new_admins_genre_path%></li>
 		<li><%= link_to "アーティスト追加",  new_admins_artist_path%></li>
 	</ul>
-</div>
+	</div>
