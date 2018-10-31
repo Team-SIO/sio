@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     	end
   	end
 
+  	get "/lesson" => "items#lesson"
 	namespace :admins do
 		resources :orders do 
 			get "undispatched", on: :collection
