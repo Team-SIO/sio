@@ -13,19 +13,20 @@ Rails.application.routes.draw do
 	  registrations: 'users/registrations'
 	}
 	
+	get '/admintop' => 'home#admin', as: 'admintop'
 
-	resources :items, only: %i(index,show) do
+	resources :items, only: [:index, :show] do
 		collection do
           get 'search' => 'items#search'
         end
-		resource :favs, only: %i(create,destroy)
-    	resources :discs, only: %i(index, show) do
+		resource :favs, only: [:create, :destroy]
+    	resources :discs, only: [:index, :show] do
       		resource :songs, only: [:index]
     	end
   	end
 
 	namespace :admins do
-		resources :orders, only: %i(index, show, edit, destroy) do 
+		resources :orders do 
 			get "undispatched", on: :collection
 			get "dispatched", on: :collection
 		end
@@ -41,22 +42,14 @@ Rails.application.routes.draw do
 	end
 	resources :users
 
-	
-
 	get '/complete' => 'carts#complete', as: 'complete'
 	
-
 	resources :genres
 	resources :labels
 
-	
-	 resources :carts, only: [:show] do
+	resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
 	    resources :orders, only: [:new, :create, :show]
-	 end
-
-	 get '/admintop' => 'home#admin', as: 'admintop'
-
-
+	end
 
 end
