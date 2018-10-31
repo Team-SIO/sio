@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admins do
-    get 'orders/index'
-  end
-  namespace :admins do
-    get 'labels/new'
-  end
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -20,18 +14,18 @@ Rails.application.routes.draw do
 	}
 	
 
-	resources :items do
+	resources :items, only: %i(index,show) do
 		collection do
           get 'search' => 'items#search'
         end
 		resource :favs, only: %i(create,destroy)
-    	resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
-      		resource :songs, only: [:new, :create, :edit, :update, :destroy]
+    	resources :discs, only: %i(index, show) do
+      		resource :songs, only: [:index]
     	end
   	end
 
 	namespace :admins do
-		resources :orders do 
+		resources :orders, only: %i(index, show, edit, destroy) do 
 			get "undispatched", on: :collection
 			get "dispatched", on: :collection
 		end
@@ -46,20 +40,6 @@ Rails.application.routes.draw do
   		 end
 	end
 	resources :users
-	
-	# namespace :users do
-	# 	resources :artists
-	#  	 resources :items do
-	# 		resource :favs, only: %i(create,destroy)
- #    		resources :discs, only: [:new, :create, :edit, :show,:update, :destroy] do
- #      			resource :songs, only: [:new, :create, :edit, :update, :destroy]
- #    		end
- #  		 end
-	# end
- 
-	# scope module: :public do
-	#   resources :items # => /items
-	# end
 
 	
 
