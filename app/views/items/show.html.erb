@@ -1,2 +1,35 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="mt-2">
+<table class="table table-hover">
+     <thead>
+      <tr>
+        <th scope="col">アーティスト名</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">情報</th>
+        <th scope="col">価格</th>
+        <th scope="col">在庫</th>
+        <th scope="col">カートに入れる</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td>
+		アーティスト名:<%= @item.artist_name %>
+	</td>
+	<td>
+		アルバム名:<%= @item.item_name %>
+	</td>
+	<td>
+		情報:<%= @item.item_info %>
+	</td>
+	<td>
+		価格:<%= @item.price %>円
+	</td>
+	<td>
+		在庫:<%= @item.stock %>枚
+	</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+
+<%= link_to "商品一覧へ", items_path,class: "btn btn-info" %>
