@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
   	@items = Item.all
+    @cart = current_user.cart
   end
   def show
   	@item = Item.find(params[:id])
