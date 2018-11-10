@@ -9,6 +9,14 @@
     <%= f.label :email, {class: 'moji'} %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "box" %>
   </div>
+    <div class="field">
+      <%= f.label :first_name, {class: 'moji'} %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "box" %>
+    </div>
+  <div class="field">
+    <%= f.label :last_name, {class: 'moji'} %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "box" %>
+  </div>
 
   <div class="field">
     <%= f.label :password, {class: 'moji'} %>

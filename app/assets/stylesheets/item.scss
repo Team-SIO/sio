@@ -6,6 +6,7 @@
 
 .form{
 	color: black;
+	float: left;
 }
 
 .nav-box{
@@ -44,4 +45,19 @@
 }
 .sample1:hover .mask {
 	opacity:		1;	/* マスクを表示する */
+}
+
+.pro-edit{
+	float: left;
+	margin-left: 50px;
+}
+
+.nav-box2{
+	background-color: white;
+	border: none;
+	color: gray;
+  	border-radius:10px;
+  	box-shadow: none;
+  	padding: 2px 8px;
+  	font-size: 16px;
 }
