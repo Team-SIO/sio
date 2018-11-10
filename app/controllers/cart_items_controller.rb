@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
 		@cart = current_user.cart
 		@cart_item = @cart.cart_items
 		if @cart_item.blank?
-		  @cart_item = create_cart.cart_items.build(item_id: params[:item_id])
+		  @cart_item = cart_items.build(item_id: params[:item_id])
 		end
 
 		@cart_item.cart_item_count += params[:cart_item_count].to_i

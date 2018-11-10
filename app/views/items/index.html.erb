@@ -35,8 +35,10 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-           <td><%= link_to "カートに入れる",  carts_path(cart_item: {cart_id: @cart.id, item_id: item.id, cart_item_count: 10}), method: :post do %>
+          <% if user_signed_in? %>
+           <td><%= link_to "カートに入れる",  carts_path(cart_item: {cart_id: @cart.id, item_id: item.id, cart_item_count: 10}), method: :post  %>
            </td>
+           <% end %>
         </tr>
       </tbody>
       <% end %>
