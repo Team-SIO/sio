@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
 	resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
-	    resources :orders, only: [:new, :create, :show]
+	    resources :orders
 	end
 
 end

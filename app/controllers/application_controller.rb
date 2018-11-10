@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  # before_action :set_cart
+
 	def after_sign_in_path_for(resource)
       case resource
       when User
@@ -15,4 +17,8 @@ class ApplicationController < ActionController::Base
     		admintop_path
     	end
     end
+
+    # def set_cart
+    #   @carts = create_cart.cart_items(params[:id])
+    # end
 end

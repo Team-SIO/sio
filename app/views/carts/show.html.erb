@@ -1,0 +1,7 @@
+<h1>Cart</h1>
+<% if @cart_items.present? %>
+<% @cart_items.each do |cart_item| %>
+  <%= cart_item.item.item_name %>
+<% end %>
+<% end %>
+

@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :addresses
   acts_as_paranoid
-  
+
   enum gender: [:男性, :女性]
   # validates :name, length: { maximum: 30 }
   validates :first_name, length: { maximum: 15 }
