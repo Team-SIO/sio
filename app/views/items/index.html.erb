@@ -15,7 +15,8 @@
         <th scope="col">情報</th>
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
-        <th scope="col">カートに入れる</th>
+        <th scope="col">
+           カートに入れる</th>
       </tr>
     </thead>
     <% @items.each do |item|%>
@@ -34,7 +35,8 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-          <td><%= link_to "カートに追加", cart_cart_items.path() %>
+           <td><%= link_to "カートに入れる",  carts_path(cart_item: {cart_id: @cart.id, item_id: item.id}), method: :post %>
+           </td>
         </tr>
       </tbody>
       <% end %>

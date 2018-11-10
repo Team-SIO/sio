@@ -10,3 +10,16 @@
 
 
 
+.one{
+	background: red;
+	width: 400px;
+	height: 400px;
+	position: relative;
+}
+.two{
+	background: #000;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 30%
+}
