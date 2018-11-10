@@ -47,11 +47,9 @@ Rails.application.routes.draw do
 	resources :genres
 	resources :labels
 
-	resources :carts, only: [:show] do
-
+	resources :carts, except: [:index] do
 	  resource :cart_items, only: [:edit,:update, :destroy, :create]
 	  resources :orders, only: [:new, :create, :show]
-
 	end
 
 end

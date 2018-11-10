@@ -6,16 +6,13 @@ class CartsController < ApplicationController
 		@cart_items = @cart.cart_items
 	end
 
-	# def create
-	# 	if @cart_item.blank?
-	# 	@cart_item = create_cart.cart_items.build(item_id: params[:item_id])
-	# 	end
-
-	# 	@cart_item.cart_item_count += params[:cart_item_count].to_i
-	# 	@cart_item.save
-	# 	rederect_to create_cart
-
-	# end
+	def create
+		cart = current_user.cart
+		cart_item = CartItem.new(cart_item_params)
+		if cart_item.save
+			redirect_to cart_path(cart)
+		end
+	end
 
 	# def update
 	# 	@cart_item.update(:cart_item_count params[:cart_item_count].to_i)
@@ -31,5 +28,10 @@ class CartsController < ApplicationController
 	# def find_cart
 	# 	@cart = create_cart.find_by(params[:id])
 	# end
+
+	private
+	def cart_item_params
+		params.require(:cart_item).permit(:cart_id,:item_id)
+	end
 
 end

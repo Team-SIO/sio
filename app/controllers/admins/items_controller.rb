@@ -7,8 +7,7 @@ class Admins::ItemsController < ApplicationController
   end
   def new
      @item = Item.new
-
-     @artist = @item.artist.build
+     # @artist = @item.artist.build
   end
   def create
      item = Item.new(item_params)
