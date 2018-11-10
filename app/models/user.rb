@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  name                   :string
 #  gender                 :integer
 #  birthday               :datetime
 #  reset_password_token   :string
@@ -14,6 +13,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  deleted_at             :datetime
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ApplicationRecord
@@ -27,7 +28,6 @@ class User < ApplicationRecord
   acts_as_paranoid
   
   enum gender: [:男性, :女性]
-  # validates :name, length: { maximum: 30 }
   validates :first_name, length: { maximum: 15 }
   validates :last_name, length: { maximum: 15 }
 
@@ -39,11 +39,9 @@ class User < ApplicationRecord
   def create_cart
   	Cart.create(user_id: self.id)
   end
-
+  
   def name
    [first_name, last_name].join(' ')
   end
-
-
 
 end
