@@ -1,15 +1,7 @@
-<div style="margin-top: 120px">
-	<li class="glyphicon">
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
-            </li>
-<h1 class="col-lg-4">Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
-</div>
- <%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
+<%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
 
 
-<div class="container"> 
-<p>Item search</p>
+<div class="container">
 
 
  <h1 class="mt-5">商品一覧</h1>
@@ -17,33 +9,34 @@
      <table class="table table-hover">
      <thead>
       <tr>
+        <th scope="col">画像</th>
         <th scope="col">アーティスト名</th>
         <th scope="col">タイトル</th>
         <th scope="col">情報</th>
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
-        <th scope="col">画像</th>
+        <th scope="col">カートに入れる</th>
       </tr>
     </thead>
     <% @items.each do |item|%>
     <tbody>
       <tr>
-         <td class="info"> 
+        <% if item.image.present? %>
+            <td> <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image.thumb.url,size: "200x200" %> <% end %></td>
+          <% else %>
+            <td> <%= image_tag "no-image.png",size: "200x200" %></td>
+          <% end %>
+         <td>
               <%= item.try(:artist_name) %>
           </td>
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-          <% if item.image.present? %>
-            <td> <%= image_tag item.image.thumb.url,size: "50x50" ,class: "img-thumbnail"%></td>
-          <% else %>
-            <td> <%= image_tag "no-image.png",size: "50x50",class: "img-thumbnail"%></td>
-          <% end %>
         </tr>
       </tbody>
       <% end %>
     </table>
  </div>
- </div>
-
+</div>
