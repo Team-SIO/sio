@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-	
+
 	get '/admintop' => 'home#admin', as: 'admintop'
 
 	resources :items, only: [:index, :show] do
@@ -43,13 +43,13 @@ Rails.application.routes.draw do
 	resources :users
 
 	get '/complete' => 'carts#complete', as: 'complete'
-	
-	resources :genres
-	resources :labels
+
+	resources :genres, only: [:show]
+	resources :labels, only: [:show]
 
 	resources :carts, only: [:show] do
 	    resource :cart_items, only: [:edit,:update, :destroy, :create]
-	    resources :orders
+	    resources :orders, only: [:show, :index, :destroy]
 	end
 
 end

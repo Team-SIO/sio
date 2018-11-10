@@ -34,6 +34,7 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
+          <td><%= link_to "カートに追加", cart_cart_items.path() %>
         </tr>
       </tbody>
       <% end %>
