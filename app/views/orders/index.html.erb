@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+  <% @orders.each_with_index do |order, index| %>
+        <div class="panel-heading">
+          購入履歴 <%= index + 1 %>
+         ( <%= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>)
+        </div>
+    <% @order_items = order.order_items %>
+      <div class="panel-body">
+      <% @order_items.each do |order_item| %>
+        <%= order_item.item.artist_name%><br>
+        <%= order_item.item_name %><br>
+        <%= order_item.item_info %><br>
+        <%= order_item.price%> 円<br>
+          <%= order_item.order_item_count %>枚
+          <hr>
+       <% end %>
+      </div>
+    <br>
+  <% end %>
+</div>
+

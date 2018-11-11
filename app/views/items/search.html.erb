@@ -19,8 +19,10 @@
     <% @items.each do |item|%>
     <tbody>
       <tr>
-         <td class="info"> 
+         <td class="info">
+           <%= link_to artist_path(item.artist) do %>
               <%= item.try(:artist_name) %>
+           <% end %>
           </td>
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>

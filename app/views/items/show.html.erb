@@ -27,6 +27,9 @@
 	<td>
 		在庫:<%= @item.stock %>枚
 	</td>
+    <td>
+    <%= render "form", cart_item: @cart_item, item: @item %>
+  </td>
       </tr>
     </tbody>
 </table>
