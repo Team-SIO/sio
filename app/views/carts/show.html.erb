@@ -9,6 +9,9 @@
 
       <% if @cart_items.present? %>
         <% @cart_items.each do |cart_item| %>
+          <% if cart_item.item.image.present? %>
+            <%= image_tag cart_item.item.image.thumb.url,size: "100x100" %>
+          <% end %>
           <div class="panel-body">
           <%= cart_item.item.artist_name %>
           </div>

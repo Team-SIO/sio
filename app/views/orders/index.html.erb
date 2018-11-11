@@ -7,7 +7,10 @@
     <% @order_items = order.order_items %>
       <div class="panel-body">
       <% @order_items.each do |order_item| %>
-        <%= order_item.item.artist_name%><br>
+          <% if order_item.item.image.present? %>
+          <%= image_tag order_item.item.image.thumb.url,size: "100x100" %>
+           <% end %>
+          <%= order_item.item.artist_name%><br>
         <%= order_item.item_name %><br>
         <%= order_item.item_info %><br>
         <%= order_item.price%> 円<br>

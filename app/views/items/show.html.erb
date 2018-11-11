@@ -12,7 +12,12 @@
     </thead>
     <tbody>
       <tr>
-    <td>
+        <td>
+
+        <%= image_tag @item.image.thumb.url,size: "100x100" %>
+        </td>
+
+        <td>
 		アーティスト名:<%= @item.artist_name %>
 	</td>
 	<td>
