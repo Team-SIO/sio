@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :favs
   has_many :orders
   has_many :addresses
+  has_many :inquiries
   acts_as_paranoid
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
