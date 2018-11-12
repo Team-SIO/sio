@@ -9,6 +9,8 @@
       <% @order_items.each do |order_item| %>
           <% if order_item.item.image.present? %>
           <%= image_tag order_item.item.image.thumb.url,size: "100x100" %>
+            <% else %>
+          <%= image_tag "no-image.png", size: "100x100" %>
            <% end %>
           <%= order_item.item.artist_name%><br>
         <%= order_item.item_name %><br>

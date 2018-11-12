@@ -29,10 +29,18 @@
       <% @items.each do |item| %>
         <div class="panel panel-success">
           <div class="panel-heading">
-            アーティスト名:<%= item.artist_name %>
+            <%= item.item_name %>
           </div>
           <div class="panel-body">
-            アルバム名:<%= item.item_name %>
+            <% if item.image.present? %>
+            <%= image_tag  item.image.thumb.url, size: "100x100"%>
+              <% else %>
+            <%= image_tag "no-image.png", size: "100x100" %>
+            <% end %>
+          </div>
+          <div class="panel-body">
+
+            アーティスト名:<%= item.artist_name %>
           </div>
           <div class="panel-body">
             情報:<%= item.item_info %>
