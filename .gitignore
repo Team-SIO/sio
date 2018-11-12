@@ -8,6 +8,8 @@ vendor/bundle
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+/config/environments/development.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

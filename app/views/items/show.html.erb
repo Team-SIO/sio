@@ -13,8 +13,11 @@
     <tbody>
       <tr>
         <td>
-
+          <% if @item.image.present? %>
         <%= image_tag @item.image.thumb.url,size: "100x100" %>
+            <% else %>
+          <%= image_tag "no-image.png", size: "100x100" %>
+            <% end %>
         </td>
 
         <td>

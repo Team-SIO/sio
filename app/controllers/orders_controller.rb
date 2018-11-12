@@ -8,11 +8,14 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
   def create
     order = Order.new(order_params)
     if order.save
       redirect_to thanks_path
+      NotificationMailer.send_confirm_to_user(current_user).deliver
     end
     cart_items = current_user.cart.cart_items
     cart_items.each do |c| 

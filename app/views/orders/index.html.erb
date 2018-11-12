@@ -1,9 +1,13 @@
 <div class="panel panel-primary">
   <% @orders.each_with_index do |order, index| %>
-        <div class="panel-heading">
+
+     <div class="panel-heading">
+       <%= link_to order_path(order), {style: "color: #fff"} do %>
           購入履歴 <%= index + 1 %>
          ( <%= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>)
+       <% end %>
         </div>
+
     <% @order_items = order.order_items %>
       <div class="panel-body">
       <% @order_items.each do |order_item| %>
