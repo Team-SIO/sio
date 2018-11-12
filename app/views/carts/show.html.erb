@@ -1,3 +1,4 @@
+<div class="container mt-5">
 <div class="row">
   <div class="col-md-6">
 
@@ -21,13 +22,19 @@
           <div class="panel-body">
           <%= cart_item.cart_item_count %>枚
           </div>
+          <%= link_to "削除する",  delete_cart_item_path(cart: {id: current_user.cart.id}, cart_item: {id: cart_item.id}), method: :delete %>
           <hr>
         <% end %>
       <% end %>
+      <% if @cart_items.present? %>
+        <%= link_to "購入する", orders_path(user_id: current_user.id),class: "btn btn-primary ml-1",method: :post %>
 
-      <%= link_to "購入する", orders_path(user_id: current_user.id),method: :post %>
+        <% else %>
+       <p> カートの中身はありません。</p>
+      <% end %>
 
     </div>
 
   </div>
 </div>
+  </div>
