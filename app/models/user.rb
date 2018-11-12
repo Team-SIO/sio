@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :addresses
   acts_as_paranoid
+  accepts_nested_attributes_for :addresses, allow_destroy: true
 
   enum gender: [:男性, :女性]
   validates :first_name, length: { maximum: 15 }

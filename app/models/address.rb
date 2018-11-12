@@ -12,9 +12,9 @@
 #
 
 class Address < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, inverse_of: :addresses
 
-  validates :ship, length: { maximum: 50 }
-  validates :zip, length: { is: 7 }     
-  validates :phone, length: { is: 11 }
+  # validates :ship, length: { maximum: 50 }
+  # validates :zip, length: { is: 7 }     
+  # validates :phone, length: { is: 11 }
 end

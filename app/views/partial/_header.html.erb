@@ -18,6 +18,9 @@
             <li class= "nav-r">
               <%= link_to "cart", cart_path(current_user.cart) %>
             </li>
+            <li class= "nav-r">
+              <%= link_to "注文履歴", orders_path %>
+            </li>
           <% else %>
             <li class="nav-r">
               <%= link_to "ログイン", new_user_session_path, :style=>"color:white;" %>

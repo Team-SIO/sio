@@ -23,6 +23,7 @@ gem 'data-confirm-modal', '~> 1.1', '>= 1.1.1'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -42,6 +43,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'guard', '~> 2.14', '>= 2.14.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false

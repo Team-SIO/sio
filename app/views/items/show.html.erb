@@ -12,7 +12,15 @@
     </thead>
     <tbody>
       <tr>
-    <td>
+        <td>
+          <% if @item.image.present? %>
+        <%= image_tag @item.image.thumb.url,size: "100x100" %>
+            <% else %>
+          <%= image_tag "no-image.png", size: "100x100" %>
+            <% end %>
+        </td>
+
+        <td>
 		アーティスト名:<%= @item.artist_name %>
 	</td>
 	<td>
@@ -27,6 +35,9 @@
 	<td>
 		在庫:<%= @item.stock %>枚
 	</td>
+    <td>
+    <%= render "form", cart_item: @cart_item, item: @item %>
+  </td>
       </tr>
     </tbody>
 </table>

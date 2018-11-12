@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-	# before_action :setup_cart_item!, only: [:add_item, :update_item, :delete_items]
+	before_action :authenticate_user!
 
 	def show
 		@cart = current_user.cart
@@ -14,24 +14,9 @@ class CartsController < ApplicationController
 		end
 	end
 
-	# def update
-	# 	@cart_item.update(:cart_item_count params[:cart_item_count].to_i)
-	# 	rederect_to create_cart
-	# end
-
-	# def destroy
-	# 	@cart_item.destroy
-	# 	redirect_to create_cart
-	# end
-
-	# private
-	# def find_cart
-	# 	@cart = create_cart.find_by(params[:id])
-	# end
-
 	private
 	def cart_item_params
-		params.require(:cart_item).permit(:cart_id,:item_id)
+		params.require(:cart_item).permit(:cart_id,:item_id,:cart_item_count)
 	end
 
 end

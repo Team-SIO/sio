@@ -1,7 +1,33 @@
-<h1>Cart</h1>
-<% if @cart_items.present? %>
-<% @cart_items.each do |cart_item| %>
-  <%= cart_item.item.item_name %>
-<% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-6">
 
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        カートの中身
+      </div>
+
+
+      <% if @cart_items.present? %>
+        <% @cart_items.each do |cart_item| %>
+          <% if cart_item.item.image.present? %>
+            <%= image_tag cart_item.item.image.thumb.url,size: "100x100" %>
+          <% end %>
+          <div class="panel-body">
+          <%= cart_item.item.artist_name %>
+          </div>
+          <div class="panel-body">
+          <%= cart_item.item.item_name %>
+          </div>
+          <div class="panel-body">
+          <%= cart_item.cart_item_count %>枚
+          </div>
+          <hr>
+        <% end %>
+      <% end %>
+
+      <%= link_to "購入する", orders_path(user_id: current_user.id),method: :post %>
+
+    </div>
+
+  </div>
+</div>
