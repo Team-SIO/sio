@@ -20,7 +20,7 @@
               <%= order.user.try(:name) %>
           </td>
           <td><%= order.try(:ship)%></td>
-          <td><%= order.status %></td>
+        <td><%= order.status_i18n %></td>
           <td><%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
           <td><%= link_to '詳細', admins_order_path(order) %></td>
           <td>

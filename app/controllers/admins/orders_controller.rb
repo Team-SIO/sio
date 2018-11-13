@@ -30,11 +30,11 @@ class Admins::OrdersController < ApplicationController
   end
 
   def undispatched
-  	@orders = Order.where(status: 0).page(params[:page]).per(PER)
+  	@orders = Order.undispatched.page(params[:page]).per(PER)
   end
 
   def dispatched
-  	@orders = Order.where(status: 1).page(params[:page]).per(PER)
+  	@orders = Order.dispatched.page(params[:page]).per(PER)
   end
 
   private

@@ -22,6 +22,7 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :songs, through: :discs
   has_many :favs
+  enum status: %i(on off)
   mount_uploader :image, ImageUploader
   # acts_as_paranoid
 
@@ -36,6 +37,21 @@ class Item < ApplicationRecord
       Item.all #全て表示。
     end
   end
+
+  def stock_kanri
+    if self.stock <= 0
+      self.status = 1
+      self.save
+    end
+  end
+
+  # def mapping
+  #   self.stock.times do |s|
+  #     i = Item.new
+  #     i.stock = i
+  #     puts i
+  #   end
+  # end
 end
 
 

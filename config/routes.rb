@@ -56,9 +56,9 @@ resources :orders, only: [:new, :create, :show,:index]
 	  resource :cart_items, only: [:edit,:update]
   end
 
-	get 'inquiry' => 'inquiry#index'              # 入力画面
-	post 'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
-	post 'inquiry/thanks' => 'inquiry#thanks'     #
+	get 'inquiry' => 'inquiries#index'              # 入力画面
+	post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面
+	post 'inquiry/thanks' => 'inquiries#thanks'     #
 
 
   post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"

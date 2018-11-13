@@ -17,10 +17,7 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:search])
   end
 
-
-
   private
-
    def item_params
     params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id, :image)
    end

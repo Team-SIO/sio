@@ -32,6 +32,8 @@ Rails.application.configure do
       password: ENV['EMAIL_PASSWORD']
   }
 
+
+
   config.action_mailer.perform_caching = false
 
   config.active_support.deprecation = :log

@@ -1,3 +1,4 @@
+<div class="mt-5">
 <%= form_for @order, url: admins_order_path, method: :patch do |a| %>
 	<div class="form-group">
 		<%= a.label :ユーザ名 %>
@@ -9,7 +10,8 @@
 	</div>
 	<div class="form-group">
 		<%= a.label :ステータス %>
-		<%= a.select :status, Order.statuses.keys.to_a, {} %>
-	</div>
+    <%= a.select :status, Order.statuses_i18n.keys.map {|k| [Order.statuses_i18n[k], k]} %>
+        </div>
 	<%= a.submit "完了する", class: "btn btn-info mt-5" %>
 <% end %>
+</div>
