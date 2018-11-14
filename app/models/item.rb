@@ -28,13 +28,12 @@ class Item < ApplicationRecord
 
   validates :artist_id, presence: true
 
-  def self.search(search) #self.でクラスメソッドとしている
-    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Item.where('item_name LIKE ?', "%#{search}%")
+  def self.search(search)
+    if search
+      Item.where('item_name LIKE ?', "%#{search}%") ||
       Item.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
-      # Artist.joins(:items).where(['artist_name LIKE ?', "%#{search}%"])
     else
-      Item.all #全て表示。
+      Item.all
     end
   end
 
