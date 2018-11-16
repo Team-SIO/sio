@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'favs/create'
+  get 'favs/destroy'
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-	
+
 	get '/admintop' => 'home#admin', as: 'admintop'
 
 	resources :items, only: %i(show) do
@@ -43,9 +45,11 @@ Rails.application.routes.draw do
 	resources :users, except: [:index]
 
 	get '/:order_id/thanks' => 'orders#thanks', as: 'thanks'
+
 	
 	resources :genres, only: [:show]
   resources :artists, only: [:index, :show]
+
 
 	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
 

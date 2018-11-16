@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_16_083519) do
+=======
+ActiveRecord::Schema.define(version: 2018_11_16_085836) do
+>>>>>>> 6662940a1392e47503a636a85db0b2ddcd6169b2
 
   create_table "addresses", force: :cascade do |t|
     t.text "ship"
@@ -78,6 +82,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_083519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "item_id"
+    t.integer "favs_count"
     t.index ["item_id"], name: "index_favs_on_item_id"
     t.index ["user_id"], name: "index_favs_on_user_id"
   end
@@ -109,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_083519) do
     t.datetime "deleted_at"
     t.string "image"
     t.integer "status", default: 0
+    t.integer "favs_count"
     t.index ["artist_id"], name: "index_items_on_artist_id"
     t.index ["deleted_at"], name: "index_items_on_deleted_at"
   end
