@@ -21,12 +21,18 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :discs
   has_many :songs, through: :discs
-  has_many :favs
+  has_many :favs, dependent: :destroy
   enum status: %i(on off)
   mount_uploader :image, ImageUploader
   # acts_as_paranoid
 
   validates :artist_id, presence: true
+
+  def fav_user(user_id)
+     favs.find_by(user_id: user_id)
+  end
+
+
 
   def self.search(search)
     if search
@@ -43,6 +49,7 @@ class Item < ApplicationRecord
       self.save
     end
   end
+
 
   # def mapping
   #   self.stock.times do |s|

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'favs/create'
+  get 'favs/destroy'
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-	
+
 	get '/admintop' => 'home#admin', as: 'admintop'
 
 	resources :items, only: %i(index show) do
@@ -43,7 +45,7 @@ Rails.application.routes.draw do
 	resources :users
 
 	get '/:order_id/thanks' => 'orders#thanks', as: 'thanks'
-	
+
 	resources :genres
 	resources :labels
   resources :artists
