@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'favs/create'
+  get 'favs/destroy'
   root 'items#index'
 
 	devise_for :admins, controllers: {
