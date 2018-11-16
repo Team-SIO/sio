@@ -4,8 +4,8 @@ User.seed do |s|
   s.last_name = "Iwagoshi"
   s.birthday = "1995/1/1"
   s.gender = 1
-  s.email = "mondo@gmail.com"
-  s.password = "mondomondo"
+  s.email = "test@test.com"
+  s.password = "password"
 end
 
 User.seed do |s|
@@ -14,8 +14,8 @@ User.seed do |s|
   s.last_name = "Shingai"
   s.birthday = "1995/2/2"
   s.gender = 0
-  s.email = "shingai@gmail.com"
-  s.password = "shingai"
+  s.email = "test1@test.com"
+  s.password = "password"
 end
 
 User.seed do |s|
@@ -24,7 +24,7 @@ User.seed do |s|
   s.last_name = "Ono"
   s.birthday = "1995/3/3"
   s.gender = 0
-  s.email = "ono@gmail.com"
-  s.password = "onoono"
+  s.email = "test2@test.com"
+  s.password = "password"
 end
 

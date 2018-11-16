@@ -1,5 +1,7 @@
 <%= form_for cart_item, url: set_cart_items_path(item, current_user.cart), method: :post do |f| %>
   <%= f.label :枚数 %>
   <%= f.select(:cart_item_count, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5]]) %>
+  <%# mapping = item.stock.downto(1).map{ |s| s } %>
+  <%#= f.collection_select(:item_id, item.mapping, :id, :stock) %>
   <%= f.submit :カートに入れる%>
 <% end %>

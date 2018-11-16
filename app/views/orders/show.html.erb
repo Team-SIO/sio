@@ -1,25 +1,36 @@
+<div class="mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>注文詳細</h2>
+    <div class="panel panel-primary">
 
-<div class="panel panel-primary">
-
-    <div class="panel-heading">
-      <h4>注文詳細</h4>
-      ( <%= @order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>)
-    </div>
-    <div class="panel-body">
-      <% @order_items.each do |order_item| %>
-        <% if order_item.item.image.present? %>
-          <%= image_tag order_item.item.image.thumb.url,size: "100x100" %>
-        <% else %>
-          <%= image_tag "no-image.png", size: "100x100" %>
+      <div class="panel-heading">
+        注文日<br><%= @order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>
+      </div>
+      <div class="panel-body">
+        <% @order_items.each do |order_item| %>
+          <% if order_item.item.image.present? %>
+            <%= image_tag order_item.item.image.thumb.url,size: "100x100" %>
+          <% else %>
+            <%= image_tag "no-image.png", size: "100x100" %>
+          <% end %>
+          <hr>
+          <%= link_to artist_path(order_item.item.artist) do %>
+          <%= order_item.item.artist_name%>
+            <% end  %><br>
+          <%= link_to item_path(order_item.item) do %>
+          <%= order_item.item_name %>
+            <% end %>
+          <br>
+          <%= order_item.item_info %><br>
+          <%= order_item.price%> 円<br>
+          <%= order_item.order_item_count %>枚
+          <hr>
         <% end %>
-        <%= order_item.item.artist_name%><br>
-        <%= order_item.item_name %><br>
-        <%= order_item.item_info %><br>
-        <%= order_item.price%> 円<br>
-        <%= order_item.order_item_count %>枚
-        <hr>
-        <% end %>
+      </div>
+      <br>
     </div>
-    <br>
+  </div>
+  </div>
 </div>
 

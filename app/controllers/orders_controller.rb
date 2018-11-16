@@ -14,8 +14,8 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     if order.save
-      redirect_to thanks_path
-      NotificationMailer.send_confirm_to_user(current_user).deliver
+      redirect_to thanks_path(order)
+       NotificationMailer.send_confirm_to_user(current_user,order).deliver
     end
     cart_items = current_user.cart.cart_items
     cart_items.each do |c| 
@@ -27,13 +27,21 @@ class OrdersController < ApplicationController
       order_item.price = c.item.price
       order_item.order_item_count = c.cart_item_count
       order_item.save
+      c.item.stock = c.item.stock - c.cart_item_count
+      c.item.save
+      c.item.stock_kanri
       c.destroy
     end
+
+  end
+
+  def thanks
+    @order = Order.find(params[:order_id])
   end
 
   private
   def order_params
-    params.permit(:user_id)
+    params.permit(:user_id, :id, :status)
   end
 end
 #  id              :integer          not null, primary key

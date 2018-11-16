@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_075258) do
+ActiveRecord::Schema.define(version: 2018_11_13_141623) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "ship"
@@ -89,10 +89,12 @@ ActiveRecord::Schema.define(version: 2018_11_12_075258) do
   end
 
   create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.text "email"
     t.text "message"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_inquiries_on_user_id"
   end
 
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_075258) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.string "image"
+    t.integer "status", default: 0
     t.index ["artist_id"], name: "index_items_on_artist_id"
     t.index ["deleted_at"], name: "index_items_on_deleted_at"
   end
@@ -135,7 +138,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_075258) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.integer "status"
+    t.integer "status", default: 0
     t.text "ship"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"

@@ -2,9 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="main_thanks col-md-8 col-md-offset-2">
-      <h3>購入が完了しました</h3>
-      <p>詳細をメール<strong><%= @email %></strong>にて送信致しましたのでご確認ください</p>
-
+      <h3>ご購入ありがとうございました</h3>
+      <p>ご入力いただいたメールアドレス <strong><%= @email %></strong>に控えのメールをお送りしています。</p>
+      <p>メールが届かない場合はショップにお問い合わせください。</p>
+      <p>注文番号: <%= 714022.to_s + @order.id.to_s %></p>
     </div>
   </div>
 </div>
