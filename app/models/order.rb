@@ -16,6 +16,7 @@ class Order < ApplicationRecord
   has_many :order_items
   delegate :name, to: :user, allow_nil: true
   enum status:  %i[ undispatched dispatched  ]
+  belongs_to :address
 
   acts_as_paranoid
 end

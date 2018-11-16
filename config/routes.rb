@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 	
 	get '/admintop' => 'home#admin', as: 'admintop'
 
-	resources :items, only: %i(index show) do
+	resources :items, only: %i(show) do
 		collection do
           get 'search' => 'items#search'
     end
@@ -40,21 +40,18 @@ Rails.application.routes.draw do
     		end
   	end
 	end
-	resources :users
+	resources :users, except: [:index]
 
 	get '/:order_id/thanks' => 'orders#thanks', as: 'thanks'
 	
-	resources :genres
-	resources :labels
-  resources :artists
+	resources :genres, only: [:show]
+  resources :artists, only: [:index, :show]
 
 	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
 
-resources :orders, only: [:new, :create, :show,:index]
+ resources :orders, except: [:new]
 
-	resources :carts, except: [:index] do
-	  resource :cart_items, only: [:edit,:update]
-  end
+	resources :carts, except: [:index] 
 
 	get 'inquiry' => 'inquiries#index'              # 入力画面
 	post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面

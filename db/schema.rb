@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_141623) do
+ActiveRecord::Schema.define(version: 2018_11_16_083519) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "ship"
@@ -140,6 +140,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_141623) do
     t.datetime "deleted_at"
     t.integer "status", default: 0
     t.text "ship"
+    t.integer "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
