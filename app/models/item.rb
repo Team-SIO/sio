@@ -22,20 +22,35 @@ class Item < ApplicationRecord
   has_many :discs
   has_many :songs, through: :discs
   has_many :favs
+  enum status: %i(on off)
   mount_uploader :image, ImageUploader
-  acts_as_paranoid
+  # acts_as_paranoid
 
   validates :artist_id, presence: true
 
-  def self.search(search) #self.でクラスメソッドとしている
-    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Item.where('item_name LIKE ?', "%#{search}%")
+  def self.search(search)
+    if search
+      Item.where('item_name LIKE ?', "%#{search}%") ||
       Item.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
-      # Artist.joins(:items).where(['artist_name LIKE ?', "%#{search}%"])
     else
-      Item.all #全て表示。
+      Item.all
     end
   end
+
+  def stock_kanri
+    if self.stock <= 0
+      self.status = 1
+      self.save
+    end
+  end
+
+  # def mapping
+  #   self.stock.times do |s|
+  #     i = Item.new
+  #     i.stock = i
+  #     puts i
+  #   end
+  # end
 end
 
 

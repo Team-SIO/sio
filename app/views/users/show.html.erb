@@ -9,6 +9,7 @@
       <th scope="col">性別</th>
       <th scope="col">メールアドレス</th>
       <th scope="col"></th>
+      <th scope="col"></th> 
       <th scope="col"></th>
     </tr>
   </thead>
@@ -17,9 +18,10 @@
       <td> <%= @user.first_name %></td>
       <td> <%= @user.last_name %></td>
       <td><%= @user.gender %></td>
-      <td><%= @user.email %>円</td>
-      <td></td>
-      <td></td>
+      <td><%= @user.email %></td>
+      <td><%= @user.addresses.first.try(:ship) %></td>
+      <td><%= @user.addresses.first.try(:zip) %></td>
+      <td><%= @user.addresses.first.try(:phone) %></td>
    </tr>
 
   </tbody>

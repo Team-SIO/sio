@@ -1,0 +1,14 @@
+<div class="genre">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        ジャンルで選ぶ
+      </div>
+      <div class="panel-body">
+        <% Genre.all.each do |genre| %>
+          <%= link_to genre_path(genre) do %>
+        <%= genre.genre_name %>
+            <% end %>
+          <hr>
+        <% end %>
+      </div>
+  </div>

@@ -7,10 +7,12 @@ class Admins::ItemsController < ApplicationController
   end
   def new
      @item = Item.new
+
      # @artist = @item.artist.build
   end
   def create
      item = Item.new(item_params)
+     # @item.stock_kanri
      @artist = Artist.find_or_create_by(artist_name: params[:item][:artist_name])
      item.artist_id  = @artist.id
     if item.save

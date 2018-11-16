@@ -7,7 +7,7 @@
 		送り先:<%= @order.ship %>
 	</div>
 	<div class="panel-body">
-		状態:<%= @order.status %>
+		状態:<%= @order.status_i18n %>
 	</div>
 	<div class="panel-body">
 	  注文時間: <%= @order.created_at.strftime('%Y年%m月%d日 %H:%M') %>

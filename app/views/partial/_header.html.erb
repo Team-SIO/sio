@@ -2,7 +2,7 @@
   <div class="large">
         <div class="navitem-l">
           <%= link_to root_path do %>
-            <h2 class="fas fa-headphones music">Music</h2>
+            <h2 class="fas fa-headphones music logo">Music</h2>
             <% end %>
             <div class="f-box">
               <%= render 'items/list' %>
@@ -17,6 +17,9 @@
             </li>
             <li class= "nav-r">
               <%= link_to "cart", cart_path(current_user.cart) %>
+            </li>
+            <li class= "nav-r">
+              <%= link_to "注文履歴", orders_path %>
             </li>
           <% else %>
             <li class="nav-r">

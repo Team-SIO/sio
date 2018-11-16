@@ -1,12 +1,7 @@
 <%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
-
-
-<div class="container">
-
-
- <h1 class="mt-5">商品一覧</h1>
-  <div class="mt-2">
-     <table class="table table-hover">
+<div class="container top">
+ <div class="mt-5">
+   <table class="table table-hover">
      <thead>
       <tr>
         <th scope="col">画像</th>
@@ -15,31 +10,41 @@
         <th scope="col">情報</th>
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
-        <th scope="col">
-           カートに入れる</th>
       </tr>
     </thead>
     <% @items.each do |item|%>
     <tbody>
       <tr>
+
         <% if item.image.present? %>
-            <td> <%= link_to item_path(item.id) do %>
-              <%= image_tag item.image.thumb.url,size: "200x200" %> <% end %></td>
-          <% else %>
-            <td> <%= image_tag "no-image.png",size: "200x200" %></td>
+        <td>
+           <%= link_to item_path(item) do %>
+             <%= image_tag item.image.thumb.url,size: "200x200" %>
           <% end %>
-         <td>
-              <%= item.try(:artist_name) %>
+        </td>
+       <% else %>
+          <td>
+            <%= link_to item_path(item) do %>
+              <%= image_tag "no-image.png",size: "200x200" %>
+             <% end %>
+         </td>
+
+    <% end %>
+          <td>
+            <%= link_to artist_path(item.artist) do %>
+             <%= item.try(:artist_name) %>
+            <% end %>
           </td>
+
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-           <td><%= link_to "カートに入れる",  carts_path(cart_item: {cart_id: @cart.id, item_id: item.id}), method: :post %>
-           </td>
         </tr>
       </tbody>
       <% end %>
     </table>
- </div>
+  </div>
 </div>
+
+<%= render "genre" %>

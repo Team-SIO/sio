@@ -1,0 +1,56 @@
+<div class="mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>購入履歴</h2>
+      <div class="panel panel-primary">
+        <% @orders.each_with_index do |order, index| %>
+
+          <div class="panel-heading">
+            <%= link_to order_path(order), {style: "color: #fff"} do %>
+              購入履歴 <%= index + 1 %>
+<!--              (注文日:<%#= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>)-->
+            <% end %>
+          </div>
+
+          <% @order_items = order.order_items %>
+          <% @order_items.each do |order_item| %>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <% if order_item.item.image.present? %>
+                  <%= link_to order_item.item do %>
+                    <%= image_tag order_item.item.image.thumb.url,size: "100x100" %>
+                  <% end %>
+                <% else %>
+                  <%= link_to order_item.item do %>
+                    <%= image_tag "no-image.png", size: "100x100" %>
+                  <% end %>
+                <% end %>
+            </div>
+            <div class="col-md-8">
+              <%= link_to artist_path(order_item.item.artist) do %>
+              <%= order_item.item.artist_name%>
+                <% end %>
+              <br>
+              <%= link_to item_path(order_item.item) do %>
+              <%= order_item.item_name %>
+                <% end %> <br>
+              <%= order_item.item_info %><br>
+              <%= order_item.price%> 円<br>
+              <%= order_item.order_item_count %>枚
+            </div>
+            </div>
+              <hr>
+            注文日 <br>
+            <%= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>
+            <% end %>
+          </div>
+          <br>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

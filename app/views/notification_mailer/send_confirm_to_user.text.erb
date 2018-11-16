@@ -1,0 +1,17 @@
+<%= @user.name %>様
+お世話になっております。
+オンラインショップ SIOでの購入手続きがが完了しました。
+注文詳細はこちら
+<%= @url %>
+
+<%= @order_items.each do | order_item | %>
+  <%= order_item.item_name %><br>
+  <%= order_item.item.artist_name%><br>
+  <%= order_item.item_name %><br>
+  <%= order_item.item_info %><br>
+  <%= order_item.price%> 円<br>
+  <%= order_item.order_item_count %>枚
+<% end %>
+
+
+

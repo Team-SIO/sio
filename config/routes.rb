@@ -42,14 +42,25 @@ Rails.application.routes.draw do
 	end
 	resources :users
 
-	get '/complete' => 'carts#complete', as: 'complete'
+	get '/:order_id/thanks' => 'orders#thanks', as: 'thanks'
 
-	resources :genres, only: [:show]
-	resources :labels, only: [:show]
+	resources :genres
+	resources :labels
+  resources :artists
 
-	resources :carts, only: [:show, :create] do
-	    resource :cart_items, only: [:edit,:update, :destroy, :create]
-	    resources :orders
-	end
+	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
+
+resources :orders, only: [:new, :create, :show,:index]
+
+	resources :carts, except: [:index] do
+	  resource :cart_items, only: [:edit,:update]
+  end
+
+	get 'inquiry' => 'inquiries#index'              # 入力画面
+	post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面
+	post 'inquiry/thanks' => 'inquiries#thanks'     #
+
+
+  post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"
 
 end

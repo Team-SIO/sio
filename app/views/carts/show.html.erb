@@ -1,7 +1,57 @@
-<h1>Cart</h1>
-<% if @cart_items.present? %>
-<% @cart_items.each do |cart_item| %>
-  <%= cart_item.item.item_name %>
-<% end %>
-<% end %>
+<div class="mt-5">
+<div class="row">
+  <div class="col-md-6">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        カートの中身
+      </div>
+
+
+      <% if @cart_items.present? %>
+        <% @cart_items.each do |cart_item| %>
+          <% if cart_item.item.image.present? %>
+            <%= image_tag cart_item.item.image.thumb.url,size: "100x100" %>
+          <% end %>
+          <div class="panel-body">
+            <%= link_to artist_path(cart_item.item.artist) do %>
+              <%= cart_item.item.artist_name %>
+              <% end %>
+          </div>
+          <div class="panel-body">
+            <%= link_to item_path(cart_item.item) do %>
+          <%= cart_item.item.item_name %>
+              <% end %>
+          </div>
+          <div class="panel-body">
+          <%= cart_item.cart_item_count %>枚
+          </div>
+          <%= link_to "削除する",  delete_cart_item_path(cart: {id: current_user.cart.id}, cart_item: {id: cart_item.id}),class: "ml-1", method: :delete %>
+          <hr>
+        <% end %>
+        <% else %>
+          <div class="panel-body">
+            <p> カートの中身はありません。</p>
+          </div>
+
+
+        </div>
+      <% end %>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          住所を選択
+        </div>
+        <div class="panel-body">
+
+        </div>
+      </div>
+
+      <% if @cart_items.present? %>
+        <%= link_to "購入する", orders_path(user_id: current_user.id),class: "btn btn-primary ml-1",method: :post %>
+      <% end %>
+
+  </div>
+</div>
+  </div>
 
