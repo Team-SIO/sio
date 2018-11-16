@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <div class="mt-2">
 <table class="table table-hover">
      <thead>
@@ -42,5 +45,19 @@
     </tbody>
 </table>
 </div>
+<div class="row">
+  <div class="col-md-4">
+    <% @item.songs.each do |song| %>
+      <%= song.song_name %>
+      <hr>
+    <% end %>
+  </div>
 
+<div class="col-md-5">
+
+</div>
+  <div class="col-md-3">
 <%= link_to "商品一覧へ", items_path,class: "btn btn-info" %>
+  </div>
+</div>
+</div>

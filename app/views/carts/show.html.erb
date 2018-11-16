@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="mt-5">
 <div class="row">
   <div class="col-md-6">
 
@@ -14,10 +14,14 @@
             <%= image_tag cart_item.item.image.thumb.url,size: "100x100" %>
           <% end %>
           <div class="panel-body">
-          <%= cart_item.item.artist_name %>
+            <%= link_to artist_path(cart_item.item.artist) do %>
+              <%= cart_item.item.artist_name %>
+              <% end %>
           </div>
           <div class="panel-body">
+            <%= link_to item_path(cart_item.item) do %>
           <%= cart_item.item.item_name %>
+              <% end %>
           </div>
           <div class="panel-body">
           <%= cart_item.cart_item_count %>枚

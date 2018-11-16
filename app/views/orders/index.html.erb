@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="mt-5">
   <div class="row">
     <div class="col-md-8">
       <h2>購入履歴</h2>
@@ -28,8 +28,13 @@
                 <% end %>
             </div>
             <div class="col-md-8">
-              <%= order_item.item.artist_name%><br>
-              <%= order_item.item_name %><br>
+              <%= link_to artist_path(order_item.item.artist) do %>
+              <%= order_item.item.artist_name%>
+                <% end %>
+              <br>
+              <%= link_to item_path(order_item.item) do %>
+              <%= order_item.item_name %>
+                <% end %> <br>
               <%= order_item.item_info %><br>
               <%= order_item.price%> 円<br>
               <%= order_item.order_item_count %>枚
