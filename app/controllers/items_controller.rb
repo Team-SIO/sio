@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
   end
   def show
   	@item = Item.find(params[:id])
-  	@disc = @item.discs.take
     @cart_item = CartItem.new
     @cart_item.item = @item
   end
@@ -18,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
    def item_params
     params.require(:item).permit(:item_name,:item_info,:price,:stock, :artist_id, :image)
    end

@@ -1,7 +1,6 @@
 <%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
-<div class="container">
- <h1 class="mt-5">商品一覧</h1>
- <div class="mt-2">
+<div class="container top">
+ <div class="mt-5">
    <table class="table table-hover">
      <thead>
       <tr>
@@ -16,15 +15,15 @@
     <% @items.each do |item|%>
     <tbody>
       <tr>
-      
+
         <% if item.image.present? %>
-        <td> 
+        <td>
            <%= link_to item_path(item) do %>
              <%= image_tag item.image.thumb.url,size: "200x200" %>
           <% end %>
         </td>
        <% else %>
-          <td> 
+          <td>
             <%= link_to item_path(item) do %>
               <%= image_tag "no-image.png",size: "200x200" %>
              <% end %>
@@ -41,6 +40,7 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
+          <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'partial/favs', locals: { item: item, likes: @favs} %></div></td>
         </tr>
       </tbody>
       <% end %>

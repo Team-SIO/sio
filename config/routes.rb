@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'favs/create'
+  get 'favs/destroy'
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -12,10 +14,10 @@ Rails.application.routes.draw do
 	  passwords:     'users/passwords',
 	  registrations: 'users/registrations'
 	}
-	
+
 	get '/admintop' => 'home#admin', as: 'admintop'
 
-	resources :items, only: %i(index show) do
+	resources :items, only: %i(show) do
 		collection do
           get 'search' => 'items#search'
     end
@@ -40,20 +42,25 @@ Rails.application.routes.draw do
     		end
   	end
 	end
-	resources :users
+	resources :users, except: [:index]
 
-	get '/thanks' => 'orders#thanks', as: 'thanks'
+	get '/:order_id/thanks' => 'orders#thanks', as: 'thanks'
+
 	
-	resources :genres
-	resources :labels
-  resources :artists
+	resources :genres, only: [:show]
+  resources :artists, only: [:index, :show]
 
 
-resources :orders, only: [:new, :create, :show,:index]
+	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
 
-	resources :carts, except: [:index] do
-	  resource :cart_items, only: [:edit,:update, :destroy]
-	end
+ resources :orders, except: [:new]
+
+	resources :carts, except: [:index] 
+
+	get 'inquiry' => 'inquiries#index'              # 入力画面
+	post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面
+	post 'inquiry/thanks' => 'inquiries#thanks'     #
+
 
   post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"
 

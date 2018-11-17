@@ -10,6 +10,6 @@
 #
 
 class Fav < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :item, dependent: :destroy
+  belongs_to :user
+  belongs_to :item
 end

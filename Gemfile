@@ -24,6 +24,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
+gem 'enum_help'
+# gem 'bxslider-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
