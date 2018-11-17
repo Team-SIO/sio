@@ -45,13 +45,15 @@
           <%= current_user.addresses.first.ship %><br>
           <%= current_user.addresses.first.zip %><br>
           <%= current_user.addresses.first.phone %>
-            <% end %>
         </div>
       </div>
+         <% if @cart_items.present? %>
+            <%= link_to "購入する", orders_path(user_id: current_user.id, address_id: current_user.addresses.first.id), class: "btn btn-primary ml-1",method: :post %>
+         <% end %>
+          <% else %>
+            <p>住所を登録してください</p>
 
-      <% if @cart_items.present? %>
-        <%= link_to "購入する", orders_path(user_id: current_user.id, address_id: current_user.addresses.first.id), class: "btn btn-primary ml-1",method: :post %>
-      <% end %>
+          <% end %>
   </div>
 </div>
   </div>
