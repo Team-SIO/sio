@@ -13,6 +13,7 @@
 
 class Address < ApplicationRecord
   belongs_to :user, inverse_of: :addresses
+  has_many :orders
 
   # validates :ship, length: { maximum: 50 }
   # validates :zip, length: { is: 7 }     

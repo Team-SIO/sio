@@ -142,6 +142,8 @@ ActiveRecord::Schema.define(version: 2018_11_16_085836) do
     t.datetime "deleted_at"
     t.integer "status", default: 0
     t.text "ship"
+    t.integer "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

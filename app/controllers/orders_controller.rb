@@ -3,8 +3,6 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders.all
-
-
   end
 
   def show
@@ -41,7 +39,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:user_id, :id, :status)
+    params.permit(:user_id, :id, :status, :address_id)
   end
 end
 #  id              :integer          not null, primary key

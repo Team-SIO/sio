@@ -33,8 +33,6 @@
           <div class="panel-body">
             <p> カートの中身はありません。</p>
           </div>
-
-
         </div>
       <% end %>
 
@@ -43,14 +41,15 @@
           住所を選択
         </div>
         <div class="panel-body">
-
+          <%= current_user.addresses.first.ship %><br>
+          <%= current_user.addresses.first.zip %><br>
+          <%= current_user.addresses.first.phone %>
         </div>
       </div>
 
       <% if @cart_items.present? %>
-        <%= link_to "購入する", orders_path(user_id: current_user.id),class: "btn btn-primary ml-1",method: :post %>
+        <%= link_to "購入する", orders_path(user_id: current_user.id, address_id: current_user.addresses.first.id), class: "btn btn-primary ml-1",method: :post %>
       <% end %>
-
   </div>
 </div>
   </div>
