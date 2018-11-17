@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  item_id    :integer
+#  favs_count :integer
 #
 
 class Fav < ApplicationRecord

@@ -4,13 +4,21 @@
     <div class="row">
     <div class="col-md-4">
           <%= form_for @user do |f| %>
-
             <%= f.label :名前 %>
             <%= f.text_field :first_name, class: "form-control"%>
-             <%= f.label :苗字 %>
-          <%= f.text_field :last_name, class: "form-control"%>
-           <%= f.label :メール %>
-          <td><%= f.text_field :email, class: "form-control" %>
+            <%= f.label :苗字 %>
+            <%= f.text_field :last_name, class: "form-control"%>
+            <%= f.label :メール %><br>
+            <%= f.text_field :email, class: "form-control" %> <br>
+             <%= f.label :性別 %><br>
+             <%= f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]} %><br>
+            <br>
+            <%= f.label :生年月日 %><br>
+            <%= f.date_select(
+               :birthday,
+                start_year: 1930,
+                end_year:   (Time.now.year - 10),
+                default:    Date.new(1989, 1, 1)) %>
     </div>
     </div>
     <div class="row">

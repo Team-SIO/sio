@@ -57,7 +57,7 @@ Rails.application.routes.draw do
 
 	resources :carts, except: [:index] 
 
-	get 'inquiry' => 'inquiries#index'              # 入力画面
+	get 'inquiry' => 'inquiries#index', as: "inquiry"              # 入力画面
 	post 'inquiry/confirm' => 'inquiries#confirm'   # 確認画面
 	post 'inquiry/thanks' => 'inquiries#thanks'     #
 

@@ -12,7 +12,10 @@
 #  updated_at :datetime         not null
 #  deleted_at :datetime
 #  image      :string
+#  status     :integer          default("on")
+#  favs_count :integer
 #
+
 class Item < ApplicationRecord
   belongs_to :artist
   delegate :artist_name, to: :artist, allow_nil: true
