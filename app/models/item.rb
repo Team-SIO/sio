@@ -38,7 +38,6 @@ class Item < ApplicationRecord
     Item.all
     if search
      a = self.where('item_name LIKE ?', "%#{search}%")
-
      b = self.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
     a | b #天才だわ
    end
@@ -46,7 +45,7 @@ class Item < ApplicationRecord
 
   def stock_kanri
     if self.stock <= 0
-      self.status = 1
+      self.on!
       self.save
     end
   end

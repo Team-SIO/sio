@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   end
   def show
     @artist = Artist.find(params[:id])
-    @items = @artist.items.on
+    @items = @artist.items
 
     @cart_item = CartItem.new
   end
