@@ -38,12 +38,14 @@
 
       <div class="panel panel-primary">
         <div class="panel-heading">
-          住所を選択
+          住所
         </div>
         <div class="panel-body">
+          <% if current_user.addresses.any? %>
           <%= current_user.addresses.first.ship %><br>
           <%= current_user.addresses.first.zip %><br>
           <%= current_user.addresses.first.phone %>
+            <% end %>
         </div>
       </div>
 

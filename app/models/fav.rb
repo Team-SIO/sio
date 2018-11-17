@@ -11,5 +11,5 @@
 
 class Fav < ApplicationRecord
   belongs_to :user
-  belongs_to :item
+  belongs_to :item,counter_cache: :favs_count
 end
