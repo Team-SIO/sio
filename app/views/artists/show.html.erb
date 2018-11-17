@@ -16,14 +16,9 @@
       <td><%= @artist.try(:artist_info) %></td>
       <td><%= @artist.try(:genre_name)%></td>
       <td><%= @artist.try(:label_name)%></td>
-
     </tr>
-
     </tbody>
-
   </table>
-
-
   <div class="mt-5">
     <% if @items.present? %>
       <% @items.each do |item| %>
@@ -56,5 +51,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>

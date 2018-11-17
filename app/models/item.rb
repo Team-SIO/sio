@@ -13,7 +13,6 @@
 #  deleted_at :datetime
 #  image      :string
 #
-
 class Item < ApplicationRecord
   belongs_to :artist
   delegate :artist_name, to: :artist, allow_nil: true
@@ -32,8 +31,6 @@ class Item < ApplicationRecord
      favs.find_by(user_id: user_id)
   end
 
-
-
   def self.search(search)
     if search
       Item.where('item_name LIKE ?', "%#{search}%") ||
@@ -50,14 +47,6 @@ class Item < ApplicationRecord
     end
   end
 
-
-  # def mapping
-  #   self.stock.times do |s|
-  #     i = Item.new
-  #     i.stock = i
-  #     puts i
-  #   end
-  # end
 end
 
 
