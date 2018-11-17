@@ -35,12 +35,13 @@ class Item < ApplicationRecord
   end
 
   def self.search(search)
+    Item.all
     if search
-      Item.where('item_name LIKE ?', "%#{search}%") ||
-      Item.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
-    else
-      Item.all
-    end
+     a = self.where('item_name LIKE ?', "%#{search}%")
+
+     b = self.joins(:artist).where('artist_name LIKE ?', "%#{search}%")
+    a | b #天才だわ
+   end
   end
 
   def stock_kanri
@@ -49,7 +50,6 @@ class Item < ApplicationRecord
       self.save
     end
   end
-
 end
 
 
