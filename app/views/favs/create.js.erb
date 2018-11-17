@@ -1,1 +1,2 @@
-("#fav-buttons").html("<%= j(render partial: 'fav', locals: { items: @items, favs: @favs, fav: @fav}) %>")
+
+$('#favs_buttons_<%= @item.id %>').html("<%= j(render partial: 'favs/favs', locals: {item: @item}) %>");

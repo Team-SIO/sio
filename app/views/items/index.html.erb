@@ -40,7 +40,7 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-          <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'partial/favs', locals: { item: item, likes: @favs} %></div></td>
+          <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'favs/favs', locals: { item: item, likes: @favs} %></div></td>
         </tr>
       </tbody>
       <% end %>
