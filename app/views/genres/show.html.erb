@@ -1,14 +1,14 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <%= @genre.genre_name %>
-  </div>
-<div class="panel-body">
-
-  <% @artists.each do |artist| %>
-    <%= link_to artist_path(artist) do %>
-    <%= artist.artist_name %>
+<div class="mt-5">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <%= @genre.genre_name %>
+    </div>
+    <div class="panel-body">
+      <% @artists.each do |artist| %>
+      <%= link_to artist_path(artist) do %>
+      <%= artist.artist_name %>
       <% end  %>
-    <hr>
-  <% end %>
-
+      <hr>
+      <% end %>
+  </div>    
 </div>

@@ -12,6 +12,8 @@
 #  updated_at :datetime         not null
 #  deleted_at :datetime
 #  image      :string
+#  status     :integer          default("on")
+#  favs_count :integer
 #
 
 class Item < ApplicationRecord
@@ -32,8 +34,6 @@ class Item < ApplicationRecord
      favs.find_by(user_id: user_id)
   end
 
-
-
   def self.search(search)
     if search
       Item.where('item_name LIKE ?', "%#{search}%") ||
@@ -50,14 +50,6 @@ class Item < ApplicationRecord
     end
   end
 
-
-  # def mapping
-  #   self.stock.times do |s|
-  #     i = Item.new
-  #     i.stock = i
-  #     puts i
-  #   end
-  # end
 end
 
 

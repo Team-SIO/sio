@@ -18,3 +18,10 @@ Admin.seed do |s|
   s.email = "ono@gmail.com"
   s.password = "onoono"
 end
+
+Admin.seed do |s|
+  s.id = 4
+  s.admin_name = "test"
+  s.email = "test@test.com"
+  s.password = "password"
+end

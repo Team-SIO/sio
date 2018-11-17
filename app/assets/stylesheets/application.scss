@@ -8,8 +8,7 @@
 @import "registrations";
 @import "thanks";
 @import "order";
-
-
+@import "footer";
 
 .one{
 	background: red;
@@ -23,4 +22,12 @@
 	height: 200px;
 	position: absolute;
 	top: 30%
+}
+.clearfix:after{
+  content: "."; 
+  display: block; 
+  height: 0; 
+  font-size:0;  
+  clear: both; 
+  visibility:hidden;
 }

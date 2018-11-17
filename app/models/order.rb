@@ -7,8 +7,9 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  deleted_at :datetime
-#  status     :integer
+#  status     :integer          default("undispatched")
 #  ship       :text
+#  address_id :integer
 #
 
 class Order < ApplicationRecord

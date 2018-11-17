@@ -35,7 +35,6 @@
              <%= item.try(:artist_name) %>
             <% end %>
           </td>
-
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
@@ -47,5 +46,5 @@
     </table>
   </div>
 </div>
-
 <%= render "genre" %>
+<%= render 'partial/footer' %>

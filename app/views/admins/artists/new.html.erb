@@ -1,6 +1,5 @@
 <div class="mt-5">
 	<%= form_for @artist, url: admins_artists_path do |f| %>
-
 		<div class="form-group">
 			<%= f.label :アーティスト名 %>
 			<%= f.text_field :artist_name, class: "form-control" %>
@@ -9,7 +8,6 @@
 			<%= f.label :アーティスト情報 %>
 			<%= f.text_area :artist_info, class: "form-control" %>
 		</div>
-
 		<div class="form-group">
 			<%= f.label :レーベル%>
 			<%= f.collection_select :label_id, Label.all, :id, :label_name , :prompt => "選択してください",class: "form-control"%>
@@ -25,6 +23,3 @@
 <div class="text-right">
 	<%=link_to "戻る", admintop_path ,class: "back"%>
 </div>
-
-
-

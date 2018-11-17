@@ -19,6 +19,7 @@
       <td> <%= @user.last_name %></td>
       <td><%= @user.gender %></td>
       <td><%= @user.email %></td>
+      <td><%= @user.try(:birthday).strftime("%Y年%m月%d日") %></td>
       <td><%= @user.addresses.first.try(:ship) %></td>
       <td><%= @user.addresses.first.try(:zip) %></td>
       <td><%= @user.addresses.first.try(:phone) %></td>
