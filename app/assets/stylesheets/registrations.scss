@@ -48,3 +48,34 @@
 	margin-top: 5px;
 	color: black;
 }
+
+.login2{
+	margin: 0 auto;
+	width: 20%;
+	height: auto;
+	padding: 20px;
+	text-align: center;
+	border-radius: 35px;
+	background-color: #29cfff;
+}
+
+.box{
+	background-color: white;
+	border: none;
+	color: gray;
+  	border-radius:10px;
+  	box-shadow: none;
+  	padding: 2px 8px;
+}
+
+.box:focus {
+  	outline: none;
+}
+
+b{
+	color:white;
+}
+
+.field{
+	color: white;
+}
