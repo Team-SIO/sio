@@ -15,19 +15,22 @@
         <%= render "items/list" %>
     </div>
 
+      <ul class="nav navbar-nav nav_left">
+        <li><%= link_to "ランキング", ranking_path %></li>
+      </ul>
+
+
     <div class="collapse navbar-collapse nav_right" id="navbarEexample3">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
         <li><%= link_to "カート",cart_path(current_user) %></li>
-        <li><%= link_to "ランキング", ranking_path %></li>
+
         <li><%= link_to "マイページ", user_path(current_user) %></li>
         <li><%= link_to "購入履歴", orders_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <% else %>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><%= link_to "新規登録",new_user_registration_path %></li>
-          <li><%= link_to "ランキング",ranking_path %></li>
-
       <% end %>
       </ul>
     </div>
