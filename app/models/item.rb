@@ -34,6 +34,10 @@ class Item < ApplicationRecord
      favs.find_by(user_id: user_id)
   end
 
+  def item_fav(user_id)
+    Item.where
+  end
+
   def self.search(search)
     Item.all
     if search

@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, :validate_user!
 
 	def show
-		@user = current_user
 	end
 	def edit
-		@user = current_user
     @address = @user.addresses.new
     @address = Address.find_or_initialize_by(user_id: @user.id)
   end
@@ -24,5 +22,10 @@ class UsersController < ApplicationController
 	private
 	def user_params
     params.require(:user).permit(:first_name, :last_name, :gender, :birthday, :email, addresses_attributes: [:id, :ship, :zip, :phone, :_destroy])
+	end
+	def validate_user!
+		@user = current_user
+		@params_user = User.find(params[:id])
+		redirect_to @user if @params_user != @user
 	end
 end

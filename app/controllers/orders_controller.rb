@@ -41,6 +41,10 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:user_id, :id, :status, :address_id)
   end
+  def validate_order!
+    @order = current_user.orders
+
+  end
 end
 #  id              :integer          not null, primary key
 #  cart_id         :integer
