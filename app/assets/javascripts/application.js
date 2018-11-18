@@ -24,3 +24,8 @@ $(document).ready(function(){
 	},1000);
 });
 
+$(document).ready(function(){
+    $(".navbar-nav li").click(function(){
+        $(this).addClass("active");
+    });
+});

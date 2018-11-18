@@ -1,4 +1,3 @@
-<%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
 <div class="container top">
  <div class="mt-5">
    <table class="table table-hover">
@@ -15,7 +14,6 @@
     <% @items.each do |item|%>
     <tbody>
       <tr>
-
         <% if item.image.present? %>
         <td>
            <%= link_to item_path(item) do %>
@@ -51,4 +49,6 @@
   </div>
 </div>
 <%= render "genre" %>
+</div>
+<div>#このdivタグはあえて置いてます(application.html.ernのcontainerの関係で)
 <%= render 'partial/footer' %>

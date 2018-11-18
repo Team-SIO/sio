@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 	
 	resources :genres, only: [:show]
   resources :artists, only: [:index, :show]
-  get "/ranking" => "ranking#index"
+  get "/ranking" => "ranking#index", as: "ranking"
 
 
 	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
