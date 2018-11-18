@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
       order_item.item_info = c.item.item_info
       order_item.price = c.item.price
       order_item.order_item_count = c.cart_item_count
+      order_item.image = c.item.image
       order_item.save
       c.item.stock = c.item.stock - c.cart_item_count
       c.item.save

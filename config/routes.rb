@@ -24,8 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/myfav' => 'favs#my_fav'
-
+  get '/myfav' => 'favs#my_fav', as: "myfav"
 
 	namespace :admins do
 		resources :orders do 

@@ -1,9 +1,11 @@
-<div class="container top">
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
   <div class="mt-5">
     <table class="table table-hover">
       <h3>いいねランキング</h3>
       <thead>
       <tr>
+        <th scope="col">順位</th>
         <th scope="col">画像</th>
         <th scope="col">アーティスト名</th>
         <th scope="col">タイトル</th>
@@ -12,10 +14,10 @@
         <th scope="col">在庫</th>
       </tr>
       </thead>
-      <% @items.each do |item|%>
+      <% @items.each_with_index do |item, idx|%>
         <tbody>
         <tr>
-
+          <td><%= "#{idx + 1}位" %></td>
           <% if item.image.present? %>
             <td>
               <%= link_to item_path(item) do %>
@@ -39,10 +41,11 @@
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
           <td><%= item.try(:stock) %></td>
-          <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'favs/favs', locals: { item: item, likes: @favs} %></div></td>
         </tr>
         </tbody>
       <% end %>
     </table>
+
+  </div>
   </div>
 </div>

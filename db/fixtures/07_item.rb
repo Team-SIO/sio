@@ -5,6 +5,7 @@ Item.seed do |s|
   s.price = 1000
   s.stock = 50
   s.artist_id = 1
+  s.image = Rails.root.join("db/fixtures/images/james-stamler-153487-unsplash.jpg").open
 end
 
 Item.seed do |s|
@@ -14,6 +15,7 @@ Item.seed do |s|
   s.price = 3000
   s.stock = 80
   s.artist_id = 2
+  s.image = Rails.root.join("db/fixtures/images/james-stamler-153487-unsplash.jpg").open
 end
 
 Item.seed do |s|
@@ -23,6 +25,7 @@ Item.seed do |s|
   s.price = 3000
   s.stock = 100
   s.artist_id = 3
+  s.image = Rails.root.join("db/fixtures/images/james-stamler-153487-unsplash.jpg").open
 end
 
 Item.seed do |s|
@@ -32,6 +35,7 @@ Item.seed do |s|
   s.price = 3500
   s.stock = 150
   s.artist_id = 4
+  s.image = Rails.root.join("db/fixtures/images/james-stamler-153487-unsplash.jpg").open
 end
 
 Item.seed do |s|
@@ -41,6 +45,7 @@ Item.seed do |s|
   s.price = 3200
   s.stock = 40
   s.artist_id = 5
+  s.image = Rails.root.join("db/fixtures/images/james-stamler-153487-unsplash.jpg").open
 end
 
 

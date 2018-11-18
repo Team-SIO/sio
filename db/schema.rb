@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_16_085836) do
+ActiveRecord::Schema.define(version: 2018_11_18_143458) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "ship"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_085836) do
     t.string "item_name"
     t.text "item_info"
     t.integer "price"
+    t.string "image"
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-  	@items = Item.all
+  	@items = Item.order("created_at desc").limit(10)
     if user_signed_in? 
       @cart = current_user.cart
     end

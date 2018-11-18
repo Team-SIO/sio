@@ -11,7 +11,9 @@
         <th scope="col">情報</th>
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
+        <% if user_signed_in? %>
         <th scope="col">カートに入れる</th>
+          <% end %>
       </tr>
     </thead>
     <tbody>
@@ -25,20 +27,22 @@
         </td>
 
         <td>
-		アーティスト名:<%= @item.artist_name %>
+          <%= link_to artist_path(@item.artist) do%>
+	          	<%= @item.artist_name %>
+          <% end %>
 	</td>
 	<td>
-		アルバム名:<%= @item.item_name %>
+		<%= @item.item_name %>
 	</td>
 	<td>
-		情報:<%= @item.item_info %>
+		<%= @item.item_info %>
 	</td>
 	<td>
-		価格:<%= @item.price %>円
+		<%= @item.price %>円
 	</td>
         <% if @item.on? %>
 	     <td>
-	    	在庫:<%= @item.stock %>枚
+	    	<%= @item.stock %>枚
 	     </td>
         <% else %>
           <td>
@@ -48,7 +52,7 @@
     <td>
       <% if @item.on? %>
     <%= render "form", cart_item: @cart_item, item: @item %>
-        <% end %>
+          <% end %>
   </td>
       </tr>
     </tbody>
