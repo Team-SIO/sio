@@ -38,7 +38,11 @@
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
+        <% if item.on? %>
           <td><%= item.try(:stock) %></td>
+          <% else %>
+        <td class="shinagire">品切れ中</td>
+          <% end %>
           <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'favs/favs', locals: { item: item, likes: @favs} %></div></td>
         </tr>
       </tbody>
