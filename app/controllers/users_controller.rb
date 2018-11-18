@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def show
 	end
 	def edit
-    @address = @user.addresses.new
+    @address = @user.addresses.build
     @address = Address.find_or_initialize_by(user_id: @user.id)
   end
 	def index
@@ -12,6 +12,12 @@ class UsersController < ApplicationController
 	def update
 	  @user = User.find(params[:id])
     @user.update(user_params)
+		@user.addresses.each do | address |
+			if address.ship.empty?
+				address.destroy
+			end
+			address.save
+		end
     if @user.save
     redirect_to user_path(@user.id)
     else

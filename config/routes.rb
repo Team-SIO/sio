@@ -64,4 +64,5 @@ Rails.application.routes.draw do
 
   post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"
 
+	get '*path', controller: 'application', action: 'render_404'
 end
