@@ -12,6 +12,7 @@
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
         <% if user_signed_in? %>
+          <th scope="col">枚数</th>
         <th scope="col">カートに入れる</th>
           <% end %>
       </tr>
@@ -53,7 +54,7 @@
       <% if @item.on? %>
     <%= render "form", cart_item: @cart_item, item: @item %>
           <% end %>
-  </td>
+    </td>
       </tr>
     </tbody>
 </table>
