@@ -6,11 +6,15 @@
      <thead>
       <tr>
         <th scope="col">アーティスト名</th>
+        <th scope="col">アーティスト名</th>
         <th scope="col">タイトル</th>
         <th scope="col">情報</th>
         <th scope="col">価格</th>
         <th scope="col">在庫</th>
+        <% if user_signed_in? %>
+          <th scope="col">枚数</th>
         <th scope="col">カートに入れる</th>
+          <% end %>
       </tr>
     </thead>
     <tbody>
@@ -24,31 +28,41 @@
         </td>
 
         <td>
-		アーティスト名:<%= @item.artist_name %>
+          <%= link_to artist_path(@item.artist) do%>
+	          	<%= @item.artist_name %>
+          <% end %>
 	</td>
 	<td>
-		アルバム名:<%= @item.item_name %>
+		<%= @item.item_name %>
 	</td>
 	<td>
-		情報:<%= @item.item_info %>
+		<%= @item.item_info %>
 	</td>
 	<td>
-		価格:<%= @item.price %>円
+		<%= @item.price %>円
 	</td>
-	<td>
-		在庫:<%= @item.stock %>枚
-	</td>
+        <% if @item.on? %>
+	     <td>
+	    	<%= @item.stock %>枚
+	     </td>
+        <% else %>
+          <td>
+            <p class="shinagire">品切れ中です</p>
+          </td>
+          <% end %>
     <td>
+      <% if @item.on? %>
     <%= render "form", cart_item: @cart_item, item: @item %>
-  </td>
+          <% end %>
+    </td>
       </tr>
     </tbody>
 </table>
 </div>
 <div class="row">
   <div class="col-md-4">
-    <% @item.songs.each do |song| %>
-      <%= song.song_name %>
+    <% @item.songs.each_with_index do |song,idx| %>
+      <%= "#{idx+1} "%>:<%= song.song_name %>
       <hr>
     <% end %>
   </div>

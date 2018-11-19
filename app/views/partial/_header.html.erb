@@ -1,35 +1,38 @@
-<header link="#ffffff" class="backg">
-  <div class="large">
-        <div class="navitem-l">
-          <%= link_to root_path do %>
-            <h2 class="fas fa-headphones music logo">Music</h2>
-            <% end %>
-            <div class="f-box">
-              <%= render 'items/list' %>
-            </div>
-        </div>
-
-      <div class="navitem-r">
-        <ul>
-          <% if user_signed_in? %>
-            <li class="nav-r">
-              <%= link_to "logout", destroy_user_session_path, method: :delete, :style=>"color:white;" %>
-            </li>
-            <li class= "nav-r">
-              <%= link_to "cart", cart_path(current_user.cart) %>
-            </li>
-            <li class= "nav-r">
-              <%= link_to "注文履歴", orders_path %>
-            </li>
-          <% else %>
-            <li class="nav-r">
-              <%= link_to "ログイン", new_user_session_path, :style=>"color:white;" %>
-            </li>
-            <li class="nav-r">
-              <%= link_to "sign up", new_user_registration_path, :style=>"color:white;" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        Music
+      </a>
     </div>
-    </header>
+    <div class="navbar-form navbar-left">
+        <%= render "items/list" %>
+    </div>
+
+      <ul class="nav navbar-nav nav_left">
+        <li><%= link_to "ランキング", ranking_path %></li>
+      </ul>
+
+
+    <div class="collapse navbar-collapse nav_right" id="navbarEexample3">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+        <li><%= link_to "カート",cart_path(current_user) %></li>
+          <li><%= link_to "マイいいね", myfav_path %></li>
+        <li><%= link_to "マイページ", user_path(current_user) %></li>
+        <li><%= link_to "購入履歴", orders_path %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "新規登録",new_user_registration_path %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

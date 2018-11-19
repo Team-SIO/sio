@@ -4,17 +4,18 @@
       <h2>購入履歴</h2>
       <div class="panel panel-primary">
         <% @orders.each_with_index do |order, index| %>
-
+          <% if order.order_items.present? %>
           <div class="panel-heading">
             <%= link_to order_path(order), {style: "color: #fff"} do %>
               購入履歴 <%= index + 1 %>
 <!--              (注文日:<%#= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>)-->
             <% end %>
-          </div>
 
+          </div>
+          <% end  %>
+          <div class="panel-body">
           <% @order_items = order.order_items %>
           <% @order_items.each do |order_item| %>
-          <div class="panel-body">
             <div class="row">
               <div class="col-md-4">
                 <% if order_item.item.image.present? %>
@@ -43,13 +44,21 @@
               <hr>
             注文日 <br>
             <%= order.created_at.strftime("%Y年%m月%d日 %H:%M:%S")%>
+              <br>
+              <br>
+            <% if order.undispatched? %>
+              <%= link_to "キャンセル",order_path(order), method: :delete, data: {confirm: "本当に削除しますか?"},class: "btn btn-default" %>
+            <% else %>
+              <br>
+              <%= link_to "※商品のキャンセルはお問い合わせフォームにて",inquiry_path %>
             <% end %>
+              <br>
+              <br>
+            <% end %>
+
           </div>
-          <br>
         <% end %>
       </div>
-
-
 
     </div>
   </div>

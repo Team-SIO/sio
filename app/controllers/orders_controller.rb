@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
       order_item.item_info = c.item.item_info
       order_item.price = c.item.price
       order_item.order_item_count = c.cart_item_count
+      order_item.image = c.item.image
       order_item.save
       c.item.stock = c.item.stock - c.cart_item_count
       c.item.save
@@ -37,9 +38,20 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
   end
 
+  def destroy
+    order = Order.find(params[:id])
+    if order.destroy
+     redirect_to orders_path
+    end
+  end
+
   private
   def order_params
     params.permit(:user_id, :id, :status, :address_id)
+  end
+  def validate_order!
+    @order = current_user.orders
+
   end
 end
 #  id              :integer          not null, primary key

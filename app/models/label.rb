@@ -10,6 +10,5 @@
 
 class Label < ApplicationRecord
 	has_many :artists
-	enum status: [:avex, :sonymusic]
 	validates :label_name, uniqueness: true
 end

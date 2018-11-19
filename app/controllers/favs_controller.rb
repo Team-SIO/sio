@@ -1,5 +1,12 @@
 class FavsController < ApplicationController
- before_action :set_item
+ before_action :set_item, except: [:my_fav]
+
+
+ def my_fav
+    #自分がいいねしたアイテムの一覧
+    @favs = current_user.favs #自分のいいね一覧
+
+ end
 
   def create
     @fav = Fav.create(user_id: current_user.id, item_id: params[:item_id])

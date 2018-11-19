@@ -1,4 +1,3 @@
-<%= link_to "管理者へ", admintop_path,class: "btn btn-info ml" %>
 <div class="container top">
  <div class="mt-5">
    <table class="table table-hover">
@@ -15,7 +14,6 @@
     <% @items.each do |item|%>
     <tbody>
       <tr>
-
         <% if item.image.present? %>
         <td>
            <%= link_to item_path(item) do %>
@@ -38,7 +36,11 @@
           <td><%= item.try(:item_name) %></td>
           <td><%= item.try(:item_info) %></td>
           <td><%= item.try(:price)%>円</td>
+        <% if item.on? %>
           <td><%= item.try(:stock) %></td>
+          <% else %>
+        <td class="shinagire">品切れ中</td>
+          <% end %>
           <td> <div id="favs_buttons_<%= item.id %>"><%= render partial: 'favs/favs', locals: { item: item, likes: @favs} %></div></td>
         </tr>
       </tbody>
@@ -47,4 +49,7 @@
   </div>
 </div>
 <%= render "genre" %>
+</div>
+<div>
+<!--  このdivタグはあえて置いてます(application.html.ernのcontainerの関係で)-->
 <%= render 'partial/footer' %>

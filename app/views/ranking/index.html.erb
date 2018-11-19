@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+  <div class="mt-5">
+    <table class="table table-hover">
+      <h3>いいねランキング</h3>
+      <thead>
+      <tr>
+        <th scope="col">順位</th>
+        <th scope="col">画像</th>
+        <th scope="col">アーティスト名</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">情報</th>
+        <th scope="col">価格</th>
+        <th scope="col">在庫</th>
+      </tr>
+      </thead>
+      <% @items.each_with_index do |item, idx|%>
+        <tbody>
+        <tr>
+          <td><%= "#{idx + 1}位" %></td>
+          <% if item.image.present? %>
+            <td>
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.image.thumb.url,size: "200x200" %>
+              <% end %>
+            </td>
+          <% else %>
+            <td>
+              <%= link_to item_path(item) do %>
+                <%= image_tag "no-image.png",size: "200x200" %>
+              <% end %>
+            </td>
+
+          <% end %>
+          <td>
+            <%= link_to artist_path(item.artist) do %>
+              <%= item.try(:artist_name) %>
+            <% end %>
+          </td>
+          <td><%= item.try(:item_name) %></td>
+          <td><%= item.try(:item_info) %></td>
+          <td><%= item.try(:price)%>円</td>
+          <td><%= item.try(:stock) %></td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+
+  </div>
+  </div>
+</div>

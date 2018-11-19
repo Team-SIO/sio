@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'favs/create'
-  get 'favs/destroy'
   root 'items#index'
 
 	devise_for :admins, controllers: {
@@ -27,6 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/myfav' => 'favs#my_fav', as: "myfav"
+
 	namespace :admins do
 		resources :orders do 
 			get "undispatched", on: :collection
@@ -49,6 +48,7 @@ Rails.application.routes.draw do
 	
 	resources :genres, only: [:show]
   resources :artists, only: [:index, :show]
+  get "/ranking" => "ranking#index", as: "ranking"
 
 
 	delete "/carts/:id/cart_items/:id" => "carts#destroy", as: "delete_cart_item"
@@ -63,5 +63,8 @@ Rails.application.routes.draw do
 
 
   post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"
+
+	get '*path', to: 'application#render_404'
+
 
 end
