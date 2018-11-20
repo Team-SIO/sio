@@ -25,6 +25,7 @@ gem 'rmagick'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'enum_help'
+gem 'seed-fu', '~> 2.3'
 # gem 'bxslider-rails'
 
 group :development, :test do
@@ -40,13 +41,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'seed-fu', '~> 2.3'
   gem 'spring-commands-rspec'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'
   gem "letter_opener"
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  #gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'guard', '~> 2.14', '>= 2.14.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   gem 'spring'
@@ -62,3 +62,6 @@ end
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'json'
+gem 'mysql2'
+gem 'listen', '>= 3.0.5', '< 3.2'
