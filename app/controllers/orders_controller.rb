@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
        NotificationMailer.send_confirm_to_user(current_user,order).deliver
     end
     cart_items = current_user.cart.cart_items
-    cart_items.each do |c| 
+    cart_items.each do |c|
       order_item = OrderItem.new
       order_item.order_id = order.id
       order_item.item_id = c.item_id

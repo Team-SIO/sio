@@ -22,7 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :cart
-  has_many :favs, dependent: :destroy
+  has_many :favs
   has_many :orders
   has_many :addresses
   has_many :inquiries
@@ -30,8 +30,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
   enum gender: [:男性, :女性]
-  validates :first_name, length: { maximum: 15 }
-  validates :last_name, length: { maximum: 15 }
+  validates :first_name, length: { maximum: 10 }
+  validates :last_name, length: { maximum: 10 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
