@@ -1,6 +1,5 @@
 class InquiryMailer < ApplicationMailer
   default from: "saongtx7@gmail.com"   # 送信元アドレス
-  default to: "saongtx7@gmail.com"     # 送信先アドレス
 
   def received_email(inquiry)
     @inquiry = inquiry

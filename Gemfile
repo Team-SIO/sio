@@ -52,10 +52,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-group :production do
- gem 'mysql2'
- gem "json"
-end
+#group :production do
+ #gem 'mysql2'
+ #gem "json"
+#end
 
 group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
@@ -65,10 +65,7 @@ end
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
-gem 'json'
+gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'mysql2'
-gem 'listen', '>= 3.0.5', '< 3.2'
-=======
-gem 'listen', '>= 3.0.5', '< 3.2'
->>>>>>> a9afc2e3aebd0f39fce3ce1d0669649eae3d376f
+gem "json"
+

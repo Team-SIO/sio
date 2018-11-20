@@ -3,7 +3,7 @@ class NotificationMailer < ActionMailer::Base
 
   def send_confirm_to_user(user,order)
     @user = user
-    @url  = 'http://localhost:3000/orders'
+    @url  = 'http://ec2-54-65-134-152.ap-northeast-1.compute.amazonaws.com/orders'
     @order_items = order.order_items
     mail(
         subject: "購入が完了しました",
