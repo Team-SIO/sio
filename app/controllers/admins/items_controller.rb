@@ -1,4 +1,5 @@
 class Admins::ItemsController < ApplicationController
+  before_action :authenticate_admin!
   PER = 8
   layout "admin", :only => [:new, :edit, :show,:adminitems,:index]
 

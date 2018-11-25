@@ -1,4 +1,5 @@
 class Admins::DiscsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_disc, only: [:show,:edit,:update]
 	layout "admin", :only => [:new, :edit]
 

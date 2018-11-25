@@ -1,4 +1,5 @@
 class Admins::LabelsController < ApplicationController
+  before_action :authenticate_admin!
 	layout "admin"
   PER = 8
 

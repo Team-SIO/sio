@@ -1,5 +1,7 @@
 class Admins::ArtistsController < ApplicationController
+  before_action :authenticate_admin!
 	layout "admin"
+
   PER = 8
   def new
     @artist = Artist.new

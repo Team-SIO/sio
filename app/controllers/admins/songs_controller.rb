@@ -1,4 +1,5 @@
 class Admins::DiscsController < ApplicationController
+    before_action :authenticate_admin!
 	 layout "admin", :only => [:new, :edit]
   def index
   end
