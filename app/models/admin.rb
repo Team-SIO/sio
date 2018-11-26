@@ -18,4 +18,7 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #has_many :items
   has_many :artists
+
+  VALID_ADMIN_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_ADMIN_EMAIL_REGEX }
 end
