@@ -47,6 +47,7 @@ class Item < ApplicationRecord
    end
   end
 
+
   def stock_kanri
     if self.stock <= 0
       self.on!

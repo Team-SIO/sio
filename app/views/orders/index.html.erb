@@ -55,6 +55,8 @@
               <br>
               <br>
             <% end %>
+            <% @sum = @order_items.joins(:item).sum(:price) %>
+           <p>合計金額: <%= @sum %>円</p>
 
           </div>
         <% end %>

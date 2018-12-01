@@ -13,4 +13,12 @@
 class CartItem < ApplicationRecord
   belongs_to :cart
   belongs_to :item
+
+
+  def sum_price
+    for self.item.price in cart_item.count do
+      self.item.price += self.item.price 
+    end
+  end
+  
 end
