@@ -4,7 +4,6 @@ class CartsController < ApplicationController
 	def show
 		@cart = current_user.cart
 		@cart_items = @cart.cart_items
-		@items = @cart_items.pluck(:item)
 		@total_price = @cart_items.joins(:item).sum(:price)
 		
 
