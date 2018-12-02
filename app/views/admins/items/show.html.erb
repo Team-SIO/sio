@@ -24,6 +24,7 @@
       <th scope="col">曲名</th>
       <th scope="col">タイム</th>
       <th scope="col">編集</th>
+       <th scope="col">削除</th>
     </tr>
   </thead>
   	<% @disc.songs.each do |song| %>
@@ -33,7 +34,8 @@
       <td><%= song.song_order %></td>
       <td><%= song.song_name  %></td>
       <td><%= song.time  %></td>
-      <td><%=link_to "編集", edit_admins_item_disc_path(@disc) ,style: "color: #000"%></td>
+      <td><%=link_to "編集", edit_admins_item_disc_path(@disc), style: "color: #000"%></td>
+       <td><%=link_to "削除",  admins_item_disc_path(@disc,song), method: :delete, style: "color: #000", data:{confirm: "削除してもよろしいですか？"}%></td>
     </tr>
   </tbody>
 <% end %>

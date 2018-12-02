@@ -31,6 +31,13 @@ class Admins::DiscsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to admintop_path
+  end
+  
   private
   def disc_params
     params.require(:disc).permit(:disc_order, songs_attributes: [:id, :song_name,:time, :song_order, :_destroy])
