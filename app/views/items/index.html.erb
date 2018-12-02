@@ -1,4 +1,9 @@
-<div class="container top">
+
+<div class="row">  
+
+<%= render "genre" %>
+<div class="col-md-1"></div>
+<div class="container col-md-8">
  <div class="mt-5">
    <table class="table table-hover">
      <thead>
@@ -48,8 +53,10 @@
     </table>
   </div>
 </div>
-<%= render "genre" %>
+
 </div>
+  </div>
 <div>
+
 <!--  このdivタグはあえて置いてます(application.html.ernのcontainerの関係で)-->
 <%= render 'partial/footer' %>
