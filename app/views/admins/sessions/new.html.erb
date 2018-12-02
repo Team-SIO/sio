@@ -4,7 +4,7 @@
 
 
 
-<h3 class="mb-2">ログイン</h3>
+<h3 class="mb-2">管理者ログイン</h3>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.label :メールアドレス %><br />
@@ -28,7 +28,6 @@
   </div>
 <% end %>
 </div>
-<%= render "admins/shared/links" %>
 </div>
 </div>
 </div>
