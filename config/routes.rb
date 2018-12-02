@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 			get "undispatched", on: :collection
 			get "dispatched", on: :collection
 		end
-		resources :users, only: %i(index show)
+		resources :users, only: %i(index show edit destroy update)
 		resources :labels
 		resources :genres
 		resources :artists

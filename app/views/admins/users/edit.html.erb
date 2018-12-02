@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="mt-5">プロフィール編集</h1>
+  <div class="mt-2">
+    <div class="row">
+    <div class="col-md-4">
+          <%= form_for @user, url: admins_user_path, method: :patch do |f| %>
+            <%= f.label :名前 %>
+            <%= f.text_field :first_name, class: "form-control"%>
+            <%= f.label :苗字 %>
+            <%= f.text_field :last_name, class: "form-control"%>
+            <%= f.label :メール %><br>
+            <%= f.text_field :email, class: "form-control" %> <br>
+             <%= f.label :性別 %><br>
+             <%= f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]} %><br>
+            <br>
+            <%= f.label :生年月日 %><br>
+            <%= f.date_select(
+               :birthday,
+                start_year: 1930,
+                end_year:   (Time.now.year - 10),
+                default:    Date.new(1989, 1, 1)) %>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h5 class="text-success">住所追加</h5>
+          <%= f.fields_for :addresses do |task| %>
+        <%= render 'address_fields', f: task %>
+      <% end %>
+      <div class="links">
+          <%= link_to_add_association "追加", f, :addresses, partial: 'address_fields' %>
+        </div>
+         <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+   <% end %>
+      </div>
+    </div>
+ </div>
+</div>
+</div>

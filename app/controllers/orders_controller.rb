@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
   def create
     order = Order.new(order_params)
+    order.ship = order.user.addresses.first.ship
     if order.save
       redirect_to thanks_path(order)
        NotificationMailer.send_confirm_to_user(current_user,order).deliver
@@ -47,7 +48,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:user_id, :id, :status, :address_id)
+    params.permit(:user_id, :id, :status, :address_id, :ship)
   end
   def validate_order!
     @order = current_user.orders

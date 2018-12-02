@@ -11,6 +11,8 @@
       <th scope="col">住所</th>
       <th scope="col">電話番号</th>
       <th scope="col">郵便番号</th>
+      <th scope="col">編集</th>
+      <th scope="col">削除</th>
     </tr>
   </thead>
    <% @users.each do |user|%>
@@ -22,6 +24,8 @@
       <td><%= user.addresses.take.try(:ship) %></td>
       <td><%= user.addresses.take.try(:phone) %></td>
       <td><%= user.addresses.take.try(:zip) %></td>
+      <td><%= link_to "編集", edit_admins_user_path(user) %></td>
+      <td><%= link_to "削除",  admins_user_path(user), method: :delete, data: {confirm: "本当に削除しますか?"}  %></td>
     </tr>
 
   </tbody>
