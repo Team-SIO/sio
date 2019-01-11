@@ -1,15 +1,27 @@
-<div class="genre col-md-2 mt-5">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        ジャンルで選ぶ
-      </div>
-      <div class="panel-body">
-        <% Genre.all.each do |genre| %>
-          <%= link_to genre_path(genre) do %>
-        <%= genre.genre_name %>
-            <% end %>
-          <hr>
-        <% end %>
-      </div>
+<div class="genre_vue col-sm-4 mt-5" id="genre">
+  <div class="row">
+     <div class="col-sm-6 panel panel-primary" style="border:none">
+        <div class="panel-heading">
+          ジャンルで選ぶ
+        </div>
+        <div class="panel-body">
+          <% Genre.all.each do |genre| %>
+            <div v-on:click="setGenreInfo('<%=genre.id %>')" style="cursor:pointer" class="genre_non">
+                 <%= genre.genre_name %>
+            </div>
+          <% end %>
+        </div>
+     </div>
+     <div class="col-sm-6 mt-5 artist_vue" >
+        <div class="aaa" v-show="showModal" style="transition: all .3s ease;" >
+          <p>-アーティスト一覧-</p>
+            <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" style="cursor:pointer">
+               {{ artist.artist_name }}
+            </li> 
+         </div>
+     </div>
   </div>
 </div>
+
+
+
