@@ -1,7 +1,6 @@
-=
 <div class="genre_vue col-sm-4 mt-5" id="genre">
   <div class="row">
-     <div class="col-sm-6 panel panel-primary" style="border:none">
+     <div class="col-sm-12 col-md-6 panel panel-primary" style="border:none">
         <div class="panel-heading">
           ジャンルで選ぶ
         </div>
@@ -13,7 +12,7 @@
           <% end %>
         </div>
      </div>
-     <div class="col-sm-6 mt-5 artist_vue" >
+     <div class="col-sm-10 col-sm-offset-1 col-md-6 mt-5 artist_vue" >
         <div class="aaa" v-show="showModal" style="transition: all .3s ease;" >
           <p class="p-art text-center">アーティスト一覧</p>
             <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" class= "lime">
