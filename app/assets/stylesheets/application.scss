@@ -11,6 +11,10 @@
 @import "footer";
 @import "artist";
 
+[v-cloak]{
+  display: none;
+}
+
 .one{
 	background: red;
 	width: 400px;
