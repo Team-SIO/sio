@@ -29,3 +29,11 @@ $(document).ready(function(){
         $(this).addClass("active");
     });
 });
+
+$(function(){
+  var btn = $('.genre_non');
+  btn.click(function(){
+    btn.removeClass('active');
+    $(this).addClass('active');
+  });
+});

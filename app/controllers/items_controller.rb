@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   def index
   	@items = Item.order("created_at desc").limit(10)
+    @arr = Item.order("created_at desc")
+    @arr_json = @arr.to_json.html_safe
+    @j = Item.all
     if user_signed_in? 
       @cart = current_user.cart
     end

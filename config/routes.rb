@@ -13,6 +13,15 @@ Rails.application.routes.draw do
 
 	get '/admins' => 'home#admin', as: 'admintop'
 
+  
+  namespace :api do 
+    resources :items, only: %i(show)
+    resources :genres, only: %i(show)
+  end
+
+
+
+
 	resources :items, only: %i(show) do
 		collection do
           get 'search' => 'items#search'
@@ -63,7 +72,6 @@ Rails.application.routes.draw do
 
   post "/items/:item_id/carts/:cart_id" => "cart_items#create", as: "set_cart_items"
 
-	get '*path', to: 'application#render_404'
 
 
 end

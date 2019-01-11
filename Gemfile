@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.5.1'
+ruby '2.5.1'
 
 gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'enum_help'
 gem 'seed-fu', '~> 2.3'
+gem "webpacker", github: "rails/webpacker"
 # gem 'bxslider-rails'
 
 group :development, :test do
