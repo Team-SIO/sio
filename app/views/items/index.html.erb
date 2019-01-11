@@ -69,20 +69,3 @@
 
 
 
-
-
-<div class="container js-itemsIndex">
-  <div class="row">
-    <% @items.each do |item| %>
-        <button v-on:click="setItemInfo('<%=item.id %>')" class="<%=item.id %>">
-          ボタン
-        </button>
-    <% end %>
-     <div class="skip" v-show="itemInfoBool">
-            <p>{{ itemInfo.item_name }}</p>
-            <p>{{ itemInfo.artist_name }}</p>
-     </div>
-  </div>
-</div>
-
-  
