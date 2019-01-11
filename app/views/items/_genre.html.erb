@@ -14,8 +14,8 @@
      </div>
      <div class="col-sm-6 mt-5 artist_vue" >
         <div class="aaa" v-show="showModal" style="transition: all .3s ease;" >
-          <p>-アーティスト一覧-</p>
-            <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" style="cursor:pointer">
+          <p class="p-art text-center">アーティスト一覧</p>
+            <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" class= "lime">
                {{ artist.artist_name }}
             </li> 
          </div>

@@ -18,23 +18,23 @@ import axios from 'axios'
 
 
 
-new Vue({
-  el: ".js-itemsIndex",
-  data: {
-    itemInfo: {},
-    itemInfoBool: false
-  },
-  methods: {
-    setItemInfo(id){
-      axios.get(`api/items/${id}.json`)
-      .then(res => {
-        this.itemInfo = res.data;
-        this.itemInfoBool = true;
-        // console.log(res.data);
-      });
-    }
-  }
-});
+// new Vue({
+//   el: ".js-itemsIndex",
+//   data: {
+//     itemInfo: {},
+//     itemInfoBool: false
+//   },
+//   methods: {
+//     setItemInfo(id){
+//       axios.get(`api/items/${id}.json`)
+//       .then(res => {
+//         this.itemInfo = res.data;
+//         this.itemInfoBool = true;
+//         // console.log(res.data);
+//       });
+//     }
+//   }
+// });
 
 
 new Vue({

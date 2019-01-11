@@ -1,11 +1,13 @@
 <div class="form" id="app">
 <%= form_tag search_items_path, method: :get do %>
-  <input type="text" name="search" id="search" class="form-control arr_json" v-model="searchQuery" value=<%= @arr_json %> >
-
+  <input type="text" name="search" id="search" class="form-control">
+<!-- 
 <div id="js-itemsIndex">
   
-</div>
+</div> -->
   <%= submit_tag '検索', class: "btn btn-default" %>
 <% end %>
 </div>
+
+
 

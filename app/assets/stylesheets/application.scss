@@ -32,9 +32,22 @@
   clear: both; 
   visibility:hidden;
 }
+.p-art{
+  padding:10px; 
+  background-color: lightgray;
+}
 .active{
   background: lightgray;
 }
+
+.lime{
+  cursor:pointer; 
+  padding:20px;
+  &:hover{
+    background: #a8c2cc;
+  }
+}
+
 .genre_non{
   padding: 30px;
 }
