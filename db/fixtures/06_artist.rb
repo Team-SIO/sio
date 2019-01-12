@@ -196,7 +196,7 @@ end
 
 Artist.seed do |s|
   s.id = 23
-  s.genre_id = 4
+  s.genre_id = 5
   s.label_id = 2
   s.artist_name = "マキシマム・ザ・ホルモン"
   s.artist_info = "マキシマム・ザ・ホルモン"
@@ -204,7 +204,7 @@ end
 
 Artist.seed do |s|
   s.id = 24
-  s.genre_id = 4
+  s.genre_id = 5
   s.label_id = 5
   s.artist_name = "Fear, and Loathing in Las Vegas"
   s.artist_info = "Fear, and Loathing in Las Vegas"
@@ -212,7 +212,7 @@ end
 
 Artist.seed do |s|
   s.id = 25
-  s.genre_id = 5
+  s.genre_id = 7
   s.label_id = 6
   s.artist_name = "Alice"
   s.artist_info = "ALice"
@@ -221,7 +221,7 @@ end
 
 Artist.seed do |s|
   s.id = 26
-  s.genre_id = 5
+  s.genre_id = 7
   s.label_id = 6
   s.artist_name = "BENI"
   s.artist_info = "BENI"
@@ -229,7 +229,7 @@ end
 
 Artist.seed do |s|
   s.id = 27
-  s.genre_id = 5
+  s.genre_id = 7
   s.label_id = 5
   s.artist_name = "Crystal Kay"
   s.artist_info = "Crystal Kay"
@@ -238,7 +238,7 @@ end
 
 Artist.seed do |s|
   s.id = 28
-  s.genre_id = 6
+  s.genre_id = 8
   s.label_id = 2
   s.artist_name = "LGYankees"
   s.artist_info = "LGYankees"
@@ -247,10 +247,12 @@ end
 
 Artist.seed do |s|
   s.id = 29
-  s.genre_id = 6
+  s.genre_id = 8
   s.label_id = 2
   s.artist_name = "ET-KING"
   s.artist_info = "ET-KING"
 end
+
+
 
 
