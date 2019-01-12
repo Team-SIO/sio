@@ -7,34 +7,6 @@
 
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
-// import Qs from 'qs'
-
-
-// var arrJson = $('.arr_json').val();
-// // arr_jsonをパースし配列にする
-// var alicenine = JSON.parse(arrJson);
-// // 確認用のログ出力
-// console.log(alicenine);
-
-
-
-// new Vue({
-//   el: ".js-itemsIndex",
-//   data: {
-//     itemInfo: {},
-//     itemInfoBool: false
-//   },
-//   methods: {
-//     setItemInfo(id){
-//       axios.get(`api/items/${id}.json`)
-//       .then(res => {
-//         this.itemInfo = res.data;
-//         this.itemInfoBool = true;
-//         // console.log(res.data);
-//       });
-//     }
-//   }
-// });
 
 
 new Vue({

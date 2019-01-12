@@ -11,10 +11,6 @@
 @import "footer";
 @import "artist";
 
-[v-cloak]{
-  display: none;
-}
-
 .one{
 	background: red;
 	width: 400px;
@@ -50,6 +46,13 @@
   &:hover{
     background: #d2e4f3;
   }
+}
+
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
 }
 
 .genre_non{
