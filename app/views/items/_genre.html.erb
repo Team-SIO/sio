@@ -13,13 +13,18 @@
         </div>
      </div>
      <div class="col-sm-10 col-sm-offset-1 col-md-5 mt-5 artist_vue" vcloak>
-        <div class="aaa" v-show="showModal" style="transition: all .3s ease;" vcloak>
+        <div class="aaa" v-show="showModal" vcloak>
 
           <p class="p-art text-center">アーティスト一覧</p>
-            <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" class= "lime">
+<transition-group name="list" tag="div">
+            <li v-for="artist in artists" v-on:click="setArtistInfo(artist.id)" class= "lime" v-bind:key="artist">
+       
                {{ artist.artist_name }}
+           
             </li> 
+</transition-group>
          </div>
+       </transition>
      </div>
   </div>
 </div>
