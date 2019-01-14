@@ -7,6 +7,7 @@
 
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
+import Qs from 'qs'
 
 
 new Vue({
@@ -32,21 +33,29 @@ new Vue({
 });
 
 
+
 new Vue({
   el: "#app",
   data: {
+    items: null,
     keyword: "",
-    items: null
   },
   methods: {
-    search: function(keyword){
+    search: function(){
+     var key = $("#search").val();
+      if(this.keyword === ''){
+                this.items = null
+                this.message = ''
+                return
+            }
+      console.log(this.keyword)
       var vm = this
       var params = {
-        query: this.keyword
+        search: this.keyword
       }
-      axios.get("https://siosio.work/api/items", { params })
+      axios.get(`/api/items`, { params })
       .then(function(res){
-        console.log(res)
+        console.log(res.data.array)
         vm.items = res.data
       })
     }

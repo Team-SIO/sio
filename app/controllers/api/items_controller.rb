@@ -1,6 +1,12 @@
 class Api::ItemsController < ApplicationController
-  def show
-    @item = Item.find(params[:id])
-    render "show", formats: "json", handlers: "jbuilder"
+  def index
+    @items = Item.search(params[:search])
+    # @items = Item.all
+    render "index", formats: "json", handlers: "jbuilder"
+
   end
+
+  def show
+  end
+
 end

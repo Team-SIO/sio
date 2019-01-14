@@ -1,11 +1,11 @@
 <div class="form" id="app">
 
-  <input type="text" name="search" id="search" class="form-control" v-model="keyword">
+  <input type="search" name="item_name" id="search" class="form-control" v-model:value="keyword">
 <!-- 
 <div id="js-itemsIndex">
   
 </div> -->
-  <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-default" v-on:click="search">
+  <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-default" id="search-submit" v-on:click="search">
 
 </div>
 
