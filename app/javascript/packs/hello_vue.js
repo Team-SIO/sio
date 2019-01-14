@@ -32,6 +32,28 @@ new Vue({
 });
 
 
+new Vue({
+  el: "#app",
+  data: {
+    keyword: "",
+    items: null
+  },
+  methods: {
+    search: function(keyword){
+      var vm = this
+      var params = {
+        query: this.keyword
+      }
+      axios.get("https://siosio.work/api/items", { params })
+      .then(function(res){
+        console.log(res)
+        vm.items = res.data
+      })
+    }
+  }
+})
+
+
 
 
 

@@ -27,6 +27,7 @@ gem 'dotenv-rails'
 gem 'enum_help'
 gem 'seed-fu', '~> 2.3'
 gem "webpacker", github: "rails/webpacker"
+gem 'rack-cors'
 # gem 'bxslider-rails'
 
 group :development, :test do
