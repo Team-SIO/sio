@@ -28,6 +28,8 @@ gem 'enum_help'
 gem 'seed-fu', '~> 2.3'
 gem "webpacker", github: "rails/webpacker"
 gem 'rack-cors'
+# gem 'rack-mini-profiler', require: false
+
 
 # gem 'bxslider-rails'
 

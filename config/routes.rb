@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   
   namespace :api do 
-    resources :items, only: %i(show index)
-    resources :genres, only: %i(show)
+    resources :items, only: %i(index) do
+      get 'search', on: :collection
+    end
+    resources :genres, only: %i(show index)
   end
 
  

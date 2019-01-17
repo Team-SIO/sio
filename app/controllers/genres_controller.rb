@@ -3,4 +3,5 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @artists = Artist.all.where(genre_id: params[:id])
   end
+
 end
