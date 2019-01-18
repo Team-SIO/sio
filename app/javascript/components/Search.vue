@@ -41,7 +41,7 @@ export default {
       }
       axios.get(`/api/items/search`, { params })
       .then(function(res){
-        console.log(res.data.array)
+       
         vm.items = res.data
       })
     }
@@ -49,5 +49,6 @@ export default {
 }
 
 </script>
+//検索結果をもとにレンダリングさせる
 
 
