@@ -1,3 +1,4 @@
 レコードのECサイト
 チーム開発用リポジトリ
-#test
+
+https://siosio.workで公開してます
