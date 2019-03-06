@@ -18,13 +18,3 @@ User.seed do |s|
   s.password = "password"
 end
 
-User.seed do |s|
-  s.id = 3
-  s.first_name = "Satoshi"
-  s.last_name = "Ono"
-  s.birthday = "1995/3/3"
-  s.gender = 0
-  s.email = "test2@test.com"
-  s.password = "password"
-end
-
