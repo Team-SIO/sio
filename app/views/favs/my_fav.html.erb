@@ -3,45 +3,54 @@
     <table class="table table-hover">
       <h3>マイいいね</h3>
       <thead>
-      <tr>
-        <th scope="col">画像</th>
-        <th scope="col">アーティスト名</th>
-        <th scope="col">タイトル</th>
-        <th scope="col">情報</th>
-        <th scope="col">価格</th>
-        <th scope="col">在庫</th>
-      </tr>
+        <tr>
+          <th scope="col">画像</th>
+          <th scope="col">アーティスト名</th>
+          <th scope="col">タイトル</th>
+          <th scope="col">情報</th>
+          <th scope="col">価格</th>
+          <th scope="col">在庫</th>
+        </tr>
       </thead>
       <% @favs.each do |i|%>
-        <tbody>
+      <tbody>
         <tr>
-
           <% if i.item.image.present? %>
-            <td>
-              <%= link_to item_path(i.item) do %>
-                <%= image_tag i.item.image.thumb.url,size: "200x200" %>
-              <% end %>
-            </td>
+          <td>
+            <%= link_to item_path(i.item) do %>
+            <%= image_tag i.item.image.thumb.url,size: "200x200" %>
+            <% end %>
+          </td>
           <% else %>
-            <td>
-              <%= link_to item_path(i.item) do %>
-                <%= image_tag "no-image.png",size: "200x200" %>
-              <% end %>
-            </td>
-
+          <td>
+            <%= link_to item_path(i.item) do %>
+            <%= image_tag "no-image.png",size: "200x200" %>
+            <% end %>
+          </td>
           <% end %>
           <td>
             <%= link_to artist_path(i.item.artist) do %>
-              <%= i.item.try(:artist_name) %>
+            <%= i.item.try(:artist_name) %>
             <% end %>
           </td>
-          <td><%= i.item.try(:item_name) %></td>
-          <td><%= i.item.try(:item_info) %></td>
-          <td><%= i.item.try(:price)%>円</td>
-          <td><%= i.item.try(:stock) %></td>
-          <td> <div id="favs_buttons_<%= i.item.id %>"><%= render 'favs', item: i.item  %></div></td>
+          <td>
+            <%= i.item.try(:item_name) %>
+          </td>
+          <td>
+            <%= i.item.try(:item_info) %>
+          </td>
+          <td>
+            <%= i.item.try(:price)%>円</td>
+          <td>
+            <%= i.item.try(:stock) %>
+          </td>
+          <td>
+            <div id="favs_buttons_<%= i.item.id %>">
+              <%= render 'favs', item: i.item  %>
+            </div>
+          </td>
         </tr>
-        </tbody>
+      </tbody>
       <% end %>
     </table>
   </div>

@@ -1,52 +1,64 @@
 <h1 class="mt-5">アーティスト情報</h1>
 <div class="mt-2">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">アーティスト名</th>
-      <th scope="col">情報</th>
-      <th scope="col">ジャンル名</th>
-      <th scope="col">レーベル名</th>
-      <th scope="col">編集</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row" class="info">
-       <%= @artist.try(:artist_name) %></th>
-      <td><%= @artist.try(:artist_info) %></td>
-      <td><%= @artist.try(:genre_name)%></td>
-      <td><%= @artist.try(:label_name)%></td>
-      <td><%= link_to "編集", edit_admins_artist_path(@artist),style: "color: #000"%>       
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">アーティスト名</th>
+        <th scope="col">情報</th>
+        <th scope="col">ジャンル名</th>
+        <th scope="col">レーベル名</th>
+        <th scope="col">編集</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="info">
+          <%= @artist.try(:artist_name) %>
+        </th>
+        <td>
+          <%= @artist.try(:artist_info) %>
         </td>
-    </tr>
-  </tbody>
-</table>
-<div class="mt-5">
-  <% if @items.present? %>
+        <td>
+          <%= @artist.try(:genre_name)%>
+        </td>
+        <td>
+          <%= @artist.try(:label_name)%>
+        </td>
+        <td>
+          <%= link_to "編集", edit_admins_artist_path(@artist),style: "color: #000"%>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mt-5">
+    <% if @items.present? %>
     <% @items.each do |item| %>
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          アーティスト名:<%= item.artist_name %>
-        </div>
-        <div class="panel-body">
-          アルバム名:<%= item.item_name %>
-        </div>
-        <div class="panel-body">
-          情報:<%= item.item_info %>
-        </div>
-        <div class="panel-body">
-          価格:<%= item.price %>円
-        </div>
-        <div class="panel-body">
-          在庫:<%= item.stock %>枚
-        </div>
-     </div>
-<% end %>
-<% end %>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        アーティスト名:
+        <%= item.artist_name %>
+      </div>
+      <div class="panel-body">
+        アルバム名:
+        <%= item.item_name %>
+      </div>
+      <div class="panel-body">
+        情報:
+        <%= item.item_info %>
+      </div>
+      <div class="panel-body">
+        価格:
+        <%= item.price %>円
+      </div>
+      <div class="panel-body">
+        在庫:
+        <%= item.stock %>枚
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="text-right">
+    <%=link_to "戻る", admintop_path ,class: "back"%>
+  </div>
 </div>
-<div class="text-right">
-	<%=link_to "戻る", admintop_path ,class: "back"%>
-</div>
-</div>
-

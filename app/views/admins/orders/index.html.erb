@@ -1,7 +1,7 @@
-  <h2 class="mt-5">注文一覧</h1>
-    <div class="mt-2">
-      <table class="table table-hover">
-       <thead>
+<h2 class="mt-5">注文一覧</h1>
+  <div class="mt-2">
+    <table class="table table-hover">
+      <thead>
         <tr>
           <th scope="col">ユーザー名</th>
           <th scope="col">送り先</th>
@@ -16,27 +16,34 @@
       <% @orders.each do |order|%>
       <tbody>
         <tr>
-          <td class="info"> 
+          <td class="info">
             <%= order.user.try(:name) %>
           </td>
-          <td><%= order.try(:ship)%></td>
+          <td>
+            <%= order.try(:ship)%>
+          </td>
 
-          <td><%= order.status_i18n %></td>
-          <td><%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
-          <td><%= link_to '詳細', admins_order_path(order) %></td>
+          <td>
+            <%= order.status_i18n %>
+          </td>
+          <td>
+            <%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+          </td>
+          <td>
+            <%= link_to '詳細', admins_order_path(order) %>
+          </td>
           <td>
             <%=link_to "編集", edit_admins_order_path(order) ,class: "back"%>
-            <td>
-              <%=link_to "削除", admins_order_path(order),method: :delete%>
-            </td>
+          <td>
+            <%=link_to "削除", admins_order_path(order),method: :delete%>
+          </td>
           </td>
         </tr>
       </tbody>
       <% end %>
     </table>
     <div class="text-right">
-     <%= link_to "戻る", admintop_path ,class: "back"%>
-   </div>
- </div>
- <%= paginate @orders %>
-
+      <%= link_to "戻る", admintop_path ,class: "back"%>
+    </div>
+  </div>
+  <%= paginate @orders %>

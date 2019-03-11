@@ -1,77 +1,78 @@
 <div class="container">
 
 
-<div class="mt-2">
-<table class="table table-hover">
-     <thead>
-      <tr>
-        <th scope="col">アーティスト名</th>
-        <th scope="col">アーティスト名</th>
-        <th scope="col">タイトル</th>
-        <th scope="col">情報</th>
-        <th scope="col">価格</th>
-        <th scope="col">在庫</th>
-        <% if user_signed_in? %>
+  <div class="mt-2">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">アーティスト名</th>
+          <th scope="col">アーティスト名</th>
+          <th scope="col">タイトル</th>
+          <th scope="col">情報</th>
+          <th scope="col">価格</th>
+          <th scope="col">在庫</th>
+          <% if user_signed_in? %>
           <th scope="col">枚数</th>
-        <th scope="col">カートに入れる</th>
+          <th scope="col">カートに入れる</th>
           <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <% if @item.image.present? %>
-        <%= image_tag @item.image.thumb.url,size: "100x100" %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <% if @item.image.present? %>
+            <%= image_tag @item.image.thumb.url,size: "100x100" %>
             <% else %>
-          <%= image_tag "no-image.png", size: "100x100" %>
+            <%= image_tag "no-image.png", size: "100x100" %>
             <% end %>
-        </td>
+          </td>
 
-        <td>
-          <%= link_to artist_path(@item.artist) do%>
-	          	<%= @item.artist_name %>
-          <% end %>
-	</td>
-	<td>
-		<%= @item.item_name %>
-	</td>
-	<td>
-		<%= @item.item_info %>
-	</td>
-	<td>
-		<%= @item.price %>円
-	</td>
-        <% if @item.on? %>
-	     <td>
-	    	<%= @item.stock %>枚
-	     </td>
-        <% else %>
+          <td>
+            <%= link_to artist_path(@item.artist) do%>
+            <%= @item.artist_name %>
+            <% end %>
+          </td>
+          <td>
+            <%= @item.item_name %>
+          </td>
+          <td>
+            <%= @item.item_info %>
+          </td>
+          <td>
+            <%= @item.price %>円
+          </td>
+          <% if @item.on? %>
+          <td>
+            <%= @item.stock %>枚
+          </td>
+          <% else %>
           <td>
             <p class="shinagire">品切れ中です</p>
           </td>
           <% end %>
-    <td>
-      <% if @item.on? %>
-    <%= render "form", cart_item: @cart_item, item: @item %>
-          <% end %>
-    </td>
-      </tr>
-    </tbody>
-</table>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <% @item.songs.each_with_index do |song,idx| %>
-      <%= "#{idx+1} "%>:<%= song.song_name %>
+          <td>
+            <% if @item.on? %>
+            <%= render "form", cart_item: @cart_item, item: @item %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <% @item.songs.each_with_index do |song,idx| %>
+      <%= "#{idx+1} "%>:
+      <%= song.song_name %>
       <hr>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-<div class="col-md-5">
+    <div class="col-md-5">
 
-</div>
-  <div class="col-md-3">
-<%= link_to "商品一覧へ", root_path,class: "btn btn-info" %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "商品一覧へ", root_path,class: "btn btn-info" %>
+    </div>
   </div>
-</div>
 </div>
