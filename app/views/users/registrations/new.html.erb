@@ -11,7 +11,10 @@
     </div>
     <div class="field">
       <%= f.label :first_name, {class: 'moji'} %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "box" %>
+     <input autofocus="autofocus" autocomplete="first_name" type="text" name="user[first_name]" id="user_first_name" class="box" v-model="first">
+      <div style="color: red;" v-if="error.require">
+      必須項目です
+    </div>
     </div>
     <div class="field">
       <%= f.label :last_name, {class: 'moji'} %><br />
@@ -36,6 +39,7 @@
       <%= f.submit "Sign up" %>
     </div>
     <% end %>
+
 
     <%= render "users/shared/links" %>
   </div>

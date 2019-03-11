@@ -7,53 +7,124 @@
 
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
+import SearchList from '../components/SearchList.vue'
+import GenreArtist from '../components/GenreArtist.vue'
+import Search from '../components/Search.vue'
+
+// import Qs from 'qs'
+
+
+
+
+// new Vue({
+//   el: "#app",
+//   components: {
+//     SearchList
+//   },
+//   data: function () {
+//     return {
+//       items: null,
+//       keyword: ""
+//     }
+//   },
+//   methods: {
+//     search: function(){
+//      var key = $("#search").val();
+//       if(this.keyword === ''){
+//                 this.items = null
+//                 this.message = ''
+//                 return
+//             }
+//       console.log(this.keyword)
+//       var vm = this
+//       var params = {
+//         search: this.keyword
+//       }
+//       axios.get(`/api/items`, { params })
+//       .then(function(res){
+//         console.log(res.data.array)
+//         vm.items = res.data
+//         console.log(vm.items)
+//       })
+//     }
+//   }
+// })
+
+
+new Vue({
+  el: ".searched",
+  components: {
+    "search-list": SearchList
+    }
+})
+
 
 
 new Vue({
   el: ".genre_vue",
-  data: {
-    genreInfo: {},
-    artists: [],
-    showModal: false,
-  },
-  methods: {
-    setGenreInfo(id){
-      axios.get(`api/genres/${id}.json`)
-      .then(res => {
-        this.genreInfo = res.data;
-        this.artists = res.data.array;
-        this.showModal = true
-      });
-    },
-    setArtistInfo(id){
-     window.location.href = `artists/${id}`;
-    }
-  }
-});
-
-
-new Vue({
-  el: "#app",
-  data: {
-    keyword: "",
-    items: null
-  },
-  methods: {
-    search: function(keyword){
-      var vm = this
-      var params = {
-        query: this.keyword
-      }
-      axios.get("https://siosio.work/api/items", { params })
-      .then(function(res){
-        console.log(res)
-        vm.items = res.data
-      })
-    }
+  components: {
+    "genre-artist": GenreArtist
   }
 })
 
 
+new Vue({
+  el: "#app",
+   components: {
+    "search-component": Search
+    }
+})
+
+
+// var parent = new Vue({
+//   el: "#app",
+//   data: {
+//     items: null,
+//     keyword: "",
+//     thanks: "unko"
+//   },
+//   methods: {
+//     search: function(){
+//      var key = $("#search").val();
+//       if(this.keyword === ''){
+//                 this.items = null
+//                 this.message = ''
+//                 return
+//             }
+//       console.log(this.keyword)
+//       var vm = this
+//       var params = {
+//         search: this.keyword
+//       }
+//       axios.get(`/api/items`, { params })
+//       .then(function(res){
+//         console.log(res.data.array)
+//         vm.items = res.data
+//         console.log(vm.items)
+//       })
+//     }
+//   }
+// })
+
+
+new Vue({
+  el: "#signup",
+  data: {
+    message: "",
+    last: "",
+    first: "",
+    pass: "",
+    passcom: "",
+    error: {
+      require: false
+    }
+  },
+  watch: {
+        message: function(newVal, oldVal){
+          this.error.require = (newVal.length < 1)? true : false;
+    }
+  }
+})
 
 
 
