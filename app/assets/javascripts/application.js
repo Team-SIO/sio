@@ -31,8 +31,9 @@ $(document).ready(function(){
 });
 
 $(function(){
-  $(".genre_non").click(function(){
-    $(this).removeClass('active');
+  var btn = $('.genre_non');
+  btn.click(function(){
+    btn.removeClass('active');
     $(this).addClass('active');
   });
 });
