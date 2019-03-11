@@ -1,5 +1,5 @@
 <div class="mt-5">
-	
+
 	<%= form_for @artist, url: item_path, method: :patch do |f| %>
 	<div class="form-group">
 		<%= f.label :アーティスト %>
@@ -9,25 +9,25 @@
 	</div>
 
 	<%= fields_for @item do |a| %>
-		<div class="form-group">
-			<%= a.label :タイトル %>
-			<%= a.text_field :item_title ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :情報 %>
-			<%= a.text_field :item_info ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :価格 %>
-			<%= a.text_field :price ,class: "form-control"%>
-		</div>
-		<div class="form-group">
-			<%= a.label :在庫数 %>
-			<%= a.text_field :stock ,class: "form-control"%>
-		</div>
-		<% end %>
+	<div class="form-group">
+		<%= a.label :タイトル %>
+		<%= a.text_field :item_title ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :情報 %>
+		<%= a.text_field :item_info ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :価格 %>
+		<%= a.text_field :price ,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= a.label :在庫数 %>
+		<%= a.text_field :stock ,class: "form-control"%>
+	</div>
+	<% end %>
 	<%= f.submit "作成する", class: "btn btn-info mt-5" %>
-  <% end %>
+	<% end %>
 
 </div>
 <div class="text-right">

@@ -1,31 +1,39 @@
 <h1 class="mt-5">アーティスト一覧</h1>
 <div class="mt-2">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">アーティスト名</th>
-      <th scope="col">アーティスト情報</th>
-      <th scope="col">ジャンル</th>
-      <th scope="col">レーベル</th>
-      <th scope="col">編集</th>
-    </tr>
-  </thead>
-   <% @artists.each do |artist|%>
-  <tbody>
-    <tr>
-      <td scope="row" class="info">
-        <%= artist.try(:artist_name) %>
-      </td>
-      <td><%= artist.try(:artist_info) %></td>
-      <td><%= artist.try(:genre_name) %></td>
-      <td><%= artist.try(:label_name) %></td>
-      <td><%=link_to "編集",edit_admins_artist_path(artist) ,style: "color: #000"%></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-<div class="text-right">
-	<%=link_to "戻る", admintop_path ,class: "back"%>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">アーティスト名</th>
+        <th scope="col">アーティスト情報</th>
+        <th scope="col">ジャンル</th>
+        <th scope="col">レーベル</th>
+        <th scope="col">編集</th>
+      </tr>
+    </thead>
+    <% @artists.each do |artist|%>
+    <tbody>
+      <tr>
+        <td scope="row" class="info">
+          <%= artist.try(:artist_name) %>
+        </td>
+        <td>
+          <%= artist.try(:artist_info) %>
+        </td>
+        <td>
+          <%= artist.try(:genre_name) %>
+        </td>
+        <td>
+          <%= artist.try(:label_name) %>
+        </td>
+        <td>
+          <%=link_to "編集",edit_admins_artist_path(artist) ,style: "color: #000"%>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <div class="text-right">
+    <%=link_to "戻る", admintop_path ,class: "back"%>
+  </div>
 </div>
-</div>
- <%= paginate @artists %>
+<%= paginate @artists %>

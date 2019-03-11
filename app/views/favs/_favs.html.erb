@@ -1,22 +1,22 @@
 <% if user_signed_in? %>
-  <% if item.fav_user(current_user.id) %>
-    <%= button_to item_favs_path(id: item.favs[0].id, item_id: item.id), method: :delete, id: "fav-button", remote: true do %>
-      <i class="fas fa-heart"></i>
-      <span>
-        <%= item.favs_count %>
-      </span>
-    <% end %>
-  <% else %>
-    <%= button_to item_favs_path(item), id: "fav-button", remote: true do %>
-      <i class="far fa-heart"></i>
-      <span>
-        <%= item.favs_count %>
-      </span>
-    <% end %>
-  <% end %>
+<% if item.fav_user(current_user.id) %>
+<%= button_to item_favs_path(id: item.favs[0].id, item_id: item.id), method: :delete, id: "fav-button", remote: true do %>
+<i class="fas fa-heart"></i>
+<span>
+  <%= item.favs_count %>
+</span>
+<% end %>
 <% else %>
-  <i class="far fa-heart"></i>
-    <span>
-      <%= item.favs_count %>
-    </span>
+<%= button_to item_favs_path(item), id: "fav-button", remote: true do %>
+<i class="far fa-heart"></i>
+<span>
+  <%= item.favs_count %>
+</span>
+<% end %>
+<% end %>
+<% else %>
+<i class="far fa-heart"></i>
+<span>
+  <%= item.favs_count %>
+</span>
 <% end %>

@@ -1,40 +1,48 @@
-
 <div class="container">
-
- <h1 class="mt-5">検索結果</h1>
+  <h1 class="mt-5">検索結果</h1>
   <div class="mt-2">
     <table class="table table-hover">
-     <thead>
-      <tr>
-        <th scope="col">アーティスト名</th>
-        <th scope="col">タイトル</th>
-        <th scope="col">情報</th>
-        <th scope="col">価格</th>
-        <th scope="col">在庫</th>
-        <th scope="col">画像</th>
-      </tr>
-    </thead>
-    <% @items.each do |item|%>
-    <tbody>
-      <tr>
-         <td class="info">
-           <%= link_to artist_path(item.artist) do %>
-              <%= item.try(:artist_name) %>
-           <% end %>
+      <thead>
+        <tr>
+          <th scope="col">アーティスト名</th>
+          <th scope="col">タイトル</th>
+          <th scope="col">情報</th>
+          <th scope="col">価格</th>
+          <th scope="col">在庫</th>
+          <th scope="col">画像</th>
+        </tr>
+      </thead>
+      <% @items.each do |item|%>
+      <tbody>
+        <tr>
+          <td class="info">
+            <%= link_to artist_path(item.artist) do %>
+            <%= item.try(:artist_name) %>
+            <% end %>
           </td>
-          <td><%= item.try(:item_name) %></td>
-          <td><%= item.try(:item_info) %></td>
-          <td><%= item.try(:price)%>円</td>
-          <td><%= item.try(:stock) %></td>
+          <td>
+            <%= item.try(:item_name) %>
+          </td>
+          <td>
+            <%= item.try(:item_info) %>
+          </td>
+          <td>
+            <%= item.try(:price)%>円</td>
+          <td>
+            <%= item.try(:stock) %>
+          </td>
           <% if item.image.present? %>
-            <td> <%= image_tag item.image.thumb.url,size: "50x50" ,class: "img-thumbnail"%></td>
+          <td>
+            <%= image_tag item.image.thumb.url,size: "50x50" ,class: "img-thumbnail"%>
+          </td>
           <% else %>
-            <td> <%= image_tag "no-image.png",size: "50x50",class: "img-thumbnail"%></td>
+          <td>
+            <%= image_tag "no-image.png",size: "50x50",class: "img-thumbnail"%>
+          </td>
           <% end %>
         </tr>
       </tbody>
       <% end %>
     </table>
- </div>
- </div>
-
+  </div>
+</div>

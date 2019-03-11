@@ -1,13 +1,6 @@
-<div class="form" id="app">
-
-  <input type="text" name="search" id="search" class="form-control" v-model="keyword">
-<!-- 
-<div id="js-itemsIndex">
-  
-</div> -->
-  <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-default" v-on:click="search">
-
+<div class="form">
+<%= form_tag search_items_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], class: "form-control"%>
+  <%= submit_tag '検索', class: "btn btn-default" %>
+<% end %>
 </div>
-
-
-
