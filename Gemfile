@@ -27,7 +27,10 @@ gem 'dotenv-rails'
 gem 'enum_help'
 gem 'seed-fu', '~> 2.3'
 gem "webpacker", github: "rails/webpacker"
-# gem 'bxslider-rails'
+gem 'rack-cors'
+# gem 'rack-mini-profiler', require: false
+
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
